@@ -7,6 +7,9 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.107](#v1-1-107)** — 2026-10-07
+  - Auro-3D: named as Auro names them
+  - Artist Connection
 - **[1.1.106](#v1-1-106)** — 2026-10-06
   - Objects: room-centric (changes what plays and prints)
   - Auro-3D and Auro-Cx
@@ -230,6 +233,57 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-107"></a>
+## 1.1.107 — 2026-10-07
+
+### Auro-3D: named as Auro names them
+
+- **An Auro file (a carrier or Auro-Cx) is named by the configuration it
+  declares**, as listed in Auro's own licensee manual — for example
+  "Auro 11.1 (7.1+4H)", "Auro 9.1 (5.1+4H)", "Auro 13.1 (7.1+5H+T)" — and its
+  channels take Auro's own names in Auro's own order: L R C LFE Ls Rs Cs Lb Rb
+  HL HR HC T HLs HRs.
+- **Every Auro configuration is recognised**: LCR, LCRS, Quad, 5.0/5.1/7.0/7.1
+  Surround, Auro-222, Auro 8.0, 9.0, 9.1, 10.0, 10.1, both 11.0s, both 11.1s,
+  Auro 12.1, 13.0 and 13.1. 5.1.2 and 7.1.2 keep our names.
+- **A 7.1.4 Auro master now reads "Auro 11.1 (7.1+4H)"** with HL/HR/HLs/HRs
+  rows, where it read "7.1.4" with Ltf/Rtf/Ltr/Rtr. **It sounds the same**:
+  monitored or routed onto our layout of the same speakers (7.1.4, 5.1.4, 7.1,
+  5.1), an Auro file goes straight through, channel for channel — HL to Ltf,
+  HLs to Ltr, and so on — never re-panned.
+- **Auro configurations appear in menus only for Auro material** — the
+  Preview's Monitor menu and Speaker Layout dialog when the selected file is
+  Auro, an EDL's Source menu and layout dialogs when it holds an Auro clip. They
+  are no longer offered in Export or Album Renders.
+
+### Artist Connection
+
+- **Projects lists the studio's whole project list**, wherever each was made
+  (the portal, another Mac, here) — it used to show only projects made in this
+  copy of soundBlade. Newest first, with Reload. A published project's
+  **Get Links** shows its share links.
+- **Albums is a tab of the panel**, beside Library and Projects — no separate
+  window. The Library's "Albums..." goes there too. (The Albums tab used to say
+  "Album browsing isn't enabled for this integration".)
+- **Album covers** show as thumbnails in the albums list, in taller rows.
+- **The Preview's cloud view has the same Library | Albums | Projects tabs**
+  (read-only there: albums list and open in the portal; no Set Cover or Share).
+- **Preview: the Open (folder) button returns from the cloud view** to the file
+  list as you left it; from the list it opens the file chooser as before.
+
+### For testers
+
+- Open an Auro 7.1.4 master in the Preview and an EDL: rows should read
+  HL HR HLs HRs and it should sound exactly as in 1.1.106.
+- Artist Connection > Projects: projects made in the portal should be listed.
+- Albums: covers should appear in the list.
+
+Everything else is as in 1.1.106.
+
+[Back to the list of versions](#versions)
 
 ---
 
