@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.109](#v1-1-109)** — 2026-10-09
+  - ADMs with objects play in 7.1.4 — this changes the sound
+  - Render (Preview)
+  - Exports keep heights silent
+  - Faster renders of MP4, FLAC and Auro
 - **[1.1.108](#v1-1-108)** — 2026-10-09
   - Binaural now plays the master as authored
   - Auro-Matic Upmix (Preview, monitoring only)
@@ -238,6 +243,90 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-109"></a>
+## 1.1.109 — 2026-10-09
+
+### ADMs with objects play in 7.1.4 — this changes the sound
+
+- **An ADM whose bed has fewer than four height speakers now plays in 7.1.4**
+  (in the Preview, an EDL opened from it, Assemble Album and every export of
+  it). Until now its objects were squeezed into the bed's own speakers — a
+  7.1.2 bed put every object's height into two top-middle speakers, which were
+  then spread over a 7.1.4's four heights. Objects now go straight to the four
+  heights, as a Dolby or EBU render places them.
+- **Bed channels go to the speaker their label names.** One 7.1.4 does not have
+  (a 7.1.2's top middles) is placed at its own position.
+- **Dolby's bed labels ("RC_Ltf") are recognised as heights** — a Dolby 5.1.2
+  bed was taken for 7.1 — and **a 5.1.4 bed is no longer taken for 7.1.2**.
+- ADM EDLs saved earlier keep their layout; open the ADM again for the new one.
+
+### Render (Preview)
+
+- **Render...** replaces the Save buttons beside Binaural and Monitor: the
+  selected files' deliverables — **Binaural** and/or **7.1.4** — one file at a
+  time in the background, 24-bit WAV beside each master (or in the download
+  folder), with its metadata, added to the list. Nothing is ticked until you
+  tick it.
+- **Each file shows its progress** as a small bar at the end of its row.
+- **A master narrower than 7.1.4 is named before it renders** — its 7.1.4
+  carries the original channels only, and its heights are silent.
+- Stereo masters and streams are skipped, with the reason.
+
+### Exports keep heights silent
+
+- **Every layout export — Export Sound File, Album Renders, Render — keeps a
+  narrower master's height speakers silent.** A 5.1 master exported to 7.1.4
+  used to reach the top rears about 13 dB down. A downmix still folds heights in.
+
+### Faster renders of MP4, FLAC and Auro
+
+- A render, export or Measure of a decoded file (MP4, FLAC, Auro) reads each
+  stretch once for all its channels — a 12-channel MP4 with video crawled.
+
+### What each file becomes
+
+What the Preview — and a file opened as an EDL — does with each kind of
+master, on each output. "Plays in" is the layout the Desk shows and every
+render starts from; it is set when the file is opened and does not change when
+you switch monitors.
+
+| Your file | Plays in | On speakers | On headphones (Binaural) | Render 7.1.4 | Render Binaural |
+|---|---|---|---|---|---|
+| Stereo | Stereo | folded to your speakers | not binauralized | skipped | skipped |
+| 5.1 / 7.1 | its own layout | folded to your speakers | the renderer chosen in Settings | the original channels, **heights silent** (you are warned first) | the renderer chosen in Settings |
+| 5.1.4, 7.1.4, 9.1.6 … | its own layout | folded | Settings renderer | 7.1.4 as is; wider is folded, heights into heights | Settings renderer |
+| ADM, bed only | its bed | folded | Settings renderer | as its bed's layout | Settings renderer |
+| **ADM with objects** (bed with fewer than four heights, or no bed) | **7.1.4** — objects placed straight into it | folded from 7.1.4 | Settings renderer | as is | Settings renderer |
+| ADM with objects, bed with four or more heights | its bed | folded | Settings renderer | folded, heights into heights | Settings renderer |
+| Auro-3D carrier | its Auro layout | a smaller system gets Auro's own decode; otherwise straight through | **Auro's renderer, always** | its own layout into 7.1.4 | Auro's renderer |
+| Auro-Cx | its bed | folded | Settings renderer | as a channel file | Settings renderer |
+
+- **Folded** means each speaker of the file goes to where it belongs among your
+  speakers; nothing is added.
+- **Every layout render — Render, Export, Album Renders — keeps heights where
+  they are**: a speaker the file has goes straight across, any other only among
+  speakers at its own height, so a narrower master's heights stay silent. A
+  downmix (to Stereo or 5.1) still folds the heights in.
+- **Binaural plays the master as authored.** The Settings renderer is Auro
+  (the default), SOFA with your HRTF, or Apple Spatial Audio.
+- **Auro-Matic Upmix** (Monitor menu, off by default) upmixes on speakers and
+  headphones where Auro supports both layouts — never in a render or export.
+- **A Render carries no Solo, Mute, DIM, Main volume or upmix**, and in a batch
+  no Desk faders: each file is rendered as authored.
+
+
+### For testers
+
+- Open an ADM with a 7.1.2 bed and objects: it should read 7.1.4, with objects
+  in all four heights.
+- Render a 5.1 and an ADM to 7.1.4 and Binaural; play each against the Preview.
+
+Everything else is as in 1.1.108.
+
+[Back to the list of versions](#versions)
 
 ---
 
