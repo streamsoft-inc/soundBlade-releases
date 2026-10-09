@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.108](#v1-1-108)** — 2026-10-09
+  - Binaural now plays the master as authored
+  - Auro-Matic Upmix (Preview, monitoring only)
+  - Save deliverables from the Preview
+  - Preview meters
 - **[1.1.107](#v1-1-107)** — 2026-10-07
   - Auro-3D: named as Auro names them
   - Artist Connection
@@ -233,6 +238,97 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-108"></a>
+## 1.1.108 — 2026-10-09
+
+### Binaural now plays the master as authored
+
+- **The Auro binaural renderer no longer upmixes.** Until now it ran in a mode
+  that upmixes everything (Auro-Matic for Headphones), so a 5.1 or 7.1.4 master
+  on headphones was heard upmixed, not as authored. It now plays the material
+  as it is. **Binaural through Auro will sound different — drier, with no
+  added height.**
+
+### Auro-Matic Upmix (Preview, monitoring only)
+
+- **Monitor menu > Auro-Matic Upmix** — off by default, remembered. On
+  speakers, Auro's engine upmixes the material to the Monitor layout in place
+  of soundBlade's own fold; on headphones, Auro's binaural upmixes again.
+- Offered only where Auro renders both layouts: 5.1, 7.1, 5.1.4, 7.1.4 and the
+  Auro configurations (not 9.1.6, 7.1.6, 7.1.2 or 5.1.2). The Monitor read-out
+  says "→ Auro-Matic" while it is on.
+- **Never in an export, Measure or a Save** — it is a listening choice.
+
+### Save deliverables from the Preview
+
+- **Binaural Save** — a **Save** button beside Binaural while it is on: the
+  selected master rendered through the binaural renderer chosen in Settings
+  (Auro's for Auro material) to a 2-channel, 24-bit WAV, "<name> - Binaural".
+- **Monitor Save** — a **Save** button beside the Monitor button when it is
+  7.1.4 or 5.1: what you are monitoring, rendered by soundBlade's own renderer
+  (an ADM's objects placed in the room) to "<name> - 7.1.4" or
+  "<name> - Surround", 24-bit.
+- Both: the full decode with the Desk faders and polarity (Solo, Mute, DIM and
+  the upmix are not in it), saved beside the master — or in the download folder
+  for an Artist Connection download — with the master's metadata (Layout set to
+  what the file is), and added to the list.
+- **A Save runs in the background** — pick other files and play them while it
+  works; the button shows its progress and cancels it. (Measure renders its own
+  copy too.)
+
+### Preview meters
+
+- **Solo and Mute under every Desk meter.** A channel silenced by Solo or Mute
+  draws no meter; loudness and Measure are unaffected.
+- **The Monitor meters have a level readout and Solo/Mute** like the Desk's —
+  Solo/Mute there act on the speaker itself, monitoring only — and follow the
+  Desk's **P/H** peak hold (Ctrl-click clears both rows). Channel names are the
+  Desk's size.
+- "(pinned)" is gone from the Monitor button.
+
+### Artist Connection
+
+- **Settings > Accounts has one Login / Logout button** that follows the
+  sign-in live, and a **Reveal Log** button.
+- **The Files window's Artist Connection tab and the Preview's cloud button
+  appear only while signed in.**
+- **Downloads go to a folder you choose** — asked at the first download,
+  remembered, shown at the bottom of the cloud view with **Set Folder...**.
+- **Downloads keep their extension.** Some library items carry none; the file
+  type is now taken from the download itself (or the file's own bytes), and a
+  file is never saved without one.
+- **Right-click a downloaded file > Delete Downloaded File...** removes this
+  computer's copy (it stays in Artist Connection).
+- **Double-click a picture in the Library** to make it the album cover (asks
+  first, and asks before replacing a cover).
+- AC Connect names itself after the app, and moves to the next free port when
+  its usual one is taken.
+
+### Also
+
+- **Application Settings is in the soundBlade menu only**, beside Audio I/O
+  Settings (removed from the File menu).
+- **Preview file list: right-click > Show File Location...**
+- **Clicking a file that has video opens the video window** if it is closed.
+- **Drop a picture anywhere on the Preview** to make it the album cover.
+- Settings windows' small text is easier to read.
+- Fixed: a leak reported on quit after viewing album covers.
+
+### For testers
+
+- Binaural on a 5.1 or 7.1.4 master with the Auro renderer: still binaural, and
+  no added height? Then tick Auro-Matic Upmix and compare.
+- A 5.1 master on 7.1.4 with Auro-Matic Upmix on: every channel on the right
+  speaker, heights alive.
+- Save a binaural and a 7.1.4 version of an ADM; play each against the Preview.
+- Download from Artist Connection into a chosen folder; check the extensions.
+
+Everything else is as in 1.1.107.
+
+[Back to the list of versions](#versions)
 
 ---
 
