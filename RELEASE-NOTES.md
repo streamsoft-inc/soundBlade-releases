@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.112](#v1-1-112)** — 2026-10-11
+  - Monitoring: nothing in extra speakers
+  - Panner / Objects window
+  - The EDL
+  - Files window and Artist Connection
 - **[1.1.111](#v1-1-111)** — 2026-10-11
   - Fixed: Master Desk plug-ins on wide layouts
   - New Project window
@@ -251,6 +256,83 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-112"></a>
+## 1.1.112 — 2026-10-11
+
+### Monitoring: nothing in extra speakers
+
+- **On a wider monitor, the speakers your mix does not have stay silent.**
+  7.1.4 on a 9.1.6 system plays channel for channel, with nothing at all in
+  the wides or top middles. Before, every speaker was spread a little into its
+  neighbours.
+- A speaker the monitor lacks goes to the two nearest speakers at its own
+  height (a 7.1.2 top middle on 7.1.4: the front and rear heights). Folding
+  down to 5.1 or stereo still folds the heights in.
+- Monitoring only — exports were already converted this way.
+- **Auro-Matic Upmix is no longer offered in soundBlade** (it stays in the
+  Sonic Reference Player).
+
+### Panner / Objects window
+
+- **Collapse triangles** for the panner and the room, level with each other.
+  A collapsed side keeps a white line beside its triangle.
+- **An object menu** above the panner lists every track, objects first.
+  Choosing one does what the track's **O** button does.
+- **Shift-click an object in the room to put it in the panner**;
+  **Shift-drag** moves it. In the Room view a drag moves it across and **up
+  or down** (its height); Shift-Option slides it flat.
+- **The selected object glows and pulses**, with its name always shown.
+- **During a Write pass the room follows the panner** as you draw, not only
+  when you let go.
+- **Stacked objects:** the list that appears over a stack stays open as you
+  move onto it; click a name to bring that object to the front, Shift-click to
+  put it in the panner.
+- **Room / Side / Top on top; zoom and the checkboxes along the bottom**, the
+  zoom slider a third of the width — here and in the Preview.
+
+### The EDL
+
+- **Home / End** scroll the selected EDL to its first / last track.
+  **Shift-Home / Shift-End** go to the first / last EDL in the Project.
+- **The top EDL has a triangle beside Tracks** that hides its tracks and keeps
+  its header.
+- **Wider scroll bars** on the right of each EDL and of the Project window.
+- **View > Zoom to In Point / Zoom to Out Point** — the selected track's point
+  centred, as wide as **Project Settings > View > Zoom to In/Out Point**
+  (4 seconds unless changed).
+- **Selection > Find & Set Points** now works on more than selected clips:
+  - **Clips**: In and Out at the first and last clip's edit points.
+  - **A time selection**: trimmed to the audio inside it — In at the first
+    sample of audio, Out after the last.
+  - **Nothing selected**: from the Edit Point (or the playhead) on the
+    selected tracks — the edges of the gap in blank space, of the digital
+    black on black, or of the audio on audio.
+  - Digital black is exactly zero on every selected track, however short.
+    Points land on the exact sample.
+- **Set SRP with Text (F12)** opens ready to type.
+
+### Files window and Artist Connection
+
+- **The Files window has Library and Browse.** The EDLs and Artist Connection
+  tabs are gone; File > Open Recent still lists recent EDLs and Projects.
+- **Artist Connection is in the Preview** — its cloud button appears once you
+  log in under Application Settings > Accounts. It is now the full library
+  there: upload, New Folder, Rename, Delete and Create Album.
+
+### For testers
+
+- 7.1.4 material on a 9.1.6 monitor: the wides and top middles silent.
+- In the Panner / Objects window: Shift-click an object, Shift-drag it up in
+  the Room view and watch the panner's height follow.
+- Find & Set Points on a time selection with silence at both ends, and with the
+  playhead parked on digital black between songs.
+
+Everything else is as in 1.1.111.
+
+[Back to the list of versions](#versions)
 
 ---
 
