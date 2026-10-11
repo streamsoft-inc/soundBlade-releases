@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.111](#v1-1-111)** — 2026-10-11
+  - Fixed: Master Desk plug-ins on wide layouts
+  - New Project window
+  - The EDL
+  - Choosing plug-ins
 - **[1.1.110](#v1-1-110)** — 2026-10-09
   - ADMs with objects: the bed is never changed
   - What each file becomes
@@ -246,6 +251,92 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-111"></a>
+## 1.1.111 — 2026-10-11
+
+### Fixed: Master Desk plug-ins on wide layouts
+
+- **A plug-in narrower than the Master bus now works.** On a 7.1.4, 9.1.6 or
+  ADM master, a plug-in that takes fewer channels — any stereo EQ — was
+  silently discarded: it showed in its slot, never processed, and would not
+  open. It now installs and spreads across the bus (the slot's "xN" says how
+  many copies).
+- **A plug-in is no longer disabled for being slow to load.** soundBlade tests
+  each plug-in in a separate process first; that test gave up after 6
+  seconds, and copy-protected plug-ins (MAAT measured at 5.6–5.9 s) could
+  fail it whenever the computer was busy, showing "Plug-in disabled". It now
+  allows 30 seconds, and a plug-in that has passed before is not tested again
+  until its file changes.
+- What happens to each Master plug-in is now written to the log.
+
+### New Project window
+
+- **Shown at launch**, unless "Do not show": **Stereo**, **4 Track Source /
+  Dest** (tracks 1–2 Source, 3–4 Destination), **2 EDLs**, **Empty**; and
+  your **Recent** Projects and EDLs. File > New Project… (Cmd-N) opens it.
+
+### The EDL
+
+- **Track header**: the volume is a small knob — drag it, Option for fine,
+  click to type a value, Option-click for 0 dB; the gain floats beside it
+  while you drag, and hovering shows it. The meter is a thin strip, one bar
+  per channel; hover it for the peak. **Output** moved down beside **In**, and
+  both are shaded like buttons. **P** is always a capital.
+- **Collapse an EDL to one row** — the triangle by its name keeps just the
+  name and the scrolling waveform. The top EDL does not collapse.
+- **Clicking while playing moves the playhead and keeps the Edit Point**, so
+  Stop then Play starts where you were.
+- **Opening several files asks once**: Append to the same tracks, or New
+  Tracks. Multichannel files always open one track per channel.
+- **Mark Info and Layout are windows of their own** (Cmd-L for Layout);
+  tooltips on SRPs, Marks and Tracks.
+- **Desk LOCK** flashes only when playback or recording actually fell behind —
+  not while nothing is playing.
+
+### Choosing plug-ins
+
+- **A Plug-in Chooser window** replaces the long menu: **Show** by
+  Manufacturer or by Type, **Format** All / AU / VST, and a filter. Right-click
+  a plug-in to **Set Type** where the plug-in does not say (most AudioUnits
+  only say "Effect").
+
+### Keyboard Shortcuts
+
+- **soundBlade > Keyboard Shortcuts…**: every menu command — change, add,
+  clear, reset — with search, and Save / Import to share a set.
+
+### Preview
+
+- **The list plays through**: with Loop off, the next file starts when one
+  ends — gapless when it has the same layout, after a short pause otherwise.
+- **Integrated loudness is coloured against the reference** — green under
+  it, yellow to red over it; reference presets, **Save to ADM**, and a PDF
+  loudness report.
+- ADM column after #; shorter tooltips throughout.
+
+### Also
+
+- **Windows menu with no Project open**: Preview, New Soundfile Settings and
+  Audio I/O.
+- **Right-click Delete** on a tag in the name being built (New Soundfile,
+  Export).
+- The File menu is reorganised; the metadata window has Import / Export.
+- **Artist Connection**: with one studio you go straight to it.
+
+### For testers
+
+- A stereo EQ on the Master Desk of a 9.1.6 or ADM EDL: it should open and
+  process.
+- Let a Preview list play through two files of the same layout: no gap at the
+  join — also with Binaural on.
+- The volume knob, the meter strip, and collapsing an EDL to one row.
+
+Everything else is as in 1.1.110.
+
+[Back to the list of versions](#versions)
 
 ---
 
