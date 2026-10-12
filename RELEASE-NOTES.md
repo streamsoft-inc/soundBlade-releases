@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.113](#v1-1-113)** — 2026-10-12
+  - EDL tabs
+  - The Album View tab
+  - Export
+  - Mark Info
 - **[1.1.112](#v1-1-112)** — 2026-10-11
   - Monitoring: nothing in extra speakers
   - Panner / Objects window
@@ -256,6 +261,95 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-113"></a>
+## 1.1.113 — 2026-10-12
+
+### EDL tabs
+
+- **Project Settings > View > EDL View: Stacked or Tabs.** In Tabs, one EDL
+  shows at a time, with folder tabs along the top (shown when two or more EDLs
+  are open). Drag a tab to reorder it, double-click to rename, the x closes it,
+  **Ctrl-Tab / Ctrl-Shift-Tab** move between them. The Desk, Panner / Objects,
+  Mark Info, Layout and Video windows follow the selected tab.
+- The choice is saved in the Project. A Project without one follows
+  **Application Settings > General > Default EDL View**.
+
+### The Album View tab
+
+- **EDL > Add Album View Tab**, or right-click the tab row > **Create Album
+  View Tab**. Its x removes it; the EDLs are never changed by it.
+- **Every EDL end to end, butt-spliced**, in tab order — each song from its
+  Start mark to its End mark, or the whole EDL where it has none. Red lines
+  mark the splices; reordering the tabs reorders the album.
+- **The rows are the master's speakers** (the widest among the songs, e.g.
+  7.1.4), at Tiny height, drawn like the Preview's overview — objects drawn in
+  the speakers they are panned to. **S / M on every row** (monitoring only);
+  the meters follow.
+- **Play plays the live EDLs gapless**, plug-ins, Desk and objects included.
+- **The album's own marks** — a Start mark per song, an End mark at the end —
+  are edited in **Mark Info** while the Album View shows, and saved with the
+  Project.
+- **Album Desk** (the Desk button): the **Album Bus** — four master slots and
+  faders after every song's own chain. It plays AND prints when you export
+  from the Album View.
+- **A Main Output fader on the Album View** — listening only, as an EDL's;
+  never in an export. It replaces each EDL's own fader while the album plays.
+- **Export from the Album View writes one file per EDL.**
+- **Assemble Album, and opening several ADMs, now make one EDL per file in a
+  Tabs Project with an Album View** — no spacing question, no renders.
+
+### Export
+
+- **Binaural** tick beside Stereo: the master rendered to headphones with the
+  renderer chosen in Settings (stereo files are skipped).
+- **Each type in its own folder**: an export writing more than one type
+  (Stems, 7.1.4, Binaural...) puts each in a folder of its own.
+- **Add to Artist Connection** (on the Stems row, while signed in): uploads
+  what the export writes — **each type into its own Library folder and
+  album**, "<name> - (7.1.4)", "<name> - (Binaural)" — optionally with a share
+  link per album. **No share link = nothing published.** Existing folders can
+  be **replaced** — files and album tracks — so each album and its link stay
+  the same.
+- **The upload list shows what is happening at once**: a row per type reading
+  "Waiting for export to complete" while the export runs, then every file
+  queued together, "Starting..." until its first bytes go, and the size
+  counting up as each part is sent (it used to move only every 16 MB).
+  **Retrying (n)** when a file had to start over.
+
+### Mark Info
+
+- **TrackList and Export List print as PDFs**, through the same dialog as the
+  Log Sheet, remembering the logo.
+
+### Also
+
+- **New Project window: Preview** opens the Preview window instead of a Project.
+- **The Preview's Open EDL and Assemble Album buttons are back** in soundBlade.
+- **Edit Fade Mode**: no Result lane; the Out and In lanes show exactly the
+  EDL's window, darker outside the fade; the EDL zooms to and centres on the
+  edit point; the selection is cleared on entry and restored on exit. Create
+  CrossFade selects nothing.
+- **Open Project / Open EDL** open legacy soundBlade HD files; **Open ADM...**
+  is under File; Open Recent on an ADM asks New EDL or New Project.
+- **Home / End / Page Up / Page Down** now always reach the Project's EDLs.
+- **Layout window** shows the selected EDL's Overview.
+- **Name field**: type between the tags — typed text becomes fixed-text tags.
+- **P button is green** when a track has Desk Event plug-ins.
+
+### For testers
+
+- Make an Album View from three EDLs, play across a splice, solo a height row.
+- Put a plug-in on the Album Desk and export from the Album View: it should be
+  in every file.
+- Export with Add to Artist Connection and a share link; export again to the
+  same folder and choose Replace — the link should still play the new files.
+
+Everything else is as in 1.1.112.
+
+[Back to the list of versions](#versions)
 
 ---
 
