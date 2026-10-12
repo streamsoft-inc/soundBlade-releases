@@ -7,6 +7,9 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.114](#v1-1-114)** — 2026-10-12
+  - The Album Desk
+  - The Album View
 - **[1.1.113](#v1-1-113)** — 2026-10-12
   - EDL tabs
   - The Album View tab
@@ -261,6 +264,31 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-114"></a>
+## 1.1.114 — 2026-10-12
+
+### The Album Desk
+
+- **The album's Main Output fader is on the Album Desk**, in its master
+  column, as an EDL's is on its Desk. Listening only, as before: never in an
+  export, saved with the Project.
+
+### The Album View
+
+- **No fader band, Play or Desk button** — the view starts with the ruler.
+  **Space** plays and stops the album; **Cmd-1** opens the Album Desk.
+
+### For testers
+
+- Open the Album Desk (Cmd-1) from the Album View: the Main Output fader is
+  there and changes the album's level; close the Desk and play on.
+
+Everything else is as in 1.1.113.
+
+[Back to the list of versions](#versions)
 
 ---
 
