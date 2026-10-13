@@ -7,6 +7,9 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.116](#v1-1-116)** — 2026-10-13
+  - Album View: Sync to Stereo Reference
+  - Open File with several files
 - **[1.1.115](#v1-1-115)** — 2026-10-13
   - Edit Fade Mode
   - Album View
@@ -268,6 +271,42 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-116"></a>
+## 1.1.116 — 2026-10-13
+
+### Album View: Sync to Stereo Reference
+
+- **Edit > Sync to Stereo Reference** (under Sync To Matching), in the Album
+  View once it has a stereo reference. Each song is found in the reference and
+  **the song moves** in the Album View to match -- a gap before it where the
+  reference has one. The reference and the EDLs are not changed. Playback, the
+  album's marks and the layout follow; **Edit > Undo** puts the songs back.
+- **Songs never overlap.** The sync checks first: if any song would overlap the
+  one before, nothing moves -- you are told which EDLs, offered to go to either
+  of them, and the overlap shows as a **red band** in the Album View until it
+  is fixed in the EDL. Then Sync again.
+- Adding a stereo reference no longer asks about syncing.
+
+### Open File with several files
+
+- **File > Open File** with two or more sound files asks: **Separate EDLs**
+  (one EDL per file, named after it, added after the last EDL) or **One EDL**
+  (each file on tracks of its own, at the playhead) -- or Cancel.
+
+### For testers
+
+- Album View with a stereo reference: Edit > Sync to Stereo Reference, play
+  across the joins, then Edit > Undo.
+- Make one song overlap (lengthen its EDL): Sync should refuse, name the EDLs
+  and show the red band; fix the EDL and the band should go.
+- Open File with four files, once each way.
+
+Everything else is as in 1.1.115.
+
+[Back to the list of versions](#versions)
 
 ---
 
