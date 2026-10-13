@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.115](#v1-1-115)** — 2026-10-13
+  - Edit Fade Mode
+  - Album View
+  - EDL tabs
 - **[1.1.114](#v1-1-114)** — 2026-10-12
   - The Album Desk
   - The Album View
@@ -264,6 +268,74 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-115"></a>
+## 1.1.115 — 2026-10-13
+
+### Edit Fade Mode
+
+- **Fade colours**: fade-in is now **green** and fade-out **red**, in the EDL
+  and in Edit Fade Mode.
+- **The Out and In lanes show the whole waveform** with the fade drawn on top
+  (it used to show the faded result, silent outside the fade). Audio outside
+  the fade is greyed.
+- **Fade handles on each lane**: a dot at each end of the fade changes its
+  length; the **square** in the middle (at the edit point) moves the fade
+  earlier or later; **Ctrl-drag the square** to change the Overlap. Hover
+  for a tooltip saying what each does.
+- **Right-click a fade** to change its shape (Linear / Cosine / Exponential).
+- **Fade Type** menus moved into the table, right of Gain; the A / B / C
+  nudge values sit right of them, with tooltips.
+- **Fade Out / Fade In buttons**: one click switches a fade off -- the button
+  and that fade turn **grey** and its controls are disabled. **Both may be
+  off.** Values and fade types change only the fades that are on.
+- **Nudge**: with Lock Sound off and both fades on, a nudge no longer moves
+  the fade-in twice (it drifted further on every nudge).
+- **Auditions** (Play, and Nudge Auto Audition) play the fade with **2 s
+  before and after** it -- a short fade alone was just a click.
+- **The view stays on the edit point**: a nudge re-centres it and **never
+  changes the zoom**; Play never changes the zoom; the view does not chase the
+  playhead while Edit Fade Mode is open. Auto Zoom still frames the fades on
+  opening and when a fade's length changes.
+- **Lock Sound on: no clip moves at all.** Moving the edit point or changing a
+  length moves the fade inside the clip only; slip is off; and while Edit Fade
+  Mode is open the EDL's tracks refuse every drag (scrubbing still works).
+- The shape (dB Down / Alpha) no longer has a handle on the curve -- use its
+  field, the slider or right-click.
+
+### Album View
+
+- **EDL > Add Stereo Reference...** -- a stereo file (or one per song) in a
+  **Reference** row above the speakers, drawn L / R (one lane for a mono
+  file), saved with the Project. The same item then reads **Remove Stereo
+  Reference**.
+- **It plays in step with the album.** **REF** (top of the row), **Shift-B**
+  or Play > Hear Stereo Reference plays the reference; **Shift-A** or Play >
+  Hear Album plays the album. What you hear is drawn in colour -- the
+  reference green, the album blue -- and the other grey. M mutes the
+  reference. Listening only, never exported.
+- **Not yet:** syncing the reference to the songs has no command in this
+  build, and the reference cannot be dragged -- it starts at the first song.
+
+### EDL tabs
+
+- **A + at the end of the tab row** (and **New EDL** on its right-click menu)
+  adds a new EDL after the last one.
+
+### For testers
+
+- Edit Fade Mode on a short crossfade: nudge with Nudge Auto Audition on --
+  the fades stay centred, the zoom stays put, and you hear the fade.
+- Switch Fade Out off with one click; switch both off.
+- Lock Sound on: try to move a clip any way you can, in the window or the EDL.
+- Album View: add a stereo reference and flip between album and reference
+  with Shift-A / Shift-B while playing.
+
+Everything else is as in 1.1.114.
+
+[Back to the list of versions](#versions)
 
 ---
 
