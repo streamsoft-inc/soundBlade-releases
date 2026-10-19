@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.117](#v1-1-117)** — 2026-10-19
+  - Playback: plug-ins rendered ahead
+  - The playhead and meters follow the sound
+  - Editing
+  - Keyboard Shortcuts
 - **[1.1.116](#v1-1-116)** — 2026-10-13
   - Album View: Sync to Stereo Reference
   - Open File with several files
@@ -271,6 +276,82 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-117"></a>
+## 1.1.117 — 2026-10-19
+
+### Playback: plug-ins rendered ahead
+
+- Playback now renders a few audio blocks **ahead** of what you hear, so a
+  plug-in that occasionally takes longer than a block (a linear-phase EQ such as
+  MAAT thEQred) no longer drops out. On by default (4 blocks -- 21 ms at 512
+  samples / 96 kHz): **Application Settings > General > Render Plug-ins Ahead**
+  (Off / 2 / 4 / 8 blocks; Off is the old behaviour).
+- Every control is heard that much later -- faders, mute/solo, plug-in knobs,
+  DIM. Main Output Volume is not. Play starts that much later.
+- Recording is never rendered ahead: an EDL with an armed track plays directly.
+- Applies to EDLs, the Preview and the Album View.
+
+### The playhead and meters follow the sound
+
+- With latent plug-ins the playhead ran AHEAD of the audio by their latency
+  (0.68 s with thEQred). It now shows what you hear, waits at the start point
+  until the sound arrives, and Stop leaves it where the sound stopped. The
+  video and written automation follow it.
+- **Track meters** are taken after the track's plug-ins and latency
+  compensation: in step with the sound, and they now show what the plug-ins do
+  to the level.
+- A selection or In-to-Out play no longer cuts off its last part (the plug-in
+  latency's worth) -- it stops when its end is heard.
+- **Loop is sample-exact**, and the end of the range plays out in full before
+  the start (no gap, nothing past the end).
+
+### Editing
+
+- **Delete, Delete and Ripple, Cut and Copy use the In/Out points** when both
+  are set, else the time selection -- e.g. In at the file start and Out at a
+  musical spot. They work across the Edit Group, and are enabled when any track
+  they act on has audio in the range. In/Out are kept after the edit.
+- **Edit Fade Mode:** the playhead moves to the fade's edit point on entry, and
+  every Play in EFM starts there (unless you click to set an Edit Point).
+- **Desk Event plug-ins on a grouped track:** Ctrl-click adds the plug-in to the
+  whole Edit Group as one shared plug-in; **Ctrl-Option-click** puts it on that
+  track only.
+
+### Keyboard Shortcuts
+
+- Setting a shortcut works: the dialog shows the keys as you press them.
+- **Option-letter keys** (Option-I, Option-E... which start an accented letter
+  on a Mac keyboard) can be set and now work as shortcuts.
+- **Delete** in the dialog erases what you pressed, to try again.
+- A key already in use asks first, naming the command that has it.
+- Home / End (first / last track) and Shift-Home / End (first / last EDL) are
+  View menu commands you can reassign.
+
+### Also
+
+- **Audio I/O:** choosing a new device ticks only as many outputs and inputs as
+  the monitor layout needs (12 for 7.1.4); every channel is still listed, and
+  the same device keeps your own ticks.
+- Double-clicking a Master slot with no running plug-in says why (loading,
+  failed with the error, does not fit the bus, or asks the width question again).
+- Zoom to In/Out Point works with any selected track that has the point.
+- The log (~/Library/Logs/soundBlade/soundBlade.log) shows, at every Stop, where playback's CPU time
+  went, per plug-in.
+
+### For testers
+
+- An EDL with MAAT thEQred at a 512 buffer: play across the plug-in -- no
+  dropouts; the playhead and track meters move with the sound.
+- Loop a selection with plug-ins on: no gap, no cut at the end.
+- Set In at a file's start and Out mid-file: Delete, Option-Delete, Cut.
+- Settings > Keyboard Shortcuts: set Option-I on a command and use it.
+
+Everything else is as in 1.1.116.
+
+[Back to the list of versions](#versions)
 
 ---
 
