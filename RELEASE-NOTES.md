@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.118](#v1-1-118)** — 2026-10-21
+  - Named speaker layouts
+  - Monitor outputs
+  - Text
 - **[1.1.117](#v1-1-117)** — 2026-10-19
   - Playback: plug-ins rendered ahead
   - The playhead and meters follow the sound
@@ -276,6 +280,59 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-118"></a>
+## 1.1.118 — 2026-10-21
+
+### Named speaker layouts
+
+- **Custom is replaced by layouts you name and save** -- "AURO-Room",
+  "STEREO MONITOR" -- in an EDL's **Speaker Layout**, the Preview's, and
+  **Project Settings > Speakers**. Pick a layout, set its outputs, type a
+  **Name** and press **Save**; output changes are applied once saved.
+- Saved layouts are listed by name, and the layout button shows the name.
+  **Delete** removes one.
+- **An EDL keeps its own copy** of the named layout it uses, saved in the EDL:
+  it plays and reads the same on another Mac, or after the name is deleted.
+  Changing a saved layout later does not change EDLs already using it.
+- Project Settings can make a named layout the **default**; new EDLs start on
+  it, by name.
+
+### Monitor outputs
+
+- A device with fewer outputs switched on than the monitor layout needs now has
+  the missing ones **switched on** (7.1.4 on a 16-output interface with two
+  ticked gets 12), in EDLs and the Preview. It only adds -- your own ticks, the
+  rate and the device are left alone.
+
+### Text
+
+- **Japanese, Chinese, Korean** and other scripts are shown correctly
+  everywhere -- names, metadata, markers and every text field. They used to
+  show as unrelated Latin letters (the text itself was always stored
+  correctly).
+
+### Also
+
+- Layout lists run 5.1.2, 5.1.4, 7.1.2, 7.1.4 (how a file's layout is worked
+  out from its channel count is unchanged).
+- Preview: streamed Artist Connection movies show their picture without a
+  download.
+- Artist Connection: a folder whose triangle did nothing now opens.
+- The Claude section of Application Settings > Accounts is hidden for now.
+
+### For testers
+
+- An EDL: Speaker Layout > 9.1.6, set outputs, name it, Save; save, close and
+  reopen the EDL.
+- Project Settings > Speakers: make a named layout the default, then New EDL.
+- Type ありがとう in a marker or EDL name.
+
+Everything else is as in 1.1.117.
+
+[Back to the list of versions](#versions)
 
 ---
 
