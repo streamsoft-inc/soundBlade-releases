@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-120"><span class="v">1.1.120</span><span class="d">2026-10-22</span></a></li>
 <li><a href="#v1-1-119"><span class="v">1.1.119</span><span class="d">2026-10-22</span></a></li>
 <li><a href="#v1-1-118"><span class="v">1.1.118</span><span class="d">2026-10-21</span></a></li>
 <li><a href="#v1-1-117"><span class="v">1.1.117</span><span class="d">2026-10-19</span></a></li>
@@ -151,6 +152,15 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-120"><h2>1.1.120 <span class="date">2026-10-22</span></h2><ul class="headlines"><li>Album View</li><li>Assemble Album</li><li>Layouts</li></ul><details><summary>Full notes</summary><h3>Album View</h3>
+<ul><li><strong>The album plays.</strong> It could play silence, with the Monitor meters moving only on L and R; it now plays at the full width of the device.</li><li><strong>A header like an EDL's</strong>: the transport (|&lt;&lt; &lt;&lt; &gt; &gt;&gt; &gt;&gt;|, the timecode), <strong>Desk</strong>, and the <strong>Speaker Layout</strong> button -- with the album's name from the Preview's Album Info, or "Untitled Album". It opens at the album's start.</li><li><p><strong>One layout for the whole album</strong>: the Speaker Layout button offers <strong>Follow Songs</strong> (each song on its own EDL's layout, the button showing the one playing) or a single layout for the album, Auro included. A 9.1 song in a 13.1 album plays with its speakers in their own places and the extra ones silent; a song already in the album layout is played untouched. <strong>Export Album</strong> opens with the album layout ticked, so every song is written in it.</p></li></ul>
+<h3>Assemble Album</h3>
+<ul><li><p>Each file's EDL gets the layout the Preview shows for it -- an Auro 13.1 or 9.1 file was given 7.1.6 / 7.1.2 from its channel count.</p></li></ul>
+<h3>Layouts</h3>
+<ul><li>The Speaker Layout button shows Auro layouts short: <strong>9.1</strong>, <strong>13.1</strong>.</li><li>The Speaker Layout dialog lists 5.1.2, 5.1.4, 7.1.2, 7.1.4 in that order.</li><li>A line above the Auro layouts in every layout list.</li><li><p>An EDL opened in the Preview shows its own layout (Auro 13.1, not 7.1.6).</p></li></ul>
+<h3>For testers</h3>
+<ul><li>Assemble Album from the Preview with Auro 9.1 and 13.1 files: the EDLs and the Album View read 9.1 / 13.1.</li><li><p>Album View &gt; Speaker Layout &gt; Auro 13.1, play across both, then Export.</p></li></ul>
+<p>Everything else is as in 1.1.119.</p></details></section>
 <section id="v1-1-119"><h2>1.1.119 <span class="date">2026-10-22</span></h2><ul class="headlines"><li>Meters</li><li>Preview: Album Info</li></ul><details><summary>Full notes</summary><h3>Meters</h3>
 <ul><li>Each <strong>Monitor</strong> meter shows, under its speaker name, the <strong>output</strong> it goes to (in gold) -- the meters stay in speaker order, so a room wired out of order reads at a glance (Ltm 15, Rtm 16, Ltr 13, Rtr 14). EDLs, the Desk and the Preview.</li><li><p>The <strong>Source</strong> meters show their channel number at the same height, so the two rows line up. Both rows are a little shorter.</p></li></ul>
 <h3>Preview: Album Info</h3>
