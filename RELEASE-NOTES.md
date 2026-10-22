@@ -7,6 +7,9 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.119](#v1-1-119)** — 2026-10-22
+  - Meters
+  - Preview: Album Info
 - **[1.1.118](#v1-1-118)** — 2026-10-21
   - Named speaker layouts
   - Monitor outputs
@@ -280,6 +283,35 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-119"></a>
+## 1.1.119 — 2026-10-22
+
+### Meters
+
+- Each **Monitor** meter shows, under its speaker name, the **output** it goes
+  to (in gold) -- the meters stay in speaker order, so a room wired out of order
+  reads at a glance (Ltm 15, Rtm 16, Ltr 13, Rtr 14). EDLs, the Desk and the
+  Preview.
+- The **Source** meters show their channel number at the same height, so the two
+  rows line up. Both rows are a little shorter.
+
+### Preview: Album Info
+
+- The album's **cover** is shown in Album Info, with **Change...** to pick a new
+  image (JPEG or PNG). It is applied on Save; Cancel keeps the old one.
+
+### For testers
+
+- An EDL whose Speaker Layout has outputs out of order: check the numbers under
+  the Monitor meters.
+- Preview > Album > Change...: pick an image, Save.
+
+Everything else is as in 1.1.118.
+
+[Back to the list of versions](#versions)
 
 ---
 
