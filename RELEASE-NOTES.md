@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.120](#v1-1-120)** — 2026-10-22
+  - Album View
+  - Assemble Album
+  - Layouts
 - **[1.1.119](#v1-1-119)** — 2026-10-22
   - Meters
   - Preview: Album Info
@@ -283,6 +287,47 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-120"></a>
+## 1.1.120 — 2026-10-22
+
+### Album View
+
+- **The album plays.** It could play silence, with the Monitor meters moving
+  only on L and R; it now plays at the full width of the device.
+- **A header like an EDL's**: the transport (|<< << > >> >>|, the timecode),
+  **Desk**, and the **Speaker Layout** button -- with the album's name from the
+  Preview's Album Info, or "Untitled Album". It opens at the album's start.
+- **One layout for the whole album**: the Speaker Layout button offers
+  **Follow Songs** (each song on its own EDL's layout, the button showing the
+  one playing) or a single layout for the album, Auro included. A 9.1 song in a
+  13.1 album plays with its speakers in their own places and the extra ones
+  silent; a song already in the album layout is played untouched. **Export
+  Album** opens with the album layout ticked, so every song is written in it.
+
+### Assemble Album
+
+- Each file's EDL gets the layout the Preview shows for it -- an Auro 13.1 or
+  9.1 file was given 7.1.6 / 7.1.2 from its channel count.
+
+### Layouts
+
+- The Speaker Layout button shows Auro layouts short: **9.1**, **13.1**.
+- The Speaker Layout dialog lists 5.1.2, 5.1.4, 7.1.2, 7.1.4 in that order.
+- A line above the Auro layouts in every layout list.
+- An EDL opened in the Preview shows its own layout (Auro 13.1, not 7.1.6).
+
+### For testers
+
+- Assemble Album from the Preview with Auro 9.1 and 13.1 files: the EDLs and
+  the Album View read 9.1 / 13.1.
+- Album View > Speaker Layout > Auro 13.1, play across both, then Export.
+
+Everything else is as in 1.1.119.
+
+[Back to the list of versions](#versions)
 
 ---
 
