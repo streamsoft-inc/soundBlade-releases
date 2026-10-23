@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.121](#v1-1-121)** — 2026-10-23
+  - Sonic Mastering EQ
+  - Album View
+  - Export ADM
 - **[1.1.120](#v1-1-120)** — 2026-10-22
   - Album View
   - Assemble Album
@@ -287,6 +291,52 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-121"></a>
+## 1.1.121 — 2026-10-23
+
+### Sonic Mastering EQ
+
+- **New plug-in, included on this disk image**: run
+  **Install Sonic Mastering EQ 1.0.0 (AU, VST3).pkg** to install it for all
+  users. Your soundBlade licence authorizes it.
+- Six bands, each with 15 filter types (Parametric, Band Pass, Band Stop,
+  Notch, Hi / Lo Shelf, Hi / Lo Pass, DC Block, Emphasis, De-emphasis,
+  De-emph/DC, RIAA, De-RIAA), order 1–4, passband and stopband ripple.
+- Output gain, dither (Round, TPDF, Noise Shape at 16 / 20 / 24 bits),
+  Peak and RMS meters for every channel, A–D compare slots.
+- Mono through 16 channels, including 7.1.4 and 9.1.6.
+
+### Album View
+
+- **File > Export ADM** offers **ADM: one per song** (each song's own Export
+  ADM, one after the other, with a status window and any errors at the end)
+  or **ADM: one for the album** (every song spliced into one ADM, beds
+  spanning the album, loudness measured over the whole album).
+- For one ADM, the widest master sets the layout. A narrower master whose
+  channels match the first channels of the widest is padded with silent
+  objects, after asking; masters that differ otherwise are refused, naming the
+  song and channel.
+
+### Export ADM
+
+- ADM exports of Dolby Atmos masters are written to the Dolby Atmos master
+  profile, so they open in the Dolby Atmos Renderer without "invalid data".
+- The Export ADM window shows the master's frame rate (29.97 or 24) read from
+  the master, or says that 24 fps is assumed.
+
+### For testers
+
+- Install Sonic Mastering EQ from the disk image, rescan plug-ins, and insert
+  it on a stereo and on a 7.1.4 Desk.
+- Album View > File > Export ADM, both options, and open the results in the
+  Dolby Atmos Renderer.
+
+Everything else is as in 1.1.120.
+
+[Back to the list of versions](#versions)
 
 ---
 
