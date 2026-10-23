@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-122"><span class="v">1.1.122</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-121"><span class="v">1.1.121</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-120"><span class="v">1.1.120</span><span class="d">2026-10-22</span></a></li>
 <li><a href="#v1-1-119"><span class="v">1.1.119</span><span class="d">2026-10-22</span></a></li>
@@ -153,6 +154,15 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-122"><h2>1.1.122 <span class="date">2026-10-23</span></h2><ul class="headlines"><li>Copy and Paste</li><li>Exporting files that come back into the EDL</li><li>Test Suite</li></ul><details><summary>Full notes</summary><h3>Copy and Paste</h3>
+<ul><li><strong>Copy with a time selection or In/Out copies only that region</strong> -- not the whole clip -- on every track of the Edit Group.</li><li><strong>Paste lands at the Edit Point</strong> (the playhead when none is set), on the selected track's whole Edit Group. Pasting a pair onto either of its tracks puts it back on both.</li><li><strong>Paste works with no track selected:</strong> in the same EDL it goes back onto the tracks it was copied from.</li><li><p><strong>Paste (Insert) and Paste (Replace) act on the whole Edit Group</strong>, so a track with nothing in the copied region is still pushed right or cleared and the group stays in sync.</p></li></ul>
+<h3>Exporting files that come back into the EDL</h3>
+<ul><li><p>Rendering one file per track (the export that is inserted back into the EDL) now prints <strong>plug-ins shared across an Edit Group</strong> -- they were left out -- and includes <strong>the track's fader</strong>. Put back in the EDL with polarity inverted, the file nulls against playback (bypass Master Bus plug-ins for the test: the files do not include the master chain, as before).</p></li></ul>
+<h3>Test Suite</h3>
+<ul><li><strong>A checklist of every section</strong> down the left: tick what to run, with each section's result shown as it runs. All / None / Engine / Formats presets replace "Engine only" and "Formats only". Your ticks are remembered.</li><li><strong>Stop ends the whole run</strong>, the render in progress included. While a render's progress window is up, its <strong>Cancel</strong> -- or <strong>Escape</strong> from anywhere -- does the same.</li><li><p>Fixed checks that failed on Auro-Cx movies in a fixtures folder and on the metadata sheet's album fields.</p></li></ul>
+<h3>For testers</h3>
+<ul><li>Two tracks in one Edit Group: select a region, Cmd-C, click later on either track, then Option-V / Cmd-V / Cmd-Option-V.</li><li><p>Export one file per track from an EDL with group plug-ins, insert the files, invert their polarity and play: silence where plug-ins are linear.</p></li></ul>
+<p>Everything else is as in 1.1.121.</p></details></section>
 <section id="v1-1-121"><h2>1.1.121 <span class="date">2026-10-23</span></h2><ul class="headlines"><li>Sonic Mastering EQ</li><li>Album View</li><li>Export ADM</li></ul><details><summary>Full notes</summary><h3>Sonic Mastering EQ</h3>
 <ul><li><strong>New plug-in, included on this disk image</strong>: run <strong>Install Sonic Mastering EQ 1.0.0 (AU, VST3).pkg</strong> to install it for all users. Your soundBlade licence authorizes it.</li><li>Six bands, each with 15 filter types (Parametric, Band Pass, Band Stop, Notch, Hi / Lo Shelf, Hi / Lo Pass, DC Block, Emphasis, De-emphasis, De-emph/DC, RIAA, De-RIAA), order 1–4, passband and stopband ripple.</li><li>Output gain, dither (Round, TPDF, Noise Shape at 16 / 20 / 24 bits), Peak and RMS meters for every channel, A–D compare slots.</li><li><p>Mono through 16 channels, including 7.1.4 and 9.1.6.</p></li></ul>
 <h3>Album View</h3>
