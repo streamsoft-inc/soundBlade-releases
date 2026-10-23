@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-121"><span class="v">1.1.121</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-120"><span class="v">1.1.120</span><span class="d">2026-10-22</span></a></li>
 <li><a href="#v1-1-119"><span class="v">1.1.119</span><span class="d">2026-10-22</span></a></li>
 <li><a href="#v1-1-118"><span class="v">1.1.118</span><span class="d">2026-10-21</span></a></li>
@@ -152,6 +153,15 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-121"><h2>1.1.121 <span class="date">2026-10-23</span></h2><ul class="headlines"><li>Sonic Mastering EQ</li><li>Album View</li><li>Export ADM</li></ul><details><summary>Full notes</summary><h3>Sonic Mastering EQ</h3>
+<ul><li><strong>New plug-in, included on this disk image</strong>: run <strong>Install Sonic Mastering EQ 1.0.0 (AU, VST3).pkg</strong> to install it for all users. Your soundBlade licence authorizes it.</li><li>Six bands, each with 15 filter types (Parametric, Band Pass, Band Stop, Notch, Hi / Lo Shelf, Hi / Lo Pass, DC Block, Emphasis, De-emphasis, De-emph/DC, RIAA, De-RIAA), order 1–4, passband and stopband ripple.</li><li>Output gain, dither (Round, TPDF, Noise Shape at 16 / 20 / 24 bits), Peak and RMS meters for every channel, A–D compare slots.</li><li><p>Mono through 16 channels, including 7.1.4 and 9.1.6.</p></li></ul>
+<h3>Album View</h3>
+<ul><li><strong>File &gt; Export ADM</strong> offers <strong>ADM: one per song</strong> (each song's own Export ADM, one after the other, with a status window and any errors at the end) or <strong>ADM: one for the album</strong> (every song spliced into one ADM, beds spanning the album, loudness measured over the whole album).</li><li><p>For one ADM, the widest master sets the layout. A narrower master whose channels match the first channels of the widest is padded with silent objects, after asking; masters that differ otherwise are refused, naming the song and channel.</p></li></ul>
+<h3>Export ADM</h3>
+<ul><li>ADM exports of Dolby Atmos masters are written to the Dolby Atmos master profile, so they open in the Dolby Atmos Renderer without "invalid data".</li><li><p>The Export ADM window shows the master's frame rate (29.97 or 24) read from the master, or says that 24 fps is assumed.</p></li></ul>
+<h3>For testers</h3>
+<ul><li>Install Sonic Mastering EQ from the disk image, rescan plug-ins, and insert it on a stereo and on a 7.1.4 Desk.</li><li><p>Album View &gt; File &gt; Export ADM, both options, and open the results in the Dolby Atmos Renderer.</p></li></ul>
+<p>Everything else is as in 1.1.120.</p></details></section>
 <section id="v1-1-120"><h2>1.1.120 <span class="date">2026-10-22</span></h2><ul class="headlines"><li>Album View</li><li>Assemble Album</li><li>Layouts</li></ul><details><summary>Full notes</summary><h3>Album View</h3>
 <ul><li><strong>The album plays.</strong> It could play silence, with the Monitor meters moving only on L and R; it now plays at the full width of the device.</li><li><strong>A header like an EDL's</strong>: the transport (|&lt;&lt; &lt;&lt; &gt; &gt;&gt; &gt;&gt;|, the timecode), <strong>Desk</strong>, and the <strong>Speaker Layout</strong> button -- with the album's name from the Preview's Album Info, or "Untitled Album". It opens at the album's start.</li><li><p><strong>One layout for the whole album</strong>: the Speaker Layout button offers <strong>Follow Songs</strong> (each song on its own EDL's layout, the button showing the one playing) or a single layout for the album, Auro included. A 9.1 song in a 13.1 album plays with its speakers in their own places and the extra ones silent; a song already in the album layout is played untouched. <strong>Export Album</strong> opens with the album layout ticked, so every song is written in it.</p></li></ul>
 <h3>Assemble Album</h3>
