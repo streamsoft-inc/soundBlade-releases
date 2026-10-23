@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.122](#v1-1-122)** — 2026-10-23
+  - Copy and Paste
+  - Exporting files that come back into the EDL
+  - Test Suite
 - **[1.1.121](#v1-1-121)** — 2026-10-23
   - Sonic Mastering EQ
   - Album View
@@ -291,6 +295,54 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-122"></a>
+## 1.1.122 — 2026-10-23
+
+### Copy and Paste
+
+- **Copy with a time selection or In/Out copies only that region** -- not the
+  whole clip -- on every track of the Edit Group.
+- **Paste lands at the Edit Point** (the playhead when none is set), on the
+  selected track's whole Edit Group. Pasting a pair onto either of its tracks
+  puts it back on both.
+- **Paste works with no track selected:** in the same EDL it goes back onto the
+  tracks it was copied from.
+- **Paste (Insert) and Paste (Replace) act on the whole Edit Group**, so a track
+  with nothing in the copied region is still pushed right or cleared and the
+  group stays in sync.
+
+### Exporting files that come back into the EDL
+
+- Rendering one file per track (the export that is inserted back into the EDL)
+  now prints **plug-ins shared across an Edit Group** -- they were left out --
+  and includes **the track's fader**. Put back in the EDL with polarity
+  inverted, the file nulls against playback (bypass Master Bus plug-ins for the
+  test: the files do not include the master chain, as before).
+
+### Test Suite
+
+- **A checklist of every section** down the left: tick what to run, with each
+  section's result shown as it runs. All / None / Engine / Formats presets
+  replace "Engine only" and "Formats only". Your ticks are remembered.
+- **Stop ends the whole run**, the render in progress included. While a render's
+  progress window is up, its **Cancel** -- or **Escape** from anywhere -- does
+  the same.
+- Fixed checks that failed on Auro-Cx movies in a fixtures folder and on the
+  metadata sheet's album fields.
+
+### For testers
+
+- Two tracks in one Edit Group: select a region, Cmd-C, click later on either
+  track, then Option-V / Cmd-V / Cmd-Option-V.
+- Export one file per track from an EDL with group plug-ins, insert the files,
+  invert their polarity and play: silence where plug-ins are linear.
+
+Everything else is as in 1.1.121.
+
+[Back to the list of versions](#versions)
 
 ---
 
