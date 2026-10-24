@@ -7,6 +7,10 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.123](#v1-1-123)** — 2026-10-24
+  - Exports and playback null
+  - Editing
+  - Playback
 - **[1.1.122](#v1-1-122)** — 2026-10-23
   - Copy and Paste
   - Exporting files that come back into the EDL
@@ -295,6 +299,58 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-123"></a>
+## 1.1.123 — 2026-10-24
+
+### Exports and playback null
+
+- **Playback is now in time with plug-ins whose latency is over half a second.**
+  Playback's delay compensation was capped at 0.5 s and quietly cut anything
+  longer short -- MAAT thEQred alone reports 0.68 s at 96 kHz -- so with such a
+  plug-in in the EDL, tracks played out of time with each other and with the
+  export. Every delay is now compensated in full.
+- **An export is exactly the samples from the In point to the Out point**, both
+  rounded to the nearest sample on the timeline -- never one more or one less.
+- **Plug-in edges land on the same sample in every export and in playback.** An In
+  point between two samples (any In point set with the mouse) could move a Desk
+  Event's start or end by one sample.
+- **Plug-ins running at the In or Out point are fed the audio around them**, as
+  playback feeds them, and only the selection is written. The end of an export no
+  longer differs from playback where a long-latency plug-in (MAAT thEQred) runs
+  past the Out point, and the start no longer differs where one is already running.
+- **An export never leaves out a plug-in without saying so.** Every Desk Event is
+  listed in the log as it is prepared, and one that should print but cannot stops
+  the export and is named.
+
+### Editing
+
+- **Shift-drag a sound file onto the EDL, or hold Shift as you click Open in File >
+  Open File, to place it at its own timestamp** (its BWF Time Reference) -- so an
+  export goes back exactly where it was rendered from. Without Shift it goes where
+  you drop it (or at the playhead). A file with no timestamp goes there either way.
+- **A clip with inverted polarity shows a red "i"** in its title bar, next to SRC.
+  The small red dot is gone.
+
+### Playback
+
+- **Play flashes while it waits for plug-in latency.** With long-latency plug-ins
+  the first sound can take a second or more to arrive; the Play button flashes
+  until it does.
+
+### For testers
+
+- Export a selection, Shift-drag the file back onto new tracks, turn on "i" on its
+  clips and play from before the selection: it should be silent, plug-ins included.
+  Set Monitoring dither to Off for this test -- dither adds its own noise.
+- Start Play a few seconds before a plug-in's span: started inside one, playback
+  begins the plug-in cold and may not null for the first moment.
+
+Everything else is as in 1.1.122.
+
+[Back to the list of versions](#versions)
 
 ---
 
