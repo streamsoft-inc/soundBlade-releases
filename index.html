@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-123"><span class="v">1.1.123</span><span class="d">2026-10-24</span></a></li>
 <li><a href="#v1-1-122"><span class="v">1.1.122</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-121"><span class="v">1.1.121</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-120"><span class="v">1.1.120</span><span class="d">2026-10-22</span></a></li>
@@ -154,6 +155,15 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-123"><h2>1.1.123 <span class="date">2026-10-24</span></h2><ul class="headlines"><li>Exports and playback null</li><li>Editing</li><li>Playback</li></ul><details><summary>Full notes</summary><h3>Exports and playback null</h3>
+<ul><li><strong>Playback is now in time with plug-ins whose latency is over half a second.</strong> Playback's delay compensation was capped at 0.5 s and quietly cut anything longer short -- MAAT thEQred alone reports 0.68 s at 96 kHz -- so with such a plug-in in the EDL, tracks played out of time with each other and with the export. Every delay is now compensated in full.</li><li><strong>An export is exactly the samples from the In point to the Out point</strong>, both rounded to the nearest sample on the timeline -- never one more or one less.</li><li><strong>Plug-in edges land on the same sample in every export and in playback.</strong> An In point between two samples (any In point set with the mouse) could move a Desk Event's start or end by one sample.</li><li><strong>Plug-ins running at the In or Out point are fed the audio around them</strong>, as playback feeds them, and only the selection is written. The end of an export no longer differs from playback where a long-latency plug-in (MAAT thEQred) runs past the Out point, and the start no longer differs where one is already running.</li><li><p><strong>An export never leaves out a plug-in without saying so.</strong> Every Desk Event is listed in the log as it is prepared, and one that should print but cannot stops the export and is named.</p></li></ul>
+<h3>Editing</h3>
+<ul><li><strong>Shift-drag a sound file onto the EDL, or hold Shift as you click Open in File &gt; Open File, to place it at its own timestamp</strong> (its BWF Time Reference) -- so an export goes back exactly where it was rendered from. Without Shift it goes where you drop it (or at the playhead). A file with no timestamp goes there either way.</li><li><p><strong>A clip with inverted polarity shows a red "i"</strong> in its title bar, next to SRC. The small red dot is gone.</p></li></ul>
+<h3>Playback</h3>
+<ul><li><p><strong>Play flashes while it waits for plug-in latency.</strong> With long-latency plug-ins the first sound can take a second or more to arrive; the Play button flashes until it does.</p></li></ul>
+<h3>For testers</h3>
+<ul><li>Export a selection, Shift-drag the file back onto new tracks, turn on "i" on its clips and play from before the selection: it should be silent, plug-ins included. Set Monitoring dither to Off for this test -- dither adds its own noise.</li><li><p>Start Play a few seconds before a plug-in's span: started inside one, playback begins the plug-in cold and may not null for the first moment.</p></li></ul>
+<p>Everything else is as in 1.1.122.</p></details></section>
 <section id="v1-1-122"><h2>1.1.122 <span class="date">2026-10-23</span></h2><ul class="headlines"><li>Copy and Paste</li><li>Exporting files that come back into the EDL</li><li>Test Suite</li></ul><details><summary>Full notes</summary><h3>Copy and Paste</h3>
 <ul><li><strong>Copy with a time selection or In/Out copies only that region</strong> -- not the whole clip -- on every track of the Edit Group.</li><li><strong>Paste lands at the Edit Point</strong> (the playhead when none is set), on the selected track's whole Edit Group. Pasting a pair onto either of its tracks puts it back on both.</li><li><strong>Paste works with no track selected:</strong> in the same EDL it goes back onto the tracks it was copied from.</li><li><p><strong>Paste (Insert) and Paste (Replace) act on the whole Edit Group</strong>, so a track with nothing in the copied region is still pushed right or cleared and the group stays in sync.</p></li></ul>
 <h3>Exporting files that come back into the EDL</h3>
