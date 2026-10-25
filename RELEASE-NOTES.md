@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.124](#v1-1-124)** — 2026-10-25
+  - Copy protection
 - **[1.1.123](#v1-1-123)** — 2026-10-24
   - Exports and playback null
   - Editing
@@ -299,6 +301,20 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-124"></a>
+## 1.1.124 — 2026-10-25
+
+### Copy protection
+
+- The app is now shipped with its debug symbols stripped, as a release should be.
+  Nothing else changes.
+
+Everything else is as in 1.1.123.
+
+[Back to the list of versions](#versions)
 
 ---
 
