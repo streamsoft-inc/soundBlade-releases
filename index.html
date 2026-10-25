@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-124"><span class="v">1.1.124</span><span class="d">2026-10-25</span></a></li>
 <li><a href="#v1-1-123"><span class="v">1.1.123</span><span class="d">2026-10-24</span></a></li>
 <li><a href="#v1-1-122"><span class="v">1.1.122</span><span class="d">2026-10-23</span></a></li>
 <li><a href="#v1-1-121"><span class="v">1.1.121</span><span class="d">2026-10-23</span></a></li>
@@ -155,6 +156,9 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-124"><h2>1.1.124 <span class="date">2026-10-25</span></h2><ul class="headlines"><li>Copy protection</li></ul><details><summary>Full notes</summary><h3>Copy protection</h3>
+<ul><li><p>The app is now shipped with its debug symbols stripped, as a release should be. Nothing else changes.</p></li></ul>
+<p>Everything else is as in 1.1.123.</p></details></section>
 <section id="v1-1-123"><h2>1.1.123 <span class="date">2026-10-24</span></h2><ul class="headlines"><li>Exports and playback null</li><li>Editing</li><li>Playback</li></ul><details><summary>Full notes</summary><h3>Exports and playback null</h3>
 <ul><li><strong>Playback is now in time with plug-ins whose latency is over half a second.</strong> Playback's delay compensation was capped at 0.5 s and quietly cut anything longer short -- MAAT thEQred alone reports 0.68 s at 96 kHz -- so with such a plug-in in the EDL, tracks played out of time with each other and with the export. Every delay is now compensated in full.</li><li><strong>An export is exactly the samples from the In point to the Out point</strong>, both rounded to the nearest sample on the timeline -- never one more or one less.</li><li><strong>Plug-in edges land on the same sample in every export and in playback.</strong> An In point between two samples (any In point set with the mouse) could move a Desk Event's start or end by one sample.</li><li><strong>Plug-ins running at the In or Out point are fed the audio around them</strong>, as playback feeds them, and only the selection is written. The end of an export no longer differs from playback where a long-latency plug-in (MAAT thEQred) runs past the Out point, and the start no longer differs where one is already running.</li><li><p><strong>An export never leaves out a plug-in without saying so.</strong> Every Desk Event is listed in the log as it is prepared, and one that should print but cannot stops the export and is named.</p></li></ul>
 <h3>Editing</h3>
