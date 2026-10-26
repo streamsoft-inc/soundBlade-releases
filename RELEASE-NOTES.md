@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.125](#v1-1-125)** — 2026-10-26
+  - Azimuth
+  - Elevation
+  - Distance
+  - Correct angles
 - **[1.1.124](#v1-1-124)** — 2026-10-25
   - Copy protection
 - **[1.1.123](#v1-1-123)** — 2026-10-24
@@ -301,6 +306,70 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-125"></a>
+## 1.1.125 — 2026-10-26
+
+### New: Speaker Position correction — please test
+
+If your speakers are not exactly where the layout says they should be, soundBlade can
+now make monitoring sound as if they were.
+
+**Application Settings > Speaker Positions**
+
+- Choose the layout you monitor on (Stereo, 5.1, 7.1.4, ...).
+- For each speaker, enter where it really is, measured from your listening position:
+  - **Azimuth** — degrees from front centre. Positive is to your left, negative to your
+    right, up to 180 behind you. (L at 30 means 30 degrees to the left.)
+  - **Elevation** — degrees above ear height.
+  - **Distance** — metres from your listening position.
+- Tick **Correct speaker positions**.
+
+What it does:
+
+- **Correct angles** — each channel is panned between your real speakers so it sounds
+  from its ideal direction. A speaker within 3 degrees of where it should be plays its
+  channel on its own.
+- **Correct distances** — nearer speakers are delayed and turned down so every speaker
+  arrives at the same time and level as the farthest one. The Delay / Trim column shows
+  what each speaker gets.
+- **Reset** puts every speaker of that layout back on its ideal position.
+
+Things to know:
+
+- **Monitoring only.** It is never in an export, a render or a measurement.
+- It is applied last, right before dither — after the meters, dim and monitor solo/mute.
+- It is off while Binaural is on (headphones have no speakers to move).
+- **Changing anything stops playback**, so a change never clicks mid-programme.
+- Each layout keeps its own measurements; the Project's monitor layout decides which
+  set is used.
+
+**In the Panner / Objects window**
+
+- **Cmd-Option-click a speaker** to change that speaker's position in a small pop-up.
+- While correction is on, each speaker that is off its ideal angle shows an **orange
+  ring where it really is**, joined to its cabinet by a dashed line. The cabinets stay
+  at the ideal positions — that is where the sound is now placed.
+
+**What we would like to hear from testers**
+
+- Does the image move where you expect when you enter your real positions?
+- Do phantom images (a channel panned between two speakers) sound stable at your
+  listening position?
+- Does the time alignment sound tighter with **Correct distances** on?
+- Anything that clicks, drops out or sounds wrong — with your layout and the numbers
+  you entered.
+
+### Fixed
+
+- **Panner / Objects window:** the Ctrl-click Mute/Solo menu now opens where you click,
+  not at the bottom of the window.
+
+Everything else is as in 1.1.124.
+
+[Back to the list of versions](#versions)
 
 ---
 
