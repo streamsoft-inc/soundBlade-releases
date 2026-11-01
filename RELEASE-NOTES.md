@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.127](#v1-1-127)** — 2026-11-01
+  - DST compression
+  - DSD64 only
+  - Butt splices only
+  - Clips may not overlap
 - **[1.1.126](#v1-1-126)** — 2026-11-01
   - New: DSD files (.dsf) — please test
   - Coming: SACD export (not in this build)
@@ -309,6 +314,69 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-127"></a>
+## 1.1.127 — 2026-11-01
+
+### New: Export SACD Image — please test
+
+**File > Export > Export SACD Image…** writes an SACD cutting master from an EDL of
+DSF files. This is the first tester build: **stereo area, single-layer disc**.
+
+**Setting up the EDL**
+
+1. Put **DSD64** DSF clips (2.8224 MHz) on two tracks in one Edit Group, and set both
+   tracks as the **Destination** (Ctrl+D) — the same pair a DDP export uses. The first
+   track is the left channel, the second the right.
+2. **Each Destination track is one channel of the disc**, as for DDP. A stereo DSF on a
+   track gives its **first** channel; the export lists those clips and asks before using
+   only the first channel.
+3. Place a **Start mark** for each track, with its title, artist and ISRC. Index marks
+   inside a track become its index points. The disc runs from the first Start mark to the
+   last End mark (or to the end of the last clip), on SACD frames (1/75 second, the same
+   grid as CD).
+
+**The export window**
+
+- It checks the EDL as soon as it opens and lists every problem it finds, or shows
+  **Ready** with the track list.
+- Album title, artist, publisher, copyright, catalog number, and a Master ID (the image
+  name; default DISC1).
+- **DST compression** (on by default), the **SACD mark** and **encryption** flags (the
+  plant encrypts — the image itself is not encrypted).
+- Always writes a **DDP** cutting master; tick **Also write Sony CMF** and **Also write
+  UCMF** (Super Audio CD Unified CMF 1.01) for those as well.
+- Writes into *destination*/*album title* SACD/ — DISC1, DISC1_CMF, DISC1_UCMF — with a
+  progress window and Cancel.
+
+**The rules (refused, naming the clip or track)**
+
+- **DSD64 only**, and no PCM clips on the Destination tracks.
+- **Butt splices only.** The DSD bits go onto the disc untouched, so nothing that would
+  change them is allowed: no fades or crossfades, clip gain, polarity invert or DeClick on
+  the Destination clips, no plug-ins on those tracks or on the master bus, and track and
+  master faders at 0 dB.
+- **Clips may not overlap** — DSD cannot be mixed.
+- An ISRC must be 12 letters and digits.
+
+**Not yet**
+
+- The multichannel area (a second EDL), hybrid discs with a CD layer, dual-layer discs.
+- Verification of the image with the Philips verifier.
+
+**What we would like to hear from testers**
+
+- Does the export finish, and do the DDP / Sony CMF / UCMF folders open in your
+  mastering or verification tools? Any report those tools give.
+- Do the track starts, index points, titles and ISRCs come out where you put them?
+- Is any refusal wrong or unclear — with a copy of its message?
+- How long a full album takes, and whether Cancel stops it promptly.
+
+Everything else is as in 1.1.126.
+
+[Back to the list of versions](#versions)
 
 ---
 
