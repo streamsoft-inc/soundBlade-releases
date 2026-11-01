@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-127"><span class="v">1.1.127</span><span class="d">2026-11-01</span></a></li>
 <li><a href="#v1-1-126"><span class="v">1.1.126</span><span class="d">2026-11-01</span></a></li>
 <li><a href="#v1-1-125"><span class="v">1.1.125</span><span class="d">2026-10-26</span></a></li>
 <li><a href="#v1-1-124"><span class="v">1.1.124</span><span class="d">2026-10-25</span></a></li>
@@ -158,6 +159,19 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-127"><h2>1.1.127 <span class="date">2026-11-01</span></h2><ul class="headlines"><li>DST compression</li><li>DSD64 only</li><li>Butt splices only</li><li>Clips may not overlap</li></ul><details><summary>Full notes</summary><h3>New: Export SACD Image — please test</h3>
+<p><strong>File &gt; Export &gt; Export SACD Image…</strong> writes an SACD cutting master from an EDL of DSF files. This is the first tester build: <strong>stereo area, single-layer disc</strong>.</p>
+<p><strong>Setting up the EDL</strong></p>
+<p>1. Put <strong>DSD64</strong> DSF clips (2.8224 MHz) on two tracks in one Edit Group, and set both tracks as the <strong>Destination</strong> (Ctrl+D) — the same pair a DDP export uses. The first track is the left channel, the second the right. 2. <strong>Each Destination track is one channel of the disc</strong>, as for DDP. A stereo DSF on a track gives its <strong>first</strong> channel; the export lists those clips and asks before using only the first channel. 3. Place a <strong>Start mark</strong> for each track, with its title, artist and ISRC. Index marks inside a track become its index points. The disc runs from the first Start mark to the last End mark (or to the end of the last clip), on SACD frames (1/75 second, the same grid as CD).</p>
+<p><strong>The export window</strong></p>
+<ul><li>It checks the EDL as soon as it opens and lists every problem it finds, or shows <strong>Ready</strong> with the track list.</li><li>Album title, artist, publisher, copyright, catalog number, and a Master ID (the image name; default DISC1).</li><li><strong>DST compression</strong> (on by default), the <strong>SACD mark</strong> and <strong>encryption</strong> flags (the plant encrypts — the image itself is not encrypted).</li><li>Always writes a <strong>DDP</strong> cutting master; tick <strong>Also write Sony CMF</strong> and <strong>Also write UCMF</strong> (Super Audio CD Unified CMF 1.01) for those as well.</li><li><p>Writes into <em>destination</em>/<em>album title</em> SACD/ — DISC1, DISC1_CMF, DISC1_UCMF — with a progress window and Cancel.</p></li></ul>
+<p><strong>The rules (refused, naming the clip or track)</strong></p>
+<ul><li><strong>DSD64 only</strong>, and no PCM clips on the Destination tracks.</li><li><strong>Butt splices only.</strong> The DSD bits go onto the disc untouched, so nothing that would change them is allowed: no fades or crossfades, clip gain, polarity invert or DeClick on the Destination clips, no plug-ins on those tracks or on the master bus, and track and master faders at 0 dB.</li><li><strong>Clips may not overlap</strong> — DSD cannot be mixed.</li><li><p>An ISRC must be 12 letters and digits.</p></li></ul>
+<p><strong>Not yet</strong></p>
+<ul><li>The multichannel area (a second EDL), hybrid discs with a CD layer, dual-layer discs.</li><li><p>Verification of the image with the Philips verifier.</p></li></ul>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Does the export finish, and do the DDP / Sony CMF / UCMF folders open in your mastering or verification tools? Any report those tools give.</li><li>Do the track starts, index points, titles and ISRCs come out where you put them?</li><li>Is any refusal wrong or unclear — with a copy of its message?</li><li><p>How long a full album takes, and whether Cancel stops it promptly.</p></li></ul>
+<p>Everything else is as in 1.1.126.</p></details></section>
 <section id="v1-1-126"><h2>1.1.126 <span class="date">2026-11-01</span></h2><ul class="headlines"><li>New: DSD files (.dsf) — please test</li><li>Coming: SACD export (not in this build)</li></ul><details><summary>Full notes</summary><h3>New: DSD files (.dsf) — please test</h3>
 <p>soundBlade now opens <strong>DSF</strong> files (DSD64, DSD128, DSD256; mono up to 5.1), in an <strong>EDL</strong> and in the <strong>Preview</strong>. Drag one in, or use File &gt; Open / Import, like any other audio file.</p>
 <p>How it plays:</p>
