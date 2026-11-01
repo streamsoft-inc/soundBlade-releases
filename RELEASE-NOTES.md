@@ -7,6 +7,9 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.126](#v1-1-126)** — 2026-11-01
+  - New: DSD files (.dsf) — please test
+  - Coming: SACD export (not in this build)
 - **[1.1.125](#v1-1-125)** — 2026-10-26
   - Azimuth
   - Elevation
@@ -306,6 +309,78 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-126"></a>
+## 1.1.126 — 2026-11-01
+
+### New: DSD files (.dsf) — please test
+
+soundBlade now opens **DSF** files (DSD64, DSD128, DSD256; mono up to 5.1), in an
+**EDL** and in the **Preview**. Drag one in, or use File > Open / Import, like any other
+audio file.
+
+How it plays:
+
+- **Converted to PCM** — 176.4 kHz, 32-bit float (192 kHz for 48 kHz-family DSD),
+  whatever the DSD rate. Everything works on it as on any other file: editing, fades,
+  plug-ins, meters, loudness, binaural, speaker position correction.
+- In an EDL a DSF clip is sample-rate converted to the EDL's rate, like any other clip.
+- The conversion filter is **flat to 30 kHz** and removes DSD's ultrasonic noise above
+  70 kHz before it reaches your speakers.
+- The Preview's file panel shows what the file really is — for example
+  **DSD64 · 2.8224 MHz → 176.4 kHz**, **1 bit (DSD)**.
+
+Things to know:
+
+- **DSD masters read about 6 dB lower** than their PCM equivalent. The conversion is
+  at unity: SACD's 0 dB reference is half modulation, so a DSD master peaking at
+  "0 dB SACD" shows about -6 dBFS here. Nothing is added to make it louder, so nothing
+  can clip.
+- Title and artist tags in a DSF (ID3) are not shown yet.
+- **Not yet:** sending the DSD itself to a DSD DAC (DoP). A **Use DoP over USB**
+  setting is coming in a later build; for now every output plays the PCM conversion.
+
+**What we would like to hear from testers**
+
+- Do your DSF files open and play, in an EDL and in the Preview, at every DSD rate you
+  have?
+- Does editing, seeking and looping a DSF clip behave as with a WAV?
+- Anything that clicks, drops out or sounds wrong — with the file's DSD rate and
+  channel count.
+
+### Coming: SACD export (not in this build)
+
+DSF support is the first step towards **File > Export > Export SACD Image…**, which is
+being built now. It is **not** in 1.1.126. If you want to prepare EDLs for it, the first
+version will have these rules:
+
+- **DSD64 only** (2.8224 MHz). SACD carries no other rate; DSD128 and DSD256 files
+  cannot go on a disc.
+- **Butt splices only.** DSF clips laid end to end, trimmed and cut — no fades,
+  crossfades, clip gain or plug-ins on the DSD. The original DSD bits are written to the
+  disc untouched, so nothing that changes the sound can be applied.
+- **Cuts and track marks land on SACD frames** (1/75 second, the same grid as CD).
+- **One DSD rate per EDL**, and no PCM clips in an SACD EDL.
+- **Two EDLs:** one for the stereo area and, optionally, one for the multichannel area
+  (up to 5.1). The multichannel area can use the stereo EDL's track marks.
+- Track start marks become the SACD tracks; titles and other text come from the marks
+  and Album Info.
+
+The export will check the EDL and name anything that breaks these rules. It will write
+**DDP**, **Sony CMF** or **UCMF** cutting masters, with the CD layer of a hybrid disc
+rendered from the same EDL or taken from an existing DDP.
+
+### Fixed
+
+- **File browser:** MP4, IAMF and DSF files now show in the file browser. It built its
+  file filter wrongly ("*..wav"), so only the common types it also listed by hand ever
+  appeared.
+
+Everything else is as in 1.1.125.
+
+[Back to the list of versions](#versions)
 
 ---
 
