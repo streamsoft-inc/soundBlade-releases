@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.128](#v1-1-128)** — 2026-11-03
+  - SACD export — what's new after the first tester report
+  - Hybrid discs
+  - Convert SACD Cutting Master
+  - MD5 checksum file
 - **[1.1.127](#v1-1-127)** — 2026-11-01
   - DST compression
   - DSD64 only
@@ -314,6 +319,72 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-128"></a>
+## 1.1.128 — 2026-11-03
+
+### SACD export — what's new after the first tester report
+
+Thank you for the first reports — and yes, Pyramix imports the Sony CMF.
+
+#### Hybrid discs
+
+**File > Export > Export SACD Image…** now has a **Disc** choice, and it starts on
+**Hybrid: SACD layer + CD layer**.
+
+- **CD layer:** press **Choose CD DDP…** and pick the CD master's DDP folder. It must be a
+  Red Book DDP (44.1 kHz, 16-bit, stereo); the window shows its track count and length,
+  and notes it if the CD and SACD track counts differ. The export copies it in as
+  *MasterID*_CD beside the SACD layer.
+- **SACD layer:** written as the high-density layer of a hybrid disc — the master TOC is
+  flagged hybrid, the DDP's DDVID says HYBRID, **Sony CMF lists HYBRID** (every sector
+  marked low reflectivity), and UCMF's HYBRID flag is set.
+- **SACD only (single layer)** is still there for discs without a CD layer.
+
+#### Convert SACD Cutting Master
+
+**File > Export > Convert SACD Cutting Master…** turns a **UCMF** folder into **Sony CMF**,
+or Sony CMF into UCMF — any delivery, not only soundBlade's own.
+
+- **UCMF → Sony CMF** checks the UCMF's MD5s first, and asks which SACD mark and encryption
+  flags the CMF should carry (UCMF has none). The encrypted ranges are read from the
+  image itself.
+- **Sony CMF → UCMF** checks every sector's number and error codes (IED, EDC) and refuses a
+  damaged CMF, naming the sector.
+- The result is written beside the folder you chose, as *folder*_CMF or *folder*_UCMF.
+
+#### MD5 checksum file
+
+Every SACD export and conversion now writes **name.md5** beside the image folders: the MD5
+of every file, in the standard format. In Terminal, in that folder:
+`md5sum -c "name.md5"`.
+
+#### Smart splice points (new option, off by default — please A/B)
+
+A tick box in the export window: **Smart splice points (move each cut up to 1 ms)**. Each
+butt splice is moved, by at most 1 ms, to where the two sides' waveforms match best, to
+soften splice clicks. The bits stay the DSF files' own; both channels move together; every
+clip keeps its place in time. The finished message says how many cuts moved and by how
+much. Its benefit depends on the material — please compare the same disc with it on and
+off, and tell us what you hear.
+
+#### Your questions
+
+- **Is the SACD image bit-transparent?** Yes. The 176.4 kHz conversion is only for
+  listening and waveforms. The export copies the DSF's own DSD bits to the disc (only the
+  bit order changes, DSF to SACD's), and DST compression is lossless. Cuts land on whole
+  DSD bytes (8 samples, 2.8 µs), the disc's start and end on SACD frames (1/75 s), and any
+  gap is DSD silence. Your DSF files are never changed.
+- **What is the third folder?** *MasterID* is the Philips SACD DDP — the authoring
+  library's own cutting master, which the Sony CMF and UCMF are made from.
+- **Fades on DSD** are still not possible: the original system used a Sony chip, and a
+  software equivalent (re-modulation) is being studied.
+
+Everything else is as in 1.1.127.
+
+[Back to the list of versions](#versions)
 
 ---
 
