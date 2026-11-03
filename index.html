@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-128"><span class="v">1.1.128</span><span class="d">2026-11-03</span></a></li>
 <li><a href="#v1-1-127"><span class="v">1.1.127</span><span class="d">2026-11-01</span></a></li>
 <li><a href="#v1-1-126"><span class="v">1.1.126</span><span class="d">2026-11-01</span></a></li>
 <li><a href="#v1-1-125"><span class="v">1.1.125</span><span class="d">2026-10-26</span></a></li>
@@ -159,6 +160,21 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-128"><h2>1.1.128 <span class="date">2026-11-03</span></h2><ul class="headlines"><li>SACD export — what&#x27;s new after the first tester report</li><li>Hybrid discs</li><li>Convert SACD Cutting Master</li><li>MD5 checksum file</li></ul><details><summary>Full notes</summary><h3>SACD export — what's new after the first tester report</h3>
+<p>Thank you for the first reports — and yes, Pyramix imports the Sony CMF.</p>
+<h4>Hybrid discs</h4>
+<p><strong>File &gt; Export &gt; Export SACD Image…</strong> now has a <strong>Disc</strong> choice, and it starts on <strong>Hybrid: SACD layer + CD layer</strong>.</p>
+<ul><li><strong>CD layer:</strong> press <strong>Choose CD DDP…</strong> and pick the CD master's DDP folder. It must be a Red Book DDP (44.1 kHz, 16-bit, stereo); the window shows its track count and length, and notes it if the CD and SACD track counts differ. The export copies it in as *MasterID*_CD beside the SACD layer.</li><li><strong>SACD layer:</strong> written as the high-density layer of a hybrid disc — the master TOC is flagged hybrid, the DDP's DDVID says HYBRID, <strong>Sony CMF lists HYBRID</strong> (every sector marked low reflectivity), and UCMF's HYBRID flag is set.</li><li><p><strong>SACD only (single layer)</strong> is still there for discs without a CD layer.</p></li></ul>
+<h4>Convert SACD Cutting Master</h4>
+<p><strong>File &gt; Export &gt; Convert SACD Cutting Master…</strong> turns a <strong>UCMF</strong> folder into <strong>Sony CMF</strong>, or Sony CMF into UCMF — any delivery, not only soundBlade's own.</p>
+<ul><li><strong>UCMF → Sony CMF</strong> checks the UCMF's MD5s first, and asks which SACD mark and encryption flags the CMF should carry (UCMF has none). The encrypted ranges are read from the image itself.</li><li><strong>Sony CMF → UCMF</strong> checks every sector's number and error codes (IED, EDC) and refuses a damaged CMF, naming the sector.</li><li><p>The result is written beside the folder you chose, as *folder*_CMF or *folder*_UCMF.</p></li></ul>
+<h4>MD5 checksum file</h4>
+<p>Every SACD export and conversion now writes <strong>name.md5</strong> beside the image folders: the MD5 of every file, in the standard format. In Terminal, in that folder: <code>md5sum -c "name.md5"</code>.</p>
+<h4>Smart splice points (new option, off by default — please A/B)</h4>
+<p>A tick box in the export window: <strong>Smart splice points (move each cut up to 1 ms)</strong>. Each butt splice is moved, by at most 1 ms, to where the two sides' waveforms match best, to soften splice clicks. The bits stay the DSF files' own; both channels move together; every clip keeps its place in time. The finished message says how many cuts moved and by how much. Its benefit depends on the material — please compare the same disc with it on and off, and tell us what you hear.</p>
+<h4>Your questions</h4>
+<ul><li><strong>Is the SACD image bit-transparent?</strong> Yes. The 176.4 kHz conversion is only for listening and waveforms. The export copies the DSF's own DSD bits to the disc (only the bit order changes, DSF to SACD's), and DST compression is lossless. Cuts land on whole DSD bytes (8 samples, 2.8 µs), the disc's start and end on SACD frames (1/75 s), and any gap is DSD silence. Your DSF files are never changed.</li><li><strong>What is the third folder?</strong> <em>MasterID</em> is the Philips SACD DDP — the authoring library's own cutting master, which the Sony CMF and UCMF are made from.</li><li><p><strong>Fades on DSD</strong> are still not possible: the original system used a Sony chip, and a software equivalent (re-modulation) is being studied.</p></li></ul>
+<p>Everything else is as in 1.1.127.</p></details></section>
 <section id="v1-1-127"><h2>1.1.127 <span class="date">2026-11-01</span></h2><ul class="headlines"><li>DST compression</li><li>DSD64 only</li><li>Butt splices only</li><li>Clips may not overlap</li></ul><details><summary>Full notes</summary><h3>New: Export SACD Image — please test</h3>
 <p><strong>File &gt; Export &gt; Export SACD Image…</strong> writes an SACD cutting master from an EDL of DSF files. This is the first tester build: <strong>stereo area, single-layer disc</strong>.</p>
 <p><strong>Setting up the EDL</strong></p>
