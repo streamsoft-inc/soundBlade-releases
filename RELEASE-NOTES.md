@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.129](#v1-1-129)** — 2026-11-04
+  - SACD export
+  - The SA-CD Verifier
+  - DSD fades (new option, off by default — please listen)
+  - Smart splice points removed
 - **[1.1.128](#v1-1-128)** — 2026-11-03
   - SACD export — what's new after the first tester report
   - Hybrid discs
@@ -319,6 +324,81 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-129"></a>
+## 1.1.129 — 2026-11-04
+
+### SACD export
+
+#### The SA-CD Verifier
+
+The Philips **SA-CD Verifier** — the same one the HD app ran — is back.
+
+- **Export SACD Image** now has **Verify the image (SA-CD Verifier)**, on by default. After
+  the build it checks the Master and Area TOCs, every audio sector, the Lead-in and the file
+  systems, and **decodes every DST frame**. If it finds anything, the finished message says
+  so — *do not send the image to a plant* — and lists what it found. Its logs are in
+  **SA-CD Verifier logs** beside the image.
+- **File > Export > Verify SACD Image…** checks any SACD cutting master: a soundBlade or
+  Philips SACD DDP, a **UCMF** delivery, or a **Sony CMF** (read through UCMF, checking every
+  frame's IED and EDC first). The logs go beside the folder you chose.
+- Decoding DST takes about 0.4× the programme's length (roughly 30 minutes for an 80-minute
+  disc); plain DSD images verify in seconds.
+
+**Please re-export SACD images made with 1.1.127 or 1.1.128.** The verifier found two faults
+in them, now fixed:
+
+- the stereo area's text channel had no language or character set (Scarlet Book errors
+  4040 / 4045 — Pyramix accepted it; a plant's checker might not);
+- the disc's ISO 9660 volume descriptor carried two malformed date fields.
+
+The audio itself was never affected.
+
+#### DSD fades (new option, off by default — please listen)
+
+A tick box in the export window: **DSD fades (re-modulate fades and crossfades)**.
+
+- **Off** (the default): butt splices only, as before. Every bit on the disc is the DSF
+  files' own, and a fade or crossfade is refused, naming the clip.
+- **On**: fades and crossfades are re-modulated to DSD with a 7th-order modulator, using
+  **exactly the gains soundBlade plays** (fade shapes and Power Lock included) — what you
+  hear is what goes on the disc. Everywhere else the bits stay the files' own.
+- A re-modulated stretch starts seamlessly a few milliseconds before a fade and runs on to
+  the nearest **hard edit or end of the programme** (whichever way is shorter), so it never
+  hands back to the original bits where that could click. A crossfade between long takes can
+  therefore re-modulate a good part of a take. The window lists every stretch before you
+  export, and the finished message gives the total.
+- Measured against soundBlade's own floating-point fades: −110 dB in the audible band. Ears
+  next — please compare with a Pyramix fade on the same material and tell us what you hear.
+
+#### Smart splice points removed
+
+The 1.1.128 option is gone: it moved cuts in the export only, so the disc differed from what
+soundBlade plays.
+
+### DSD128 / DSD256 play at 352.8 kHz
+
+soundBlade's top sample rate is now 352.8 kHz (DXD). DSD128 and DSD256 files decode to
+352.8 kHz (DSD64 still to 176.4 kHz), with the usual sample-rate-conversion message when the
+EDL runs at another rate.
+
+### Plug-in windows
+
+- A plug-in window now follows its editor when the plug-in resizes itself, instead of
+  cutting it off.
+- Audio Unit editors no longer fight the window over its size.
+
+### Keyboard shortcuts
+
+If you had changed the shortcut of a command listed after **Export SACD Image** in the
+Keyboard Shortcuts editor, 1.1.127 / 1.1.128 may have put it back to its default — please
+set it again. It will not happen again.
+
+Everything else is as in 1.1.128.
+
+[Back to the list of versions](#versions)
 
 ---
 
