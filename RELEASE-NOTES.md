@@ -7,6 +7,11 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.130](#v1-1-130)** — 2026-11-04
+  - SACD export — fixes from the 1.1.129 tester report
+  - SA-CD Verifier no longer crashes
+  - Hybrid without a CD DDP
+  - Only what goes to the plant
 - **[1.1.129](#v1-1-129)** — 2026-11-04
   - SACD export
   - The SA-CD Verifier
@@ -324,6 +329,87 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-130"></a>
+## 1.1.130 — 2026-11-04
+
+### SACD export — fixes from the 1.1.129 tester report
+
+Thank you — and great to hear the DSD clicks between tracks are gone, and that the UCMF →
+CMF → Pyramix QC path completes the workflow.
+
+#### SA-CD Verifier no longer crashes
+
+In 1.1.129 the verifier crashed on every plain-DSD image — after an export and from
+**Verify SACD Image…** alike. Its DST decoder ran even where there was no DST to decode.
+Fixed; plain-DSD, DST, hybrid and UCMF images all verify.
+
+#### Hybrid without a CD DDP
+
+**Hybrid** no longer needs a CD DDP. The SACD layer is flagged hybrid either way (as Pyramix
+does); **Choose CD DDP…** is optional, and copies a CD master in beside the SACD layer only if
+you pick one. **Clear** removes the choice.
+
+#### Only what goes to the plant
+
+The Philips SACD DDP (the *MasterID* folder the CMF and UCMF are made from) is no longer kept
+by default. Tick **Also keep the Philips SACD DDP** to keep it. It is still built and
+verified; if neither CMF nor UCMF is ticked, it is kept, since it is then the only image.
+
+#### A checksum.md5 in each folder
+
+Each delivery folder — UCMF, Sony CMF, the CD layer, and the SACD DDP when kept — now has its
+own **checksum.md5**, listing just its own files by name. The single file outside the folders
+(with paths) is gone. **Convert SACD Cutting Master** does the same. In Terminal, inside a
+folder: `md5sum -c checksum.md5`.
+
+#### No retyping
+
+Album title, artist, **Publisher**, **Copyright**, **UPC/EAN (catalog)** and **Master ID**
+are remembered in the EDL (with its other album details — the same ones Mark Info and the PQ
+window use) and filled in next time. Save the EDL to keep them.
+
+#### UPC/EAN
+
+The catalog field is now labelled **UPC/EAN (catalog)** and starts from the EDL's UPC/EAN —
+Pyramix shows this field as the disc's UPC/EAN. A 12- or 13-digit code typed here is saved as
+the EDL's UPC/EAN.
+
+### Export DDP Image: a real CD master from any EDL
+
+A DDP is now always **Red Book: 44.1 kHz, 16 bit** — whatever the EDL runs at.
+
+- **From a DSF (DSD) EDL, or any EDL not at 44.1 kHz,** the programme is converted to 44.1 kHz
+  with **Sonic HD SRC** (soundBlade's own mastering converter). Before, the DDP was written at
+  the EDL's own rate — from a 176.4 kHz DSF EDL that made a disc that would play 4× too slow.
+  Please re-export any DDP made from a DSF EDL.
+- **Dither to 16 bit** is chosen in the Export window when the format is DDP: None (round
+  only), Rectangular, Triangular, Noise Shaped or Shaped PDF. It starts on your Project's
+  dither type and is applied once, as the very last step.
+- Every DDP benefits: before, a DDP was rounded to 16 bit with no dither, even from a 44.1 kHz
+  EDL.
+
+### Sonic Mastering EQ 1.0.1
+
+The installer DMG now carries **Sonic Mastering EQ 1.0.1** (AU, VST3):
+
+- **Spectrum analyzer** behind the EQ curves: input (red), output (yellow) and the gain between
+  them (blue), with a dBFS scale on the right.
+- **Resizable window:** drag the bottom-right corner, 60%–200%; the size is saved with the
+  session.
+- Narrower bands (120 px), the Sonic logo top left, and a shaded fader cap on the output gain.
+
+### Loudness
+
+Behind-the-scenes groundwork for Dolby loudness verification: the 2.0 and 5.1 fold-downs used
+for loudness measurement now follow Dolby's published Lo/Ro and BS.2127 rules, and the report
+says so. The EBU R128 / BS.1770-4 measurement itself is unchanged.
+
+Everything else is as in 1.1.129.
+
+[Back to the list of versions](#versions)
 
 ---
 
