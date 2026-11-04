@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-130"><span class="v">1.1.130</span><span class="d">2026-11-04</span></a></li>
 <li><a href="#v1-1-129"><span class="v">1.1.129</span><span class="d">2026-11-04</span></a></li>
 <li><a href="#v1-1-128"><span class="v">1.1.128</span><span class="d">2026-11-03</span></a></li>
 <li><a href="#v1-1-127"><span class="v">1.1.127</span><span class="d">2026-11-01</span></a></li>
@@ -161,6 +162,29 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-130"><h2>1.1.130 <span class="date">2026-11-04</span></h2><ul class="headlines"><li>SACD export — fixes from the 1.1.129 tester report</li><li>SA-CD Verifier no longer crashes</li><li>Hybrid without a CD DDP</li><li>Only what goes to the plant</li></ul><details><summary>Full notes</summary><h3>SACD export — fixes from the 1.1.129 tester report</h3>
+<p>Thank you — and great to hear the DSD clicks between tracks are gone, and that the UCMF → CMF → Pyramix QC path completes the workflow.</p>
+<h4>SA-CD Verifier no longer crashes</h4>
+<p>In 1.1.129 the verifier crashed on every plain-DSD image — after an export and from <strong>Verify SACD Image…</strong> alike. Its DST decoder ran even where there was no DST to decode. Fixed; plain-DSD, DST, hybrid and UCMF images all verify.</p>
+<h4>Hybrid without a CD DDP</h4>
+<p><strong>Hybrid</strong> no longer needs a CD DDP. The SACD layer is flagged hybrid either way (as Pyramix does); <strong>Choose CD DDP…</strong> is optional, and copies a CD master in beside the SACD layer only if you pick one. <strong>Clear</strong> removes the choice.</p>
+<h4>Only what goes to the plant</h4>
+<p>The Philips SACD DDP (the <em>MasterID</em> folder the CMF and UCMF are made from) is no longer kept by default. Tick <strong>Also keep the Philips SACD DDP</strong> to keep it. It is still built and verified; if neither CMF nor UCMF is ticked, it is kept, since it is then the only image.</p>
+<h4>A checksum.md5 in each folder</h4>
+<p>Each delivery folder — UCMF, Sony CMF, the CD layer, and the SACD DDP when kept — now has its own <strong>checksum.md5</strong>, listing just its own files by name. The single file outside the folders (with paths) is gone. <strong>Convert SACD Cutting Master</strong> does the same. In Terminal, inside a folder: <code>md5sum -c checksum.md5</code>.</p>
+<h4>No retyping</h4>
+<p>Album title, artist, <strong>Publisher</strong>, <strong>Copyright</strong>, <strong>UPC/EAN (catalog)</strong> and <strong>Master ID</strong> are remembered in the EDL (with its other album details — the same ones Mark Info and the PQ window use) and filled in next time. Save the EDL to keep them.</p>
+<h4>UPC/EAN</h4>
+<p>The catalog field is now labelled <strong>UPC/EAN (catalog)</strong> and starts from the EDL's UPC/EAN — Pyramix shows this field as the disc's UPC/EAN. A 12- or 13-digit code typed here is saved as the EDL's UPC/EAN.</p>
+<h3>Export DDP Image: a real CD master from any EDL</h3>
+<p>A DDP is now always <strong>Red Book: 44.1 kHz, 16 bit</strong> — whatever the EDL runs at.</p>
+<ul><li><strong>From a DSF (DSD) EDL, or any EDL not at 44.1 kHz,</strong> the programme is converted to 44.1 kHz with <strong>Sonic HD SRC</strong> (soundBlade's own mastering converter). Before, the DDP was written at the EDL's own rate — from a 176.4 kHz DSF EDL that made a disc that would play 4× too slow. Please re-export any DDP made from a DSF EDL.</li><li><strong>Dither to 16 bit</strong> is chosen in the Export window when the format is DDP: None (round only), Rectangular, Triangular, Noise Shaped or Shaped PDF. It starts on your Project's dither type and is applied once, as the very last step.</li><li><p>Every DDP benefits: before, a DDP was rounded to 16 bit with no dither, even from a 44.1 kHz EDL.</p></li></ul>
+<h3>Sonic Mastering EQ 1.0.1</h3>
+<p>The installer DMG now carries <strong>Sonic Mastering EQ 1.0.1</strong> (AU, VST3):</p>
+<ul><li><strong>Spectrum analyzer</strong> behind the EQ curves: input (red), output (yellow) and the gain between them (blue), with a dBFS scale on the right.</li><li><strong>Resizable window:</strong> drag the bottom-right corner, 60%–200%; the size is saved with the session.</li><li><p>Narrower bands (120 px), the Sonic logo top left, and a shaded fader cap on the output gain.</p></li></ul>
+<h3>Loudness</h3>
+<p>Behind-the-scenes groundwork for Dolby loudness verification: the 2.0 and 5.1 fold-downs used for loudness measurement now follow Dolby's published Lo/Ro and BS.2127 rules, and the report says so. The EBU R128 / BS.1770-4 measurement itself is unchanged.</p>
+<p>Everything else is as in 1.1.129.</p></details></section>
 <section id="v1-1-129"><h2>1.1.129 <span class="date">2026-11-04</span></h2><ul class="headlines"><li>SACD export</li><li>The SA-CD Verifier</li><li>DSD fades (new option, off by default — please listen)</li><li>Smart splice points removed</li></ul><details><summary>Full notes</summary><h3>SACD export</h3>
 <h4>The SA-CD Verifier</h4>
 <p>The Philips <strong>SA-CD Verifier</strong> — the same one the HD app ran — is back.</p>
