@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-129"><span class="v">1.1.129</span><span class="d">2026-11-04</span></a></li>
 <li><a href="#v1-1-128"><span class="v">1.1.128</span><span class="d">2026-11-03</span></a></li>
 <li><a href="#v1-1-127"><span class="v">1.1.127</span><span class="d">2026-11-01</span></a></li>
 <li><a href="#v1-1-126"><span class="v">1.1.126</span><span class="d">2026-11-01</span></a></li>
@@ -160,6 +161,25 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-129"><h2>1.1.129 <span class="date">2026-11-04</span></h2><ul class="headlines"><li>SACD export</li><li>The SA-CD Verifier</li><li>DSD fades (new option, off by default — please listen)</li><li>Smart splice points removed</li></ul><details><summary>Full notes</summary><h3>SACD export</h3>
+<h4>The SA-CD Verifier</h4>
+<p>The Philips <strong>SA-CD Verifier</strong> — the same one the HD app ran — is back.</p>
+<ul><li><strong>Export SACD Image</strong> now has <strong>Verify the image (SA-CD Verifier)</strong>, on by default. After the build it checks the Master and Area TOCs, every audio sector, the Lead-in and the file systems, and <strong>decodes every DST frame</strong>. If it finds anything, the finished message says so — <em>do not send the image to a plant</em> — and lists what it found. Its logs are in <strong>SA-CD Verifier logs</strong> beside the image.</li><li><strong>File &gt; Export &gt; Verify SACD Image…</strong> checks any SACD cutting master: a soundBlade or Philips SACD DDP, a <strong>UCMF</strong> delivery, or a <strong>Sony CMF</strong> (read through UCMF, checking every frame's IED and EDC first). The logs go beside the folder you chose.</li><li><p>Decoding DST takes about 0.4× the programme's length (roughly 30 minutes for an 80-minute disc); plain DSD images verify in seconds.</p></li></ul>
+<p><strong>Please re-export SACD images made with 1.1.127 or 1.1.128.</strong> The verifier found two faults in them, now fixed:</p>
+<ul><li>the stereo area's text channel had no language or character set (Scarlet Book errors 4040 / 4045 — Pyramix accepted it; a plant's checker might not);</li><li><p>the disc's ISO 9660 volume descriptor carried two malformed date fields.</p></li></ul>
+<p>The audio itself was never affected.</p>
+<h4>DSD fades (new option, off by default — please listen)</h4>
+<p>A tick box in the export window: <strong>DSD fades (re-modulate fades and crossfades)</strong>.</p>
+<ul><li><strong>Off</strong> (the default): butt splices only, as before. Every bit on the disc is the DSF files' own, and a fade or crossfade is refused, naming the clip.</li><li><strong>On</strong>: fades and crossfades are re-modulated to DSD with a 7th-order modulator, using <strong>exactly the gains soundBlade plays</strong> (fade shapes and Power Lock included) — what you hear is what goes on the disc. Everywhere else the bits stay the files' own.</li><li>A re-modulated stretch starts seamlessly a few milliseconds before a fade and runs on to the nearest <strong>hard edit or end of the programme</strong> (whichever way is shorter), so it never hands back to the original bits where that could click. A crossfade between long takes can therefore re-modulate a good part of a take. The window lists every stretch before you export, and the finished message gives the total.</li><li><p>Measured against soundBlade's own floating-point fades: −110 dB in the audible band. Ears next — please compare with a Pyramix fade on the same material and tell us what you hear.</p></li></ul>
+<h4>Smart splice points removed</h4>
+<p>The 1.1.128 option is gone: it moved cuts in the export only, so the disc differed from what soundBlade plays.</p>
+<h3>DSD128 / DSD256 play at 352.8 kHz</h3>
+<p>soundBlade's top sample rate is now 352.8 kHz (DXD). DSD128 and DSD256 files decode to 352.8 kHz (DSD64 still to 176.4 kHz), with the usual sample-rate-conversion message when the EDL runs at another rate.</p>
+<h3>Plug-in windows</h3>
+<ul><li>A plug-in window now follows its editor when the plug-in resizes itself, instead of cutting it off.</li><li><p>Audio Unit editors no longer fight the window over its size.</p></li></ul>
+<h3>Keyboard shortcuts</h3>
+<p>If you had changed the shortcut of a command listed after <strong>Export SACD Image</strong> in the Keyboard Shortcuts editor, 1.1.127 / 1.1.128 may have put it back to its default — please set it again. It will not happen again.</p>
+<p>Everything else is as in 1.1.128.</p></details></section>
 <section id="v1-1-128"><h2>1.1.128 <span class="date">2026-11-03</span></h2><ul class="headlines"><li>SACD export — what&#x27;s new after the first tester report</li><li>Hybrid discs</li><li>Convert SACD Cutting Master</li><li>MD5 checksum file</li></ul><details><summary>Full notes</summary><h3>SACD export — what's new after the first tester report</h3>
 <p>Thank you for the first reports — and yes, Pyramix imports the Sony CMF.</p>
 <h4>Hybrid discs</h4>
