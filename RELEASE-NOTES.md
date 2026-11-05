@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.132](#v1-1-132)** — 2026-11-05
+  - One fix to the Preview.
 - **[1.1.131](#v1-1-131)** — 2026-11-05
   - A new 9.1.4 layout, artwork on your tracks, a reworked Preview, and plug-in problems that now stop an export instead of being left out of it.
 - **[1.1.130](#v1-1-130)** — 2026-11-04
@@ -331,6 +333,23 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-132"></a>
+## 1.1.132 — 2026-11-05
+
+One fix to the Preview.
+
+### Fix: the Layout pane's Out column follows the speaker layout
+
+In the Preview, changing the speaker layout left the **Out** column showing the old layout's
+speaker names until something else redrew the list. It now updates straight away, from the
+Monitor menu, the Speaker Layout dialog and a saved layout alike.
+
+Everything else is as in 1.1.131.
+
+[Back to the list of versions](#versions)
 
 ---
 
