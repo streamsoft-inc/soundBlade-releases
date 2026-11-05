@@ -351,7 +351,8 @@ from the whole album, as if every EDL were on one timeline:
 - Each EDL gives its two **Destination** tracks and its own marks, end to end in Album View order.
 - Each song runs from its first Start mark to its last End mark, and starts on a CD frame.
 - A song's closing End mark is dropped where the next song starts right there.
-- A song with no Start mark gets one, named after its EDL.
+- In a DDP, a song with no Start mark gets one, named after its EDL. An SACD refuses it, naming the
+  EDL: add the mark there.
 
 **Set a Destination in every EDL of the album first.** The export refuses, naming the EDL, if one has
 none, if songs overlap, or if the EDLs are at different sample rates.
