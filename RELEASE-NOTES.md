@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.133](#v1-1-133)** — 2026-11-05
+  - DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.
 - **[1.1.132](#v1-1-132)** — 2026-11-05
   - One fix to the Preview.
 - **[1.1.131](#v1-1-131)** — 2026-11-05
@@ -333,6 +335,71 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-133"></a>
+## 1.1.133 — 2026-11-05
+
+DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.
+
+### New: Export DDP and SACD from the Album View
+
+With the **Album View** tab showing, **Export DDP Image** and **Export SACD Image** now make one disc
+from the whole album, as if every EDL were on one timeline:
+
+- Each EDL gives its two **Destination** tracks and its own marks, end to end in Album View order.
+- Each song runs from its first Start mark to its last End mark, and starts on a CD frame.
+- A song's closing End mark is dropped where the next song starts right there.
+- A song with no Start mark gets one, named after its EDL.
+
+**Set a Destination in every EDL of the album first.** The export refuses, naming the EDL, if one has
+none, if songs overlap, or if the EDLs are at different sample rates.
+
+A DDP prints each song with its plug-ins, its master chain and the Album Bus, joins them, then runs
+one sample-rate conversion and dither over the whole album. An SACD joins the DSD bits, and each EDL
+must pass the same checks as a single-EDL SACD export.
+
+The EDLs themselves are never changed. An album's ADM export is unchanged: it still exports every
+track.
+
+---
+
+### Fix: a Destination is no longer cleared by another EDL
+
+Setting Destination in one EDL cleared it in the others, which also made it look as if switching EDL
+tabs lost it. Each EDL now keeps its own Destination until you change it there. Source still lives in
+one EDL at a time.
+
+If an edit across EDLs finds several Destinations, it refuses and names them rather than picking one.
+
+---
+
+### SACD: the Verifier shows its progress
+
+**Export SACD Image** and **Verify SACD Image** now show a percentage and the time left while the
+SA-CD Verifier runs. It can take a long time: a 552 MB image took about 13 minutes.
+
+---
+
+### SACD: a disc must have album text
+
+A disc with no album text fails the SA-CD Verifier (ERROR 4087 in the Master TOC), so **Export SACD
+Image** now refuses when Album Title and Album Artist are both blank.
+
+If the window filled in the title for you, it shows you that title first, with **Use It** or
+**Change**. It only asks once, and a title you typed or edited yourself needs no approval.
+
+---
+
+**What we would like to hear from testers**
+
+- Does an album's DDP and SACD have the right songs, marks and timing?
+- Does an album with a title now pass the Verifier with no Master TOC error?
+
+Everything else is as in 1.1.132.
+
+[Back to the list of versions](#versions)
 
 ---
 
