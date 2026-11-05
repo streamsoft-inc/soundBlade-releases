@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.131](#v1-1-131)** — 2026-11-05
+  - A new 9.1.4 layout, artwork on your tracks, a reworked Preview, and plug-in problems that now stop an export instead of being left out of it.
 - **[1.1.130](#v1-1-130)** — 2026-11-04
   - SACD export — fixes from the 1.1.129 tester report
   - SA-CD Verifier no longer crashes
@@ -329,6 +331,98 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-131"></a>
+## 1.1.131 — 2026-11-05
+
+A new 9.1.4 layout, artwork on your tracks, a reworked Preview, and plug-in problems that now stop an export instead of being left out of it.
+
+### New: 9.1.4 speaker layout
+
+**9.1.4** is now a layout: 9.1.6 without its top middle pair, in both SMPTE and Film channel
+order. It is offered wherever a layout is, including the monitor, the Source and Export.
+
+A 14-channel file that does not say what it is still opens as 7.1.6. A file or an ADM bed that
+does say opens as 9.1.4.
+
+### New: artwork on a track
+
+**Edit Metadata** has an **Album Artwork** row, with a picture and three buttons.
+
+- **Select...** (or drop an image on the picture) and **Remove** take effect when you press
+  **Save**.
+- **Apply to Album...** asks first, then writes the image into every file in the list that
+  names this file's album. Files on another album are skipped.
+- The image goes **into the file** in a **DSF, FLAC or WAV**. Your image is stored as it is,
+  and no audio sample is touched, though the file's size and date change.
+- **ADM masters** carry no artwork. Other formats keep the image's location beside the file.
+
+**Which picture a row shows in the Preview:** the art in the file, always, if it has any.
+Otherwise the image chosen for that file; the album's cover, if the file's metadata names that
+album; an image named after the file; or a **cover, folder or front** image in the same folder,
+unless the file names a different album. A folder's image is only shown, never written into a
+file.
+
+A DSF's **title, artist, album, genre and ISRC** now show and save, in the file's own tag.
+
+### The Preview
+
+- **The whole window scales as you resize it,** text included. Menus and alerts stay their
+  usual size.
+- **The file list has three columns: Name, Type, Details.** Click a heading to sort. The sort is
+  the real order: what plays next and what a saved playlist holds.
+- **Dragging in many files** now fills in each file's type and details straight away.
+- **Dropping a folder brings its sub-folders too.**
+- The **metadata triangle** has moved to the right-hand end of the row.
+- **Save**, beside Open, saves the playlist. It lights when the list has changed, and saves over
+  the playlist's own file. Save Playlist... still asks for a name.
+- A newly loaded file always starts at the beginning. It could start partway through before.
+- **Mono and stereo files** get large, detailed waveforms that fill the layout pane.
+- **Overs are marked in red.** An over is at least 3 samples in a row at full scale. This is not
+  true peak, and it is not the meter's over lamp, which lights on one sample.
+- **Stereo files** no longer show a Source read-out, and leave room for the cover, which is now
+  centred beside the loudness.
+- **Ctrl-click any meter** to clear every held peak and over lamp (in the Preview; the EDL Desk
+  is unchanged).
+- **Fix: a click going from one track to the next** on resampled files. The hand-over between
+  files is now a short crossfade.
+- **DSF files** get a **3 ms fade at their start and end** during Preview playback, because a DSF
+  starting or ending on a hard cut can click. Exports, EDLs and Measure do not include it. On one
+  continuous recording split into tracks, you may notice a very short dip at each join.
+- DSF waveforms build faster, one channel per processor core.
+
+### Plug-ins and exports
+
+- **A plug-in shared across a group that will not fit runs as linked copies, without asking,**
+  in playback and in the export. A saved "Don't Run" is ignored. To turn one off, Bypass it.
+- **A Master or Album Bus plug-in that will not load now stops the export and names it.** Before,
+  the export went on and the file came out without that plug-in. Bypass it to export without it.
+- **A renamed VST3 is found again** when an EDL opens, by its ID, never by its name.
+- **An export that cannot write says why,** with the free space on the disk.
+
+### Smaller changes
+
+- **Measure** no longer opens a report, in the Preview or an EDL: it asks whether you want one,
+  then where to save it.
+- **The Files window** lists only the audio files soundBlade can open, and no longer shows its
+  own `.data` waveform folders.
+- **Fix: saving tags into some WAV files could crash the app.** This affected a WAV being given a
+  metadata block it did not already have.
+- **Test Suite:** clears old scratch at the start of a run, Escape stops the whole run, and a
+  fixture that misses its baseline is also rendered twice.
+
+**What we would like to hear from testers**
+
+- Does 9.1.4 land on the right outputs, in the channel order you use?
+- Does artwork stay put, and show in your other software, after Save and Apply to Album? Try it on
+  copies of your masters first.
+- Any export that now stops on a plug-in: which plug-in, and what the message said.
+
+Everything else is as in 1.1.130.
+
+[Back to the list of versions](#versions)
 
 ---
 
