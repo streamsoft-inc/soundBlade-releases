@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-133"><span class="v">1.1.133</span><span class="d">2026-11-05</span></a></li>
 <li><a href="#v1-1-132"><span class="v">1.1.132</span><span class="d">2026-11-05</span></a></li>
 <li><a href="#v1-1-131"><span class="v">1.1.131</span><span class="d">2026-11-05</span></a></li>
 <li><a href="#v1-1-130"><span class="v">1.1.130</span><span class="d">2026-11-04</span></a></li>
@@ -164,6 +165,27 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-133"><h2>1.1.133 <span class="date">2026-11-05</span></h2><ul class="headlines"><li>DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.</li></ul><details><summary>Full notes</summary><p>DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.</p><h3>New: Export DDP and SACD from the Album View</h3>
+<p>With the <strong>Album View</strong> tab showing, <strong>Export DDP Image</strong> and <strong>Export SACD Image</strong> now make one disc from the whole album, as if every EDL were on one timeline:</p>
+<ul><li>Each EDL gives its two <strong>Destination</strong> tracks and its own marks, end to end in Album View order.</li><li>Each song runs from its first Start mark to its last End mark, and starts on a CD frame.</li><li>A song's closing End mark is dropped where the next song starts right there.</li><li><p>A song with no Start mark gets one, named after its EDL.</p></li></ul>
+<p><strong>Set a Destination in every EDL of the album first.</strong> The export refuses, naming the EDL, if one has none, if songs overlap, or if the EDLs are at different sample rates.</p>
+<p>A DDP prints each song with its plug-ins, its master chain and the Album Bus, joins them, then runs one sample-rate conversion and dither over the whole album. An SACD joins the DSD bits, and each EDL must pass the same checks as a single-EDL SACD export.</p>
+<p>The EDLs themselves are never changed. An album's ADM export is unchanged: it still exports every track.</p>
+<hr>
+<h3>Fix: a Destination is no longer cleared by another EDL</h3>
+<p>Setting Destination in one EDL cleared it in the others, which also made it look as if switching EDL tabs lost it. Each EDL now keeps its own Destination until you change it there. Source still lives in one EDL at a time.</p>
+<p>If an edit across EDLs finds several Destinations, it refuses and names them rather than picking one.</p>
+<hr>
+<h3>SACD: the Verifier shows its progress</h3>
+<p><strong>Export SACD Image</strong> and <strong>Verify SACD Image</strong> now show a percentage and the time left while the SA-CD Verifier runs. It can take a long time: a 552 MB image took about 13 minutes.</p>
+<hr>
+<h3>SACD: a disc must have album text</h3>
+<p>A disc with no album text fails the SA-CD Verifier (ERROR 4087 in the Master TOC), so <strong>Export SACD Image</strong> now refuses when Album Title and Album Artist are both blank.</p>
+<p>If the window filled in the title for you, it shows you that title first, with <strong>Use It</strong> or <strong>Change</strong>. It only asks once, and a title you typed or edited yourself needs no approval.</p>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Does an album's DDP and SACD have the right songs, marks and timing?</li><li><p>Does an album with a title now pass the Verifier with no Master TOC error?</p></li></ul>
+<p>Everything else is as in 1.1.132.</p></details></section>
 <section id="v1-1-132"><h2>1.1.132 <span class="date">2026-11-05</span></h2><ul class="headlines"><li>One fix to the Preview.</li></ul><details><summary>Full notes</summary><p>One fix to the Preview.</p><h3>Fix: the Layout pane's Out column follows the speaker layout</h3>
 <p>In the Preview, changing the speaker layout left the <strong>Out</strong> column showing the old layout's speaker names until something else redrew the list. It now updates straight away, from the Monitor menu, the Speaker Layout dialog and a saved layout alike.</p>
 <p>Everything else is as in 1.1.131.</p></details></section>
