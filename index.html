@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-134"><span class="v">1.1.134</span><span class="d">2026-11-06</span></a></li>
 <li><a href="#v1-1-133"><span class="v">1.1.133</span><span class="d">2026-11-05</span></a></li>
 <li><a href="#v1-1-132"><span class="v">1.1.132</span><span class="d">2026-11-05</span></a></li>
 <li><a href="#v1-1-131"><span class="v">1.1.131</span><span class="d">2026-11-05</span></a></li>
@@ -165,6 +166,43 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-134"><h2>1.1.134 <span class="date">2026-11-06</span></h2><ul class="headlines"><li>Play starts sooner, playback now lands where the export does, and an export crash is fixed.</li></ul><details><summary>Full notes</summary><p>Play starts sooner, playback now lands where the export does, and an export crash is fixed.</p><h3>Play no longer waits for plug-ins it cannot reach</h3>
+<p>The wait after Play used to be the latency of every plug-in in the EDL, wherever you pressed Play. Now only the plug-ins this pass can reach count:</p>
+<ul><li><strong>Play past every plug-in:</strong> no wait.</li><li><strong>Playing a selection:</strong> a plug-in that ends before the selection, or starts at or after its end, adds nothing.</li><li><strong>Play before or inside a plug-in's span:</strong> you still wait for its latency. A latent plug-in has to be in place before it starts.</li><li><strong>A Master plug-in's own latency</strong> is always waited out.</li><li><p><strong>A bypassed plug-in ahead still counts,</strong> so engaging it shifts nothing.</p></li></ul>
+<p>Seeking back onto a plug-in while playing takes a brief ramp out and back while the delays change. Play Lock and the Album View keep the whole EDL's latency, so their EDLs stay in step.</p>
+<hr>
+<h3>Fix: playback now lands where the export does</h3>
+<p>The export was right in all of these, and playback was early by the latency ahead of the plug-in:</p>
+<ul><li>A <strong>Desk Event in a later slot</strong>, after a latent plug-in on the same track.</li><li>A <strong>shared group plug-in in a later slot</strong>, after a latent one.</li><li>A <strong>shared plug-in, when one member has latency of its own.</strong> Members now reach it in step, so a shared compressor or limiter reacts to all of them at the same moment.</li><li><p><strong>Automation on a Master slot,</strong> which also now moves in 64-sample steps while a value changes, as a Desk Event does.</p></li></ul>
+<p>So these events and moves will now sound <strong>later than before</strong>, in step with your export. Exports themselves are unchanged.</p>
+<hr>
+<h3>Fix: automation on a shared group plug-in now plays back</h3>
+<p>It printed in exports but was never heard in playback. It is now, so an EDL with those moves may sound different from what you have been hearing. It should now match the export.</p>
+<hr>
+<h3>Fix: a crash exporting with automation on a Master slot</h3>
+<p>An export with automation on a Master slot read memory that had already been freed. It could crash, or could print with wrong automation and say nothing. <strong>If you delivered files exported that way, please re-export them.</strong> This has been there since August.</p>
+<hr>
+<h3>Fix: no click when stopping or seeking during the wait after Play</h3>
+<p>Audio that had not been heard yet could come in abruptly if you pressed Stop or moved the playhead while Play was waiting. It now ramps up from silence.</p>
+<hr>
+<h3>Render Plug-ins Ahead is no longer a setting</h3>
+<p>Playback now always renders 4 blocks ahead, and the row has gone from Application Settings. It is a safety margin for the CPU, not latency compensation: a plug-in that sometimes takes longer than a block, like a linear-phase EQ, is absorbed instead of dropping out. A saved Off is ignored. Tracks armed for recording are still never rendered ahead.</p>
+<hr>
+<h3>New: Tools &gt; Play Pre-roll (off by default)</h3>
+<p>Skips most of the remaining wait for track plug-ins by rendering that stretch as fast as the machine can. It starts off at each launch. <strong>Please try it and tell us how it sounds.</strong> A plug-in in that stretch is fed audio faster than real time, and this has not yet been proven to null against an export.</p>
+<hr>
+<h3>Scroll bar along the bottom of the EDL</h3>
+<p>It appears when you are zoomed in, beside the overview bar. Each EDL is 14 pixels taller to leave room for it, so it never covers a track.</p>
+<hr>
+<h3>Marks and Track Names</h3>
+<ul><li>The <strong>Track Name</strong> shows in the EDL's track strip; double-click it there to rename.</li><li>An <strong>End mark</strong> stays "TrackEnd"; a title belongs to a Start mark.</li><li><strong>Auto-set Artist Name</strong> in Mark Info: pressing Return fills the next blank Artist.</li><li>Choosing a mark in the Marks menu, or clicking its triangle in the ruler or overview bar, puts the Edit Point and playhead on it. A Track row in Mark Info selects that whole track.</li><li><p><strong>Start triangles are green,</strong> End triangles red.</p></li></ul>
+<hr>
+<h3>Also</h3>
+<ul><li><strong>Launch reopens the saved Project</strong> that was open when you quit. Otherwise you get the Start Window. Closing a Project forgets it.</li><li>The overview bar now spans what the lanes span.</li><li><p>Desk slots redraw when you zoom or scroll.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Put an export back in the EDL with its polarity inverted, on an EDL with a partial-span Desk Event after a latent plug-in. Does it null against playback? This has been checked with test plug-ins only, not with real ones.</li><li>Does a shared plug-in with automation, across more than two channels, follow its moves in playback?</li><li>Do selections and Plays past your plug-ins start straight away, with no clicks?</li><li><p>With Play Pre-roll on, is anything different from the same Play with it off?</p></li></ul>
+<p>Everything else is as in 1.1.133.</p></details></section>
 <section id="v1-1-133"><h2>1.1.133 <span class="date">2026-11-05</span></h2><ul class="headlines"><li>DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.</li></ul><details><summary>Full notes</summary><p>DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.</p><h3>New: Export DDP and SACD from the Album View</h3>
 <p>With the <strong>Album View</strong> tab showing, <strong>Export DDP Image</strong> and <strong>Export SACD Image</strong> now make one disc from the whole album, as if every EDL were on one timeline:</p>
 <ul><li>Each EDL gives its two <strong>Destination</strong> tracks and its own marks, end to end in Album View order.</li><li>Each song runs from its first Start mark to its last End mark, and starts on a CD frame.</li><li>A song's closing End mark is dropped where the next song starts right there.</li><li><p>In a DDP, a song with no Start mark gets one, named after its EDL. An SACD refuses it, naming the EDL: add the mark there.</p></li></ul>
