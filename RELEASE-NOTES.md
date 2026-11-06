@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.134](#v1-1-134)** — 2026-11-06
+  - Play starts sooner, playback now lands where the export does, and an export crash is fixed.
 - **[1.1.133](#v1-1-133)** — 2026-11-05
   - DDP and SACD from the Album View, a Destination that stays set, and a progress display for the SA-CD Verifier.
 - **[1.1.132](#v1-1-132)** — 2026-11-05
@@ -335,6 +337,127 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-134"></a>
+## 1.1.134 — 2026-11-06
+
+Play starts sooner, playback now lands where the export does, and an export crash is fixed.
+
+### Play no longer waits for plug-ins it cannot reach
+
+The wait after Play used to be the latency of every plug-in in the EDL, wherever you pressed Play.
+Now only the plug-ins this pass can reach count:
+
+- **Play past every plug-in:** no wait.
+- **Playing a selection:** a plug-in that ends before the selection, or starts at or after its end,
+  adds nothing.
+- **Play before or inside a plug-in's span:** you still wait for its latency. A latent plug-in has to
+  be in place before it starts.
+- **A Master plug-in's own latency** is always waited out.
+- **A bypassed plug-in ahead still counts,** so engaging it shifts nothing.
+
+Seeking back onto a plug-in while playing takes a brief ramp out and back while the delays change.
+Play Lock and the Album View keep the whole EDL's latency, so their EDLs stay in step.
+
+---
+
+### Fix: playback now lands where the export does
+
+The export was right in all of these, and playback was early by the latency ahead of the plug-in:
+
+- A **Desk Event in a later slot**, after a latent plug-in on the same track.
+- A **shared group plug-in in a later slot**, after a latent one.
+- A **shared plug-in, when one member has latency of its own.** Members now reach it in step, so a
+  shared compressor or limiter reacts to all of them at the same moment.
+- **Automation on a Master slot,** which also now moves in 64-sample steps while a value changes,
+  as a Desk Event does.
+
+So these events and moves will now sound **later than before**, in step with your export. Exports
+themselves are unchanged.
+
+---
+
+### Fix: automation on a shared group plug-in now plays back
+
+It printed in exports but was never heard in playback. It is now, so an EDL with those moves may
+sound different from what you have been hearing. It should now match the export.
+
+---
+
+### Fix: a crash exporting with automation on a Master slot
+
+An export with automation on a Master slot read memory that had already been freed. It could crash,
+or could print with wrong automation and say nothing. **If you delivered files exported that way,
+please re-export them.** This has been there since August.
+
+---
+
+### Fix: no click when stopping or seeking during the wait after Play
+
+Audio that had not been heard yet could come in abruptly if you pressed Stop or moved the playhead
+while Play was waiting. It now ramps up from silence.
+
+---
+
+### Render Plug-ins Ahead is no longer a setting
+
+Playback now always renders 4 blocks ahead, and the row has gone from Application Settings. It is a
+safety margin for the CPU, not latency compensation: a plug-in that sometimes takes longer than a
+block, like a linear-phase EQ, is absorbed instead of dropping out. A saved Off is ignored. Tracks
+armed for recording are still never rendered ahead.
+
+---
+
+### New: Tools > Play Pre-roll (off by default)
+
+Skips most of the remaining wait for track plug-ins by rendering that stretch as fast as the machine
+can. It starts off at each launch. **Please try it and tell us how it sounds.** A plug-in in that
+stretch is fed audio faster than real time, and this has not yet been proven to null against an
+export.
+
+---
+
+### Scroll bar along the bottom of the EDL
+
+It appears when you are zoomed in, beside the overview bar. Each EDL is 14 pixels taller to leave
+room for it, so it never covers a track.
+
+---
+
+### Marks and Track Names
+
+- The **Track Name** shows in the EDL's track strip; double-click it there to rename.
+- An **End mark** stays "TrackEnd"; a title belongs to a Start mark.
+- **Auto-set Artist Name** in Mark Info: pressing Return fills the next blank Artist.
+- Choosing a mark in the Marks menu, or clicking its triangle in the ruler or overview bar, puts the
+  Edit Point and playhead on it. A Track row in Mark Info selects that whole track.
+- **Start triangles are green,** End triangles red.
+
+---
+
+### Also
+
+- **Launch reopens the saved Project** that was open when you quit. Otherwise you get the Start
+  Window. Closing a Project forgets it.
+- The overview bar now spans what the lanes span.
+- Desk slots redraw when you zoom or scroll.
+
+---
+
+**What we would like to hear from testers**
+
+- Put an export back in the EDL with its polarity inverted, on an EDL with a partial-span Desk Event
+  after a latent plug-in. Does it null against playback? This has been checked with test plug-ins
+  only, not with real ones.
+- Does a shared plug-in with automation, across more than two channels, follow its moves in playback?
+- Do selections and Plays past your plug-ins start straight away, with no clicks?
+- With Play Pre-roll on, is anything different from the same Play with it off?
+
+Everything else is as in 1.1.133.
+
+[Back to the list of versions](#versions)
 
 ---
 
