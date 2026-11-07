@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.135](#v1-1-135)** — 2026-11-07
+  - Text View works again, a selected clip comes first for Delete, Cut and Copy, Save keeps backups, and one EDL can now record another.
 - **[1.1.134](#v1-1-134)** — 2026-11-06
   - Play starts sooner, playback now lands where the export does, and an export crash is fixed.
 - **[1.1.133](#v1-1-133)** — 2026-11-05
@@ -337,6 +339,125 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-135"></a>
+## 1.1.135 — 2026-11-07
+
+Text View works again, a selected clip comes first for Delete, Cut and Copy, Save keeps backups, and one EDL can now record another.
+
+### Text View
+
+EDL > Show Text View, a list of the track's clips below the track.
+
+- **It no longer zooms or scrolls with the timeline,** so it stays filled in wherever you are.
+- It looks like the Preview's file list, in white text: Name, Start, End, Gain and Duration. The list
+  is always in time order and does not sort.
+- **Type a Start** to move a clip, or **an End** to trim it. Both land on a sample, follow the Edit
+  Group, and are one Undo. End stops at the end of the file. Duration is read-only.
+- Text that is not a time or a number changes nothing.
+- Click a row to select its clip, and select a clip on the lane to highlight its row.
+
+---
+
+### Delete, Cut and Copy
+
+- **A selected clip now comes ahead of In/Out.** With a clip selected and In/Out set, Delete, Cut and
+  Copy act on the clip. **This is a change:** if a clip is still selected when you set In/Out, Delete
+  takes the whole clip, not the range. Click empty lane first to work on the range. Undo restores it.
+- **Delete on a selected clip does not ripple,** the same as Cut.
+- A **time selection still comes first,** and Delete still ripples it.
+- With a clip selected and In/Out set, Delete and Ripple Selection is greyed out. Option-Delete still
+  acts on In/Out.
+- **Delete works in Text View.** It removes the selected clips.
+- **Delete on a selected Desk Event pill deletes the pill,** even with a time selection, and every
+  member's copy if it is shared. Click elsewhere to deselect it, and Delete acts on the time selection.
+
+---
+
+### New: Save keeps three backups
+
+- **Save EDL** keeps `Mix.S1.edl` beside the EDL, S1 being the newest.
+- **Save Project** keeps the `.prj` and a copy of each EDL in `Backups/<name>.S1/`. No audio is copied.
+- Nothing rotates unless something changed. Zoom, scroll and window position do not count.
+- Backups are listed under each entry on the Start Window's Recent page. An opened backup saves to the
+  original's name and shows as changed, so restoring loses nothing.
+
+---
+
+### New: record one EDL into another (internal loop)
+
+One EDL plays while another records it, like an external loop but with no converters.
+
+- **To send:** use the Send button in the sending EDL's header. It sends the finished output, what a
+  layout export prints, one M channel per Source speaker. Or pick M1, M2... in a track's Out menu.
+- **To record:** pick M1, M2... in the track header's In menu on the armed tracks in the other EDL.
+  Stereo is two armed tracks.
+- Desk Mute and Solo, the fold and Main Output do not reach the take.
+- Only one EDL may send to an M channel at a time, and it refuses, naming them, if two do.
+- Play Lock is not needed. It only starts them together.
+
+**This is new and has had very little running. Please check takes against an export.**
+
+---
+
+### Recording and inserts
+
+- **Edit Recording** in New Soundfile Settings: ticked inserts the take without asking, unticked asks.
+- **An insert now cross-fades where new audio meets old,** using your Default CrossFade. Going to or
+  from silence it uses the Default Fade-In or Fade-Out. This applies to a recorded take, Export's
+  insert, Paste (Replace, Insert, Constrained) and Source to Destination (Insert, Replace, Replace Left,
+  Replace Constrained). Overlay stays on top.
+- Every record-enabled R button and Record button now blink together.
+
+---
+
+### Play Lock
+
+- **Locked EDLs now start on the same sample** when rendered ahead. Two locked EDLs were nulled here.
+- A locked Play waits as long as the slowest EDL, so EDLs with different plug-in latency stay in step.
+- An EDL with armed tracks is not rendered ahead, so it is a few blocks apart from the others while armed.
+
+---
+
+### Everything on a sample
+
+Whenever a time is picked or typed it now lands on a sample boundary: edit points and selections round
+down, and cuts, trims and moves work in samples. **Nothing rewrites a saved EDL.** A clip saved between
+samples stays where you hear it.
+
+---
+
+### Waveforms at full zoom
+
+- Waveforms no longer distort at high zoom far along the timeline.
+- Zoom now goes to 3 pixels per sample. The Maximum label now says 4 samples, which is what it always was.
+- The playhead, Edit Point, selection, In/Out lines and clicks are exact far along the lane. Dragging a
+  trim, fade or clip that far along can still step by a few samples, and clip edges can draw a few
+  pixels off.
+
+---
+
+### Also
+
+- **Cmd+G:** the selected track's time selection now beats a clip selected on another track.
+- **Deselecting a clip** now deselects its Edit Group siblings too.
+
+---
+
+**What we would like to hear from testers**
+
+- Text View: does it stay put and filled in? Does a typed Start or End land where you expect on a
+  grouped track, and does Undo restore it?
+- Does a selected clip coming ahead of In/Out ever delete, cut or copy something you did not mean to?
+- Internal loop: does a take null against a layout export of the sending EDL?
+- Save twice, then open a backup from the Start Window's Recent page. Is it what you saved?
+- Do inserts cross-fade as you expect?
+
+Everything else is as in 1.1.134.
+
+[Back to the list of versions](#versions)
 
 ---
 
