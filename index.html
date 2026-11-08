@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-136"><span class="v">1.1.136</span><span class="d">2026-11-08</span></a></li>
 <li><a href="#v1-1-135"><span class="v">1.1.135</span><span class="d">2026-11-07</span></a></li>
 <li><a href="#v1-1-134"><span class="v">1.1.134</span><span class="d">2026-11-06</span></a></li>
 <li><a href="#v1-1-133"><span class="v">1.1.133</span><span class="d">2026-11-05</span></a></li>
@@ -167,6 +168,40 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-136"><h2>1.1.136 <span class="date">2026-11-08</span></h2><ul class="headlines"><li>Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.</li></ul><details><summary>Full notes</summary><p>Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.</p><h3>Pyramix MTFF</h3>
+<ul><li><strong>File ▸ Open MTFF…</strong> opens a master in a new window, as Open DDP Image does: one track per channel, Destination in Edit Group A, and marks from its table of contents.</li><li>In the <strong>Preview</strong> it is one row with its album name, artist and cover.</li><li>Dropped or opened into an EDL, it becomes one clip per channel with its marks. If the table of contents does not match the audio's length, the EDL asks before adding them.</li><li><p>Only 32-bit float stereo has been seen so far. Any other layout is refused, and says why.</p></li></ul>
+<hr>
+<h3>DDP in the Preview</h3>
+<ul><li><strong>Open EDL</strong> on a DDP now gives what Open DDP Image gives: a clip per CD track, and its marks.</li><li><p>The row is named after the DDP's folder, and its marks are drawn on the waveform.</p></li></ul>
+<hr>
+<h3>Tracks under the triangle</h3>
+<p>Click the triangle on an MTFF, a DDP or an MKV with chapters. Under the metadata you now get <strong>one row per track</strong>: number and title, ISRC, and length (an MKV chapter has no ISRC).</p>
+<ul><li><strong>Click a track to play from it.</strong> Play carries on to the end of the file.</li><li>The track you are hearing turns white.</li><li><p>The tracks are in disc order however the list is sorted.</p></li></ul>
+<p>The same marks are drawn on the waveform.</p>
+<hr>
+<h3>Change Sample Rate based on File</h3>
+<p>A new tick in <strong>Audio I/O Settings</strong>, off by default. Before a file plays, the app stops, sets the device to the file's rate, waits up to half a second for the device to report it, then plays.</p>
+<ul><li>It comes ahead of <strong>Enable SRC</strong>. If the device cannot take the rate, Enable SRC decides: on converts the file, off plays it at the wrong rate.</li><li><p>The device stays at the last file's rate. Files needing different rates do not play gaplessly.</p></li></ul>
+<p>Preview only. An EDL that is playing keeps its rate, and the file is converted.</p>
+<hr>
+<h3>MKV files</h3>
+<p>Audio in MKV files opens in the Preview and in EDLs: PCM, FLAC (Auro-3D carriers included), Dolby Digital and Dolby Digital Plus. DTS, DTS-HD MA and Dolby TrueHD play, bit-exact, through <strong>FFmpeg you install yourself</strong> in <code>~/Library/Application Support/soundBlade 3.0/Codecs/</code>, or one already in <code>/opt/homebrew/bin</code> or <code>/usr/local/bin</code>. TrueHD with Atmos plays its channel bed.</p>
+<p>An MP4 with Dolby Digital Plus Atmos (JOC) now says so in its details: it plays as its channel bed.</p>
+<hr>
+<h3>Bit-perfect playback, and dither after the volume</h3>
+<ul><li><strong>The Preview's DIRECT lamp</strong> lights when nothing in the path changes a PCM file. <strong>DIRECT+G</strong> means only the Main Output volume and dither follow it.</li><li><p><strong>Main Output volume then dither are now last,</strong> on every playback path. Automatic dither turns on only when something changes the samples or the volume is not at 0.0 dB.</p></li></ul>
+<hr>
+<h3>Exclusive Access (hog mode)</h3>
+<p>A new tick in <strong>Audio I/O Settings</strong>, off by default, claims the device for soundBlade alone. If another application holds the device, playback stops and soundBlade says so.</p>
+<hr>
+<h3>Artist Connection</h3>
+<ul><li><strong>Streaming is faster to start and scrub.</strong> Streamed audio is now held in memory while the app is open, shared by playback and waveform drawing, and read ahead further.</li><li><strong>Double-click an album</strong> in the Albums tab, or right-click and choose <strong>Add Album to File Pane</strong>, to add its tracks in album order at the bottom of the list. Each streams like a Library file. A row shows the track's title.</li><li><strong>Downloading from Artist Connection is switched off for now.</strong> Files stream. Copies you already downloaded still open.</li><li><p>A file's <strong>Type</strong> column says PCM and its <strong>Details</strong> the channel count, and a name no longer ends in its layout and rate.</p></li></ul>
+<hr>
+<h3>Also</h3>
+<ul><li><strong>Object view:</strong> every speaker now meters from its own level, panned objects included. Speakers and object spheres are drawn in blue underneath.</li><li><p><strong>Speaker Positions</strong> is hidden in Settings for now. Saved positions are kept.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Do an MTFF's and a DDP's tracks and marks land where the disc says?</li><li>With Change Sample Rate ticked, does your interface reach each file's rate before the sound starts?</li></ul></details></section>
 <section id="v1-1-135"><h2>1.1.135 <span class="date">2026-11-07</span></h2><ul class="headlines"><li>Text View works again, a selected clip comes first for Delete, Cut and Copy, Save keeps backups, and one EDL can now record another.</li></ul><details><summary>Full notes</summary><p>Text View works again, a selected clip comes first for Delete, Cut and Copy, Save keeps backups, and one EDL can now record another.</p><h3>Text View</h3>
 <p>EDL &gt; Show Text View, a list of the track's clips below the track.</p>
 <ul><li><strong>It no longer zooms or scrolls with the timeline,</strong> so it stays filled in wherever you are.</li><li>It looks like the Preview's file list, in white text: Name, Start, End, Gain and Duration. The list is always in time order and does not sort.</li><li><strong>Type a Start</strong> to move a clip, or <strong>an End</strong> to trim it. Both land on a sample, follow the Edit Group, and are one Undo. End stops at the end of the file. Duration is read-only.</li><li>Text that is not a time or a number changes nothing.</li><li><p>Click a row to select its clip, and select a clip on the lane to highlight its row.</p></li></ul>
