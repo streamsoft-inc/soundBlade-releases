@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.136](#v1-1-136)** — 2026-11-08
+  - Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.
 - **[1.1.135](#v1-1-135)** — 2026-11-07
   - Text View works again, a selected clip comes first for Delete, Cut and Copy, Save keeps backups, and one EDL can now record another.
 - **[1.1.134](#v1-1-134)** — 2026-11-06
@@ -339,6 +341,113 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-136"></a>
+## 1.1.136 — 2026-11-08
+
+Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.
+
+### Pyramix MTFF
+
+- **File ▸ Open MTFF…** opens a master in a new window, as Open DDP Image does: one track per channel,
+  Destination in Edit Group A, and marks from its table of contents.
+- In the **Preview** it is one row with its album name, artist and cover.
+- Dropped or opened into an EDL, it becomes one clip per channel with its marks. If the table of contents
+  does not match the audio's length, the EDL asks before adding them.
+- Only 32-bit float stereo has been seen so far. Any other layout is refused, and says why.
+
+---
+
+### DDP in the Preview
+
+- **Open EDL** on a DDP now gives what Open DDP Image gives: a clip per CD track, and its marks.
+- The row is named after the DDP's folder, and its marks are drawn on the waveform.
+
+---
+
+### Tracks under the triangle
+
+Click the triangle on an MTFF, a DDP or an MKV with chapters. Under the metadata you now get **one row
+per track**: number and title, ISRC, and length (an MKV chapter has no ISRC).
+
+- **Click a track to play from it.** Play carries on to the end of the file.
+- The track you are hearing turns white.
+- The tracks are in disc order however the list is sorted.
+
+The same marks are drawn on the waveform.
+
+---
+
+### Change Sample Rate based on File
+
+A new tick in **Audio I/O Settings**, off by default. Before a file plays, the app stops, sets the device
+to the file's rate, waits up to half a second for the device to report it, then plays.
+
+- It comes ahead of **Enable SRC**. If the device cannot take the rate, Enable SRC decides: on converts
+  the file, off plays it at the wrong rate.
+- The device stays at the last file's rate. Files needing different rates do not play gaplessly.
+
+Preview only. An EDL that is playing keeps its rate, and the file is converted.
+
+---
+
+### MKV files
+
+Audio in MKV files opens in the Preview and in EDLs: PCM, FLAC (Auro-3D carriers included), Dolby Digital
+and Dolby Digital Plus. DTS, DTS-HD MA and Dolby TrueHD play, bit-exact, through **FFmpeg you install
+yourself** in `~/Library/Application Support/soundBlade 3.0/Codecs/`, or one already in `/opt/homebrew/bin` or
+`/usr/local/bin`. TrueHD with Atmos plays its channel bed.
+
+An MP4 with Dolby Digital Plus Atmos (JOC) now says so in its details: it plays as its channel bed.
+
+---
+
+### Bit-perfect playback, and dither after the volume
+
+- **The Preview's DIRECT lamp** lights when nothing in the path changes a PCM file. **DIRECT+G** means only
+  the Main Output volume and dither follow it.
+- **Main Output volume then dither are now last,** on every playback path. Automatic dither turns on only
+  when something changes the samples or the volume is not at 0.0 dB.
+
+---
+
+### Exclusive Access (hog mode)
+
+A new tick in **Audio I/O Settings**, off by default, claims the device for soundBlade alone. If another
+application holds the device, playback stops and soundBlade says so.
+
+---
+
+### Artist Connection
+
+- **Streaming is faster to start and scrub.** Streamed audio is now held in memory while the app is
+  open, shared by playback and waveform drawing, and read ahead further.
+- **Double-click an album** in the Albums tab, or right-click and choose **Add Album to File Pane**,
+  to add its tracks in album order at the bottom of the list. Each streams like a Library file.
+  A row shows the track's title.
+- **Downloading from Artist Connection is switched off for now.** Files stream. Copies you already
+  downloaded still open.
+- A file's **Type** column says PCM and its **Details** the channel count, and a name no longer ends in
+  its layout and rate.
+
+---
+
+### Also
+
+- **Object view:** every speaker now meters from its own level, panned objects included. Speakers and object
+  spheres are drawn in blue underneath.
+- **Speaker Positions** is hidden in Settings for now. Saved positions are kept.
+
+---
+
+**What we would like to hear from testers**
+
+- Do an MTFF's and a DDP's tracks and marks land where the disc says?
+- With Change Sample Rate ticked, does your interface reach each file's rate before the sound starts?
+
+[Back to the list of versions](#versions)
 
 ---
 
