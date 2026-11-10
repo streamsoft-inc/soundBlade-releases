@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-137"><span class="v">1.1.137</span><span class="d">2026-11-10</span></a></li>
 <li><a href="#v1-1-136"><span class="v">1.1.136</span><span class="d">2026-11-08</span></a></li>
 <li><a href="#v1-1-135"><span class="v">1.1.135</span><span class="d">2026-11-07</span></a></li>
 <li><a href="#v1-1-134"><span class="v">1.1.134</span><span class="d">2026-11-06</span></a></li>
@@ -168,6 +169,23 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-137"><h2>1.1.137 <span class="date">2026-11-10</span></h2><ul class="headlines"><li>9.1.6 and 9.1.4 now use the standard SMPTE channel order, the Preview lets you say what a file&#x27;s channels are, and disc images bring their album and track details with them.</li></ul><details><summary>Full notes</summary><p>9.1.6 and 9.1.4 now use the standard SMPTE channel order, the Preview lets you say what a file's channels are, and disc images bring their album and track details with them.</p><h3>9.1.6 and 9.1.4 in SMPTE order</h3>
+<p>In SMPTE order the outputs now run 1 to 16 in order: L R C LFE Lss Rss Lrs Rrs, then the wides <strong>Lw Rw on outputs 9 and 10</strong>, then the heights. The Speaker Layout window lists the rows in that order.</p>
+<ul><li>A 16-channel (9.1.6) or 14-channel (9.1.4) file with no layout of its own is read in this order too.</li><li>Film order is unchanged.</li><li><p><strong>An EDL saved earlier with a 9.1.6 or 9.1.4 layout is not converted:</strong> its tracks may now play on other speakers. Check each track's output, or set them again.</p></li></ul>
+<hr>
+<h3>Say what a file's channels are (Preview)</h3>
+<p><strong>Ctrl-click (or right-click) the Source read-out</strong> to choose the layout of the selected file: every layout, Channel Based, or Auto (what the file itself says). Binaural is offered on a two-channel file.</p>
+<ul><li>The choice decides the rows' speaker names, the Desk, routing, Measure, Render and Open EDL.</li><li>It is kept for that file, with the list and the session. <strong>It is never written into the audio file.</strong></li><li>On an ADM it names the bed; the objects are unchanged.</li><li><p>Choosing reloads the file from its start.</p></li></ul>
+<hr>
+<h3>Disc images: album and track details</h3>
+<ul><li><strong>MTFF masters open at any channel count</strong> (a 12-channel 7.1.4 one has been seen). The channels are named Ch 1, Ch 2…, since the file does not say which speaker each one is.</li><li>An MTFF's UPC, album title, artist, label, catalog number and genre fill in <strong>Mark Info</strong> in an EDL and <strong>Album Info</strong> in the Preview, where they are blank. Nothing already there is replaced, and a disc naming another album adds nothing.</li><li>A DDP's text file now gives each track's performer, and the disc's title and performer.</li><li><p>In the Preview, track rows read "Title — Performer", with the credits in the tooltip. <strong>Right-click a track &gt; Track Metadata...</strong> shows everything the disc says about it (read only).</p></li></ul>
+<hr>
+<h3>AC Connect</h3>
+<p>When the Artist Connection app plays to soundBlade's Preview:</p>
+<ul><li>The app is told when each track ends, so it moves on to the next one correctly.</li><li>A stream that fails is reported to the app once, not over and over.</li><li><p>Stop and disconnect from the app clear the playlist.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>On a 9.1.6 or 9.1.4 system, does every speaker play what it should?</li><li>Does choosing a layout from Source give the rows and the sound you expect, in the Preview and in Open EDL?</li><li>Do an MTFF's album details land in Mark Info as the disc states them?</li></ul></details></section>
 <section id="v1-1-136"><h2>1.1.136 <span class="date">2026-11-08</span></h2><ul class="headlines"><li>Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.</li></ul><details><summary>Full notes</summary><p>Pyramix MTFF masters, track rows in the Preview, MKV files, Exclusive Access, and bit-perfect playback shown by a DIRECT lamp.</p><h3>Pyramix MTFF</h3>
 <ul><li><strong>File ▸ Open MTFF…</strong> opens a master in a new window, as Open DDP Image does: one track per channel, Destination in Edit Group A, and marks from its table of contents.</li><li>In the <strong>Preview</strong> it is one row with its album name, artist and cover.</li><li>Dropped or opened into an EDL, it becomes one clip per channel with its marks. If the table of contents does not match the audio's length, the EDL asks before adding them.</li><li><p>Only 32-bit float stereo has been seen so far. Any other layout is refused, and says why.</p></li></ul>
 <hr>
