@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-139"><span class="v">1.1.139</span><span class="d">2026-11-11</span></a></li>
 <li><a href="#v1-1-138"><span class="v">1.1.138</span><span class="d">2026-11-11</span></a></li>
 <li><a href="#v1-1-137"><span class="v">1.1.137</span><span class="d">2026-11-10</span></a></li>
 <li><a href="#v1-1-136"><span class="v">1.1.136</span><span class="d">2026-11-08</span></a></li>
@@ -170,6 +171,26 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-139"><h2>1.1.139 <span class="date">2026-11-11</span></h2><ul class="headlines"><li>ADM Source as the mix, Save As Default for your room&#x27;s layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.</li></ul><details><summary>Full notes</summary><p>ADM Source as the mix, Save As Default for your room's layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.</p><h3>ADM masters</h3>
+<ul><li><strong>An ADM with objects has a 7.1.4 Source.</strong> Dolby Atmos beds are 7.1.2 at most; the bed and the objects together are the 7.1.4 mix, and the Source now says so. The bed is never changed, and the Preview's Overview still shows it as <strong>Bed configuration</strong> (7.1.2).</li><li><p>The Monitor is yours to set: it starts on the bed, or on your saved default (below).</p></li></ul>
+<hr>
+<h3>Speaker Layout</h3>
+<ul><li><strong>Save As Default</strong> in an EDL's Speaker Layout dialog makes the layout showing — outputs and named layout, for example <em>9.1.6-STUDIO</em> for your room — the one every new EDL starts on. Open EDLs keep their own.</li><li><p>Once you have chosen a default, an ADM opens on it rather than on its bed.</p></li></ul>
+<hr>
+<h3>Objects</h3>
+<ul><li>Objects in the room <strong>scale with the view</strong> — a small window no longer draws them as large as a big one.</li><li><p>An object with a size (Dolby's Size, or divergence) has a <strong>faint ring</strong> as wide as the area it spreads over. A Size of 1 fills the room.</p></li></ul>
+<hr>
+<h3>Preview</h3>
+<ul><li><strong>Loop</strong> is a square button that moves on with each click: <strong>Off</strong> → <strong>Loop 1</strong> (this file, from its start) → <strong>Loop All</strong> (the list, back to the first file after the last) → <strong>Loop Selection</strong> → Off.</li><li><strong>Drag across the Layout's Overview column</strong> to make a selection, for playing only. Loop Selection repeats it; a click clears it.</li><li><p>The EDL's own Loop button is unchanged.</p></li></ul>
+<hr>
+<h3>Recording</h3>
+<ul><li><strong>An armed track meters the input you picked</strong> even when only some of the interface's inputs are enabled in Audio I/O. It used to read zero, or another input — and a take recorded the same wrong channel.</li><li><p><strong>An armed track recording from an M channel</strong> (M3/M4...) now meters it while the tracks sending to it play, take or no take. It used to stay blank until Record.</p></li></ul>
+<hr>
+<h3>Also</h3>
+<ul><li><strong>Multiple Export</strong>: the main export is always written; each ticked 48/24, 44.1/24 or 44.1/16 set goes into its own subfolder beside it. The progress window names the file it is on.</li><li><p><strong>File menu</strong>: Project commands, then <strong>Import</strong> (ADM, DDP Image, MTFF, DDEX) and Export, then Open File. <strong>Save EDL</strong> and <strong>Save EDL As</strong> are in the EDL menu.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Does an Atmos ADM open with the Source and Monitor you expect in your room?</li><li>Do armed tracks meter (and record) the right input, including from M channels?</li><li>Do the Preview's Loop modes and selection behave as you expect?</li></ul></details></section>
 <section id="v1-1-138"><h2>1.1.138 <span class="date">2026-11-11</span></h2><ul class="headlines"><li>DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.</li></ul><details><summary>Full notes</summary><p>DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.</p><h3>DDEX</h3>
 <ul><li><strong>Export Metadata in Mark Info</strong> asks CSV or DDEX. DDEX writes an ERN 4.3 message: each Start mark is a song, one recording per Delivery Layout. Tick <strong>Include audio</strong> to render each song (in the EDL's own layout) into the delivery folder, like a DDP.</li><li><strong>File &gt; Import DDEX...</strong> opens a DDEX release as EDLs, one per layout, with the songs end to end and Mark Info filled in.</li><li><strong>A release that is missing details can still be exported.</strong> soundBlade lists what is missing (label, UPC...) and offers <strong>Export Anyway</strong>, which writes it with those fields blank.</li><li>Titles and artists are read from each file's own tags when it has no metadata sidecar -- DDEX said they were missing.</li><li>No release date means today's date.</li><li><p>New Folder in the folder chooser can now be named.</p></li></ul>
 <hr>
