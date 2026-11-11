@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.139](#v1-1-139)** — 2026-11-11
+  - ADM Source as the mix, Save As Default for your room's layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.
 - **[1.1.138](#v1-1-138)** — 2026-11-11
   - DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.
 - **[1.1.137](#v1-1-137)** — 2026-11-10
@@ -345,6 +347,80 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-139"></a>
+## 1.1.139 — 2026-11-11
+
+ADM Source as the mix, Save As Default for your room's layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.
+
+### ADM masters
+
+- **An ADM with objects has a 7.1.4 Source.** Dolby Atmos beds are 7.1.2 at most;
+  the bed and the objects together are the 7.1.4 mix, and the Source now says so.
+  The bed is never changed, and the Preview's Overview still shows it as
+  **Bed configuration** (7.1.2).
+- The Monitor is yours to set: it starts on the bed, or on your saved default (below).
+
+---
+
+### Speaker Layout
+
+- **Save As Default** in an EDL's Speaker Layout dialog makes the layout showing —
+  outputs and named layout, for example *9.1.6-STUDIO* for your room — the one every
+  new EDL starts on. Open EDLs keep their own.
+- Once you have chosen a default, an ADM opens on it rather than on its bed.
+
+---
+
+### Objects
+
+- Objects in the room **scale with the view** — a small window no longer draws them
+  as large as a big one.
+- An object with a size (Dolby's Size, or divergence) has a **faint ring** as wide
+  as the area it spreads over. A Size of 1 fills the room.
+
+---
+
+### Preview
+
+- **Loop** is a square button that moves on with each click: **Off** → **Loop 1**
+  (this file, from its start) → **Loop All** (the list, back to the first file
+  after the last) → **Loop Selection** → Off.
+- **Drag across the Layout's Overview column** to make a selection, for playing only.
+  Loop Selection repeats it; a click clears it.
+- The EDL's own Loop button is unchanged.
+
+---
+
+### Recording
+
+- **An armed track meters the input you picked** even when only some of the
+  interface's inputs are enabled in Audio I/O. It used to read zero, or another
+  input — and a take recorded the same wrong channel.
+- **An armed track recording from an M channel** (M3/M4...) now meters it while the
+  tracks sending to it play, take or no take. It used to stay blank until Record.
+
+---
+
+### Also
+
+- **Multiple Export**: the main export is always written; each ticked 48/24,
+  44.1/24 or 44.1/16 set goes into its own subfolder beside it. The progress window
+  names the file it is on.
+- **File menu**: Project commands, then **Import** (ADM, DDP Image, MTFF, DDEX) and
+  Export, then Open File. **Save EDL** and **Save EDL As** are in the EDL menu.
+
+---
+
+**What we would like to hear from testers**
+
+- Does an Atmos ADM open with the Source and Monitor you expect in your room?
+- Do armed tracks meter (and record) the right input, including from M channels?
+- Do the Preview's Loop modes and selection behave as you expect?
+
+[Back to the list of versions](#versions)
 
 ---
 
