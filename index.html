@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-138"><span class="v">1.1.138</span><span class="d">2026-11-11</span></a></li>
 <li><a href="#v1-1-137"><span class="v">1.1.137</span><span class="d">2026-11-10</span></a></li>
 <li><a href="#v1-1-136"><span class="v">1.1.136</span><span class="d">2026-11-08</span></a></li>
 <li><a href="#v1-1-135"><span class="v">1.1.135</span><span class="d">2026-11-07</span></a></li>
@@ -169,6 +170,23 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-138"><h2>1.1.138 <span class="date">2026-11-11</span></h2><ul class="headlines"><li>DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.</li></ul><details><summary>Full notes</summary><p>DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.</p><h3>DDEX</h3>
+<ul><li><strong>Export Metadata in Mark Info</strong> asks CSV or DDEX. DDEX writes an ERN 4.3 message: each Start mark is a song, one recording per Delivery Layout. Tick <strong>Include audio</strong> to render each song (in the EDL's own layout) into the delivery folder, like a DDP.</li><li><strong>File &gt; Import DDEX...</strong> opens a DDEX release as EDLs, one per layout, with the songs end to end and Mark Info filled in.</li><li><strong>A release that is missing details can still be exported.</strong> soundBlade lists what is missing (label, UPC...) and offers <strong>Export Anyway</strong>, which writes it with those fields blank.</li><li>Titles and artists are read from each file's own tags when it has no metadata sidecar -- DDEX said they were missing.</li><li>No release date means today's date.</li><li><p>New Folder in the folder chooser can now be named.</p></li></ul>
+<hr>
+<h3>Album Info (Preview)</h3>
+<ul><li><strong>Export</strong> (CSV or DDEX) is in the Album Info window, since both are for the album.</li><li><p>Opening it fills a blank album and artist from the selected file, and the layout and genre when every file agrees.</p></li></ul>
+<hr>
+<h3>Artist Connection tab</h3>
+<ul><li><strong>Upload</strong> chooses files or folders (folders with their subfolders) and uploads into the selected library folder. A folder that already exists is added to, not duplicated. Hidden files, soundBlade's sidecars and log files are skipped.</li><li><strong>New Folder</strong> creates a folder in the library.</li><li><p>Files and folders can be dragged in.</p></li></ul>
+<hr>
+<h3>Preview</h3>
+<ul><li>The top half is in four columns: Overview | Loudness | the album, with the timecode under it | Desk and the Monitor meters with the fader.</li><li>The transport buttons are in the lower row, with Play under the album.</li><li><p>The meters, then the cover, shrink to fit a smaller window.</p></li></ul>
+<hr>
+<h3>Also</h3>
+<ul><li><strong>Save buttons turn blue</strong> when there is something to save.</li><li><strong>Cmd-,</strong> opens Preferences; <strong>Cmd-Shift-,</strong> opens Project Settings.</li><li><p>AC Connect: a playlist item that is not an http/https link is refused.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Does a DDEX from Mark Info, with and without audio, read correctly where you send it?</li><li>Does Import DDEX give you the EDLs you expect?</li><li>Does Upload put everything where it should in the library?</li></ul></details></section>
 <section id="v1-1-137"><h2>1.1.137 <span class="date">2026-11-10</span></h2><ul class="headlines"><li>9.1.6 and 9.1.4 now use the standard SMPTE channel order, the Preview lets you say what a file&#x27;s channels are, and disc images bring their album and track details with them.</li></ul><details><summary>Full notes</summary><p>9.1.6 and 9.1.4 now use the standard SMPTE channel order, the Preview lets you say what a file's channels are, and disc images bring their album and track details with them.</p><h3>9.1.6 and 9.1.4 in SMPTE order</h3>
 <p>In SMPTE order the outputs now run 1 to 16 in order: L R C LFE Lss Rss Lrs Rrs, then the wides <strong>Lw Rw on outputs 9 and 10</strong>, then the heights. The Speaker Layout window lists the rows in that order.</p>
 <ul><li>A 16-channel (9.1.6) or 14-channel (9.1.4) file with no layout of its own is read in this order too.</li><li>Film order is unchanged.</li><li><p><strong>An EDL saved earlier with a 9.1.6 or 9.1.4 layout is not converted:</strong> its tracks may now play on other speakers. Check each track's output, or set them again.</p></li></ul>
