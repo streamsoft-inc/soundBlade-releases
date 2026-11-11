@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.138](#v1-1-138)** — 2026-11-11
+  - DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.
 - **[1.1.137](#v1-1-137)** — 2026-11-10
   - 9.1.6 and 9.1.4 now use the standard SMPTE channel order, the Preview lets you say what a file's channels are, and disc images bring their album and track details with them.
 - **[1.1.136](#v1-1-136)** — 2026-11-08
@@ -343,6 +345,73 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-138"></a>
+## 1.1.138 — 2026-11-11
+
+DDEX from Mark Info, Import DDEX, export from Album Info, upload to Artist Connection, and a Preview laid out in four columns.
+
+### DDEX
+
+- **Export Metadata in Mark Info** asks CSV or DDEX. DDEX writes an ERN 4.3 message:
+  each Start mark is a song, one recording per Delivery Layout. Tick **Include audio**
+  to render each song (in the EDL's own layout) into the delivery folder, like a DDP.
+- **File > Import DDEX...** opens a DDEX release as EDLs, one per layout, with the
+  songs end to end and Mark Info filled in.
+- **A release that is missing details can still be exported.** soundBlade lists what is
+  missing (label, UPC...) and offers **Export Anyway**, which writes it with those
+  fields blank.
+- Titles and artists are read from each file's own tags when it has no metadata
+  sidecar -- DDEX said they were missing.
+- No release date means today's date.
+- New Folder in the folder chooser can now be named.
+
+---
+
+### Album Info (Preview)
+
+- **Export** (CSV or DDEX) is in the Album Info window, since both are for the album.
+- Opening it fills a blank album and artist from the selected file, and the layout and
+  genre when every file agrees.
+
+---
+
+### Artist Connection tab
+
+- **Upload** chooses files or folders (folders with their subfolders) and uploads into
+  the selected library folder. A folder that already exists is added to, not duplicated.
+  Hidden files, soundBlade's sidecars and log files are skipped.
+- **New Folder** creates a folder in the library.
+- Files and folders can be dragged in.
+
+---
+
+### Preview
+
+- The top half is in four columns: Overview | Loudness | the album, with the timecode
+  under it | Desk and the Monitor meters with the fader.
+- The transport buttons are in the lower row, with Play under the album.
+- The meters, then the cover, shrink to fit a smaller window.
+
+---
+
+### Also
+
+- **Save buttons turn blue** when there is something to save.
+- **Cmd-,** opens Preferences; **Cmd-Shift-,** opens Project Settings.
+- AC Connect: a playlist item that is not an http/https link is refused.
+
+---
+
+**What we would like to hear from testers**
+
+- Does a DDEX from Mark Info, with and without audio, read correctly where you send it?
+- Does Import DDEX give you the EDLs you expect?
+- Does Upload put everything where it should in the library?
+
+[Back to the list of versions](#versions)
 
 ---
 
