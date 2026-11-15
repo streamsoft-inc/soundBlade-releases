@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.140](#v1-1-140)** — 2026-11-15
+  - Playback now nulls against an export when plug-ins are in the EDL, moved files are asked for once, and the Export window remembers how you left it.
 - **[1.1.139](#v1-1-139)** — 2026-11-11
   - ADM Source as the mix, Save As Default for your room's layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.
 - **[1.1.138](#v1-1-138)** — 2026-11-11
@@ -347,6 +349,61 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-140"></a>
+## 1.1.140 — 2026-11-15
+
+Playback now nulls against an export when plug-ins are in the EDL, moved files are asked for once, and the Export window remembers how you left it.
+
+### Playback and export match
+
+- **Playback starts each plug-in on the same sample the export does.** Some plug-ins
+  (SCC, SCE, MAAT thEQred and others) work in blocks of their own, so their output
+  depends on where they were started. Playback used to start them at the device
+  block's edge, or at the point you pressed Play; an export starts them at the Desk
+  Event's first sample. An export put back in the EDL with its polarity inverted
+  therefore did not cancel playback. It does now.
+- **Play from inside a Desk Event** runs the plug-in up from where the export would
+  have started it, faster than real time and unheard, before the first sound. With a
+  long event this can add a fraction of a second before playback starts.
+- Not included yet: plug-ins in the Master slots, and EDLs that are Play-Locked,
+  have an armed track, or stream from Artist Connection.
+
+**SCC and SCE users:** install the updated SCC and SCE plug-ins as well. They report
+the right latency at 88.2 kHz and above (an export was late by 1536 samples at
+96 kHz), no longer export a silent left channel, and restart cleanly at each Play.
+
+---
+
+### Moved files
+
+- **A Project whose EDLs or sound files have moved asks once.** Locate one file and
+  every other missing EDL and sound file of that Project is looked for in the same
+  place — the same folder, or the same folder moved to a new disk or parent folder.
+- **A missing EDL asks Locate / Skip / Cancel**, as a missing sound file does. It
+  used to be only listed after the Project had opened without it.
+- **What you locate is saved.** The EDL or Project is marked as changed, so Save
+  writes the new location and the next open does not ask again.
+
+---
+
+### Export
+
+- **The Export window opens as you left it**: the tickboxes, speaker layouts and
+  stems are remembered.
+
+---
+
+**What we would like to hear from testers**
+
+- With plug-ins on Desk Events, does an export placed back in the EDL with inverted
+  polarity cancel playback — from the start, and when Play starts mid-song?
+- Does a Project with moved audio or EDLs open with one prompt, and stay found after
+  Save?
+
+[Back to the list of versions](#versions)
 
 ---
 
