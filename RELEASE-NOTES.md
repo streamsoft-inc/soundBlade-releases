@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.141](#v1-1-141)** — 2026-11-15
+  - More fixes to how plug-ins play, following 1.1.140: after a sample rate change, on the Master, in what Save stores, and a crash when adding some plug-ins to the Master.
 - **[1.1.140](#v1-1-140)** — 2026-11-15
   - Playback now nulls against an export when plug-ins are in the EDL, moved files are asked for once, and the Export window remembers how you left it.
 - **[1.1.139](#v1-1-139)** — 2026-11-11
@@ -349,6 +351,79 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-141"></a>
+## 1.1.141 — 2026-11-15
+
+More fixes to how plug-ins play, following 1.1.140: after a sample rate change, on the Master, in what Save stores, and a crash when adding some plug-ins to the Master.
+
+### Plug-ins and the sample rate
+
+- **Plug-ins follow the EDL's sample rate.** A plug-in was set up for the rate the
+  audio device had when the plug-in loaded. Opening a Project at another rate, or
+  changing the rate, left it set up for the old one. A plug-in whose timing depends on
+  the rate (SCC, SCE) then played out of time with the other tracks and did not match
+  its own export. Plug-ins are now set up again whenever the rate or buffer size changes.
+  Exports were not affected.
+
+---
+
+### Master plug-ins match the export
+
+- **Playback starts a Master plug-in on the same sample the export does**, as 1.1.140
+  did for plug-ins on tracks. An export of an EDL with a Master plug-in that works in
+  blocks of its own now cancels playback when placed back with its polarity inverted.
+- **Play from the middle of an EDL that has a Master plug-in** runs it up first, faster
+  than real time and unheard. Expect a fraction of a second before the first sound.
+
+---
+
+### Crash adding a Master plug-in
+
+- **Fixed a crash when adding some plug-ins to a Master slot**, most likely while
+  playing. A plug-in that keeps a side-chain input (LALA's AudioUnit is one) was handed
+  only its main channels and read the side-chain from memory that was not there. It is
+  now given a silent side-chain and runs.
+
+---
+
+### Save
+
+- **Save stores the settings of a plug-in shared across an Edit Group even while its
+  window is open.** They used to reach the EDL only when the plug-in's window was
+  closed, so a Save or Quit with it open could store the settings as they were before.
+
+---
+
+### Also in this build
+
+- **A time selection always comes first.** With both a time selection and a selected
+  clip, Delete, Cut, Copy, Cmd+G, zoom and Find & Set Points act on the time selection.
+- **AutoSpace All Clips follows the Edit Group**: every track of the group is spaced
+  together, and clips that overlap on different tracks of the group move as one.
+  The spacing is set in Application Settings > Editing Tools > **AutoSpacing Duration**
+  (1, 2, 3 or a typed number of seconds).
+- **Application Settings and Project Settings keep one window size** on every tab.
+- **Mark Info's Auto-Incr ISRC and Auto-Set Artist** are now one setting for every EDL.
+- **Scale Waveform to Fill Track** is in the track's right-click menu.
+- The **Help** menu has macOS's own search field, which finds any menu command by name.
+- The **Tools** menu is no longer shown; shortcuts saved for its commands still work.
+- The plug-in list's columns fit the pane without a horizontal scroll bar.
+
+---
+
+**What we would like to hear from testers**
+
+- At 88.2 or 96 kHz, do SCC and SCE stay in time with the other tracks, and does an
+  export cancel playback?
+- With a plug-in on the Master, does an export cancel playback from the start and from
+  mid-song?
+- Change a shared plug-in's settings, Save with its window still open, reopen: are the
+  settings there?
+
+[Back to the list of versions](#versions)
 
 ---
 
