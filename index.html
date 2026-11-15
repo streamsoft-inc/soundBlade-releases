@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-140"><span class="v">1.1.140</span><span class="d">2026-11-15</span></a></li>
 <li><a href="#v1-1-139"><span class="v">1.1.139</span><span class="d">2026-11-11</span></a></li>
 <li><a href="#v1-1-138"><span class="v">1.1.138</span><span class="d">2026-11-11</span></a></li>
 <li><a href="#v1-1-137"><span class="v">1.1.137</span><span class="d">2026-11-10</span></a></li>
@@ -171,6 +172,18 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-140"><h2>1.1.140 <span class="date">2026-11-15</span></h2><ul class="headlines"><li>Playback now nulls against an export when plug-ins are in the EDL, moved files are asked for once, and the Export window remembers how you left it.</li></ul><details><summary>Full notes</summary><p>Playback now nulls against an export when plug-ins are in the EDL, moved files are asked for once, and the Export window remembers how you left it.</p><h3>Playback and export match</h3>
+<ul><li><strong>Playback starts each plug-in on the same sample the export does.</strong> Some plug-ins (SCC, SCE, MAAT thEQred and others) work in blocks of their own, so their output depends on where they were started. Playback used to start them at the device block's edge, or at the point you pressed Play; an export starts them at the Desk Event's first sample. An export put back in the EDL with its polarity inverted therefore did not cancel playback. It does now.</li><li><strong>Play from inside a Desk Event</strong> runs the plug-in up from where the export would have started it, faster than real time and unheard, before the first sound. With a long event this can add a fraction of a second before playback starts.</li><li><p>Not included yet: plug-ins in the Master slots, and EDLs that are Play-Locked, have an armed track, or stream from Artist Connection.</p></li></ul>
+<p><strong>SCC and SCE users:</strong> install the updated SCC and SCE plug-ins as well. They report the right latency at 88.2 kHz and above (an export was late by 1536 samples at 96 kHz), no longer export a silent left channel, and restart cleanly at each Play.</p>
+<hr>
+<h3>Moved files</h3>
+<ul><li><strong>A Project whose EDLs or sound files have moved asks once.</strong> Locate one file and every other missing EDL and sound file of that Project is looked for in the same place — the same folder, or the same folder moved to a new disk or parent folder.</li><li><strong>A missing EDL asks Locate / Skip / Cancel</strong>, as a missing sound file does. It used to be only listed after the Project had opened without it.</li><li><p><strong>What you locate is saved.</strong> The EDL or Project is marked as changed, so Save writes the new location and the next open does not ask again.</p></li></ul>
+<hr>
+<h3>Export</h3>
+<ul><li><p><strong>The Export window opens as you left it</strong>: the tickboxes, speaker layouts and stems are remembered.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>With plug-ins on Desk Events, does an export placed back in the EDL with inverted polarity cancel playback — from the start, and when Play starts mid-song?</li><li>Does a Project with moved audio or EDLs open with one prompt, and stay found after Save?</li></ul></details></section>
 <section id="v1-1-139"><h2>1.1.139 <span class="date">2026-11-11</span></h2><ul class="headlines"><li>ADM Source as the mix, Save As Default for your room&#x27;s layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.</li></ul><details><summary>Full notes</summary><p>ADM Source as the mix, Save As Default for your room's layout, object sizes in the room, new Loop modes in the Preview, and fixes to record metering.</p><h3>ADM masters</h3>
 <ul><li><strong>An ADM with objects has a 7.1.4 Source.</strong> Dolby Atmos beds are 7.1.2 at most; the bed and the objects together are the 7.1.4 mix, and the Source now says so. The bed is never changed, and the Preview's Overview still shows it as <strong>Bed configuration</strong> (7.1.2).</li><li><p>The Monitor is yours to set: it starts on the bed, or on your saved default (below).</p></li></ul>
 <hr>
