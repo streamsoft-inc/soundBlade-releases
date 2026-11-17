@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.143](#v1-1-143)** — 2026-11-17
+  - This build adds pair rows to the Desk and changes how the internal loop is connected.
 - **[1.1.142](#v1-1-142)** — 2026-11-17
   - This build carries the AC Connect fixes that were missing from 1.1.141, and the work done since: burning a CD, importing an SACD image, Desk Events that stay with their audio, and a newer version of the iLok protection.
 - **[1.1.141](#v1-1-141)** — 2026-11-15
@@ -353,6 +355,56 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-143"></a>
+## 1.1.143 — 2026-11-17
+
+This build adds pair rows to the Desk and changes how the internal loop is connected.
+
+### Desk: rows 3 and 4 are pair rows
+
+- **Rows 3 and 4 of the Desk now hold one plug-in per pair of strips**: L/R, C/LFE,
+  Ls/Rs and so on, in strip order. A last odd strip gets a mono plug-in. Each pair is
+  its own plug-in, with its own settings, editor, bypass and automation, and nothing
+  links them.
+- Click a pair's cell to add or open its plug-in. A whole-row plug-in cannot go in
+  these two rows; rows 1 and 2 work as before.
+- **Latency:** a pair row's latency is its largest plug-in's, and every channel is
+  delayed by that amount, so the channels stay in time. A bypassed plug-in keeps its
+  latency, as in every other slot.
+- Exports print each pair's plug-in on its own strips, as playback does.
+- The Album Bus's rows 3 and 4 work the same way.
+- **Plug-ins saved in rows 3 and 4 of older EDLs are not loaded.** Put them back in
+  the new cells.
+- **Fixed:** Save wrote the Album Bus's plug-in settings into the EDL instead of the
+  Project, where they were lost.
+
+---
+
+### Internal loop (record one EDL into another)
+
+- **The Send button in the EDL header is gone.** The receiving EDL now makes the
+  connection itself.
+- In the sending EDL, pick M1, M2... in its tracks' Out menus.
+- In the receiving EDL, the In menu of a track lists **each EDL that sends to an M
+  channel, by name, right under No Input**, each a submenu of its channels
+  ("M1 (Vox)"). Picking one connects the two EDLs.
+- The plain M1...Mx list is still at the end of the In menu.
+- An EDL saved with the old Send turned on still sends, but it can no longer be
+  turned off.
+
+---
+
+**What we would like to hear from testers**
+
+- Put two different stereo plug-ins in row 3 of a 5.1 or 7.1.4 Desk. Does each pair
+  sound as expected, and does an export match playback?
+- Record one EDL into another, choosing the sending EDL from the In menu. Does the take
+  null against a layout export of the sending EDL?
+
+[Back to the list of versions](#versions)
 
 ---
 
