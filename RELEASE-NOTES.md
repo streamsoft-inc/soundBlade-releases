@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.142](#v1-1-142)** — 2026-11-17
+  - This build carries the AC Connect fixes that were missing from 1.1.141, and the work done since: burning a CD, importing an SACD image, Desk Events that stay with their audio, and a newer version of the iLok protection.
 - **[1.1.141](#v1-1-141)** — 2026-11-15
   - More fixes to how plug-ins play, following 1.1.140: after a sample rate change, on the Master, in what Save stores, and a crash when adding some plug-ins to the Master.
 - **[1.1.140](#v1-1-140)** — 2026-11-15
@@ -351,6 +353,94 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-142"></a>
+## 1.1.142 — 2026-11-17
+
+This build carries the AC Connect fixes that were missing from 1.1.141, and the work done since: burning a CD, importing an SACD image, Desk Events that stay with their audio, and a newer version of the iLok protection.
+
+### AC Connect (playing from the Pure Audio Streaming app)
+
+- **Fixed "Could not stream ... Item not found or not accessible" on the phone.**
+  soundBlade replaced the link the phone sent with a reference to this computer's own
+  Artist Connection studio. When the track was not in that studio, it could not play.
+  Every track now plays the link the phone sent.
+- **An old error is no longer sent to the phone.** A file list restored at launch could
+  report its own failed reads against the phone's new playlist.
+- **Stop and disconnect keep the playlist.** The phone goes on to send Play and seek for
+  the same tracks, and they now work.
+- **An expired Artist Connection sign-in says so**, and signs out, instead of failing
+  on every request. Log in again in Application Settings > Accounts.
+- Every AC Connect command is written to the log with its answer.
+
+---
+
+### Burn a CD
+
+- **File > Export > Burn CD...** renders the EDL's Destination tracks and burns them.
+- **File > Export > Burn DDP Image to CD...** burns an existing DDP: drive and disc
+  status, speed, copies, Test burn, Write CD-Text, and Verify, which reads the disc
+  back and compares it with the image.
+- **Known issue:** on one burn, a long gap before track 1 (1:47 in the DDP) was written
+  as about 3 seconds. Every track's audio was identical. If your master has audio
+  before track 1, check the disc.
+
+---
+
+### DDP
+
+- **A DDP can be made from tracks whose Edit Group shares a plug-in.** It was refused.
+  Each track is rendered as it plays, mono or stereo, and its first channel is written.
+
+---
+
+### SACD
+
+- **File > Import > Import SACD Image...** reads an SACD cutting master (DDP, UCMF or
+  Sony CMF), extracts the stereo area to a DSF, and opens it as an EDL with its tracks,
+  index marks, ISRCs and text. DST-compressed images are decoded.
+
+---
+
+### Editing
+
+- **A Desk Event goes with its audio.** Deleting or cutting a segment cuts the Desk
+  Events under it; Copy takes them and Paste puts them back; a moved segment's
+  plug-in automation moves with it. New in this build and little tested.
+- **Shift-click a segment's body** adds it to the selection, or takes it out.
+- Files appended onto existing tracks are named from their own file.
+
+---
+
+### iLok protection
+
+- **soundBlade now uses PACE Fusion 6.** Your existing licence should carry over. With
+  no licence, the activation window appears at launch; there is no built-in demo period.
+- **If the licence is removed while soundBlade is open**, playback pauses and a message
+  stays up until the licence is found again. Nothing is lost.
+
+---
+
+### Also in this build
+
+- **Help > soundBlade Guide** opens the user guide.
+- **Hold Shift at launch** to skip reopening the last Project.
+- **Hold Ctrl at launch** to show the Tools menu.
+- The Desk window opens where it was last used.
+
+---
+
+**What we would like to hear from testers**
+
+- Does the Pure Audio Streaming app play to soundBlade through AC Connect? If not,
+  please send the file ~/Library/Logs/soundBlade/soundBlade.log.
+- Does your iLok licence open this build without asking again?
+- After deleting, copying or moving a segment under a Desk Event, is the Desk Event
+  where you expect it?
+
+[Back to the list of versions](#versions)
 
 ---
 
