@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-144"><span class="v">1.1.144</span><span class="d">2026-11-19</span></a></li>
 <li><a href="#v1-1-143"><span class="v">1.1.143</span><span class="d">2026-11-17</span></a></li>
 <li><a href="#v1-1-142"><span class="v">1.1.142</span><span class="d">2026-11-17</span></a></li>
 <li><a href="#v1-1-141"><span class="v">1.1.141</span><span class="d">2026-11-15</span></a></li>
@@ -175,6 +176,17 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-144"><h2>1.1.144 <span class="date">2026-11-19</span></h2><ul class="headlines"><li>This build adds choosing an MKV&#x27;s audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview&#x27;s Play wait for the audio device after a sample rate change.</li></ul><details><summary>Full notes</summary><p>This build adds choosing an MKV's audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview's Play wait for the audio device after a sample rate change.</p><h3>MKV files (Preview, and every EDL that opens them)</h3>
+<ul><li><strong>An MKV with several audio streams lists one row per stream</strong> under the file in the Preview, above its chapters. Click a row to play that stream. A stream that cannot play is greyed, with the reason. The choice is kept with the list and the session, and Measure, Render and Open EDL use it too.</li><li><strong>Details names the stream playing</strong>: its title, else its format.</li><li><strong>The picture opens in the video window.</strong> The MKV's video is copied, not re-encoded, into a cached file the first time (H.264 and HEVC only).</li><li><strong>Cover art and liner notes</strong>: a cover attached to the MKV shows as the file's artwork; an attached PDF opens from the row's right-click menu, "Liner Notes...".</li><li><strong>An Auro-3D stream inside an MKV is now checked again when you choose it.</strong> Before, a file first opened on another stream stayed "not Auro" whichever stream you then chose, and an Auro stream played its eight channels undecoded.</li><li><p>Dolby TrueHD plays its 7.1 bed. The Atmos objects are not decoded.</p></li></ul>
+<hr>
+<h3>Artist Connection and AC Connect</h3>
+<ul><li><p><strong>Auro-3D files streamed from Artist Connection or played from the phone (AC Connect) are decoded</strong>, as files on disk are, in the Preview and in an EDL. They played as their undecoded channels before.</p></li></ul>
+<hr>
+<h3>Preview</h3>
+<ul><li><strong>After the device's sample rate changes (Change Sample Rate based on File), Play waits for the device to start</strong> (up to 6 seconds). If it never starts, Play does not start either, and the window says so.</li><li>Removing every file from the list no longer asks whether to delete Album Info you never set or changed.</li><li><p>Every line of the log now carries the time of day.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Open an MKV with several audio streams in the Preview and click each stream's row. Does an Auro stream show the Auro badge and all its channels? (FFmpeg must be installed for DTS and TrueHD; see the guide.)</li><li>Stream an Auro file from Artist Connection into the Preview or an EDL. All channels, sound?</li></ul></details></section>
 <section id="v1-1-143"><h2>1.1.143 <span class="date">2026-11-17</span></h2><ul class="headlines"><li>This build adds pair rows to the Desk and changes how the internal loop is connected.</li></ul><details><summary>Full notes</summary><p>This build adds pair rows to the Desk and changes how the internal loop is connected.</p><h3>Desk: rows 3 and 4 are pair rows</h3>
 <ul><li><strong>Rows 3 and 4 of the Desk now hold one plug-in per pair of strips</strong>: L/R, C/LFE, Ls/Rs and so on, in strip order. A last odd strip gets a mono plug-in. Each pair is its own plug-in, with its own settings, editor, bypass and automation, and nothing links them.</li><li>Click a pair's cell to add or open its plug-in. A whole-row plug-in cannot go in these two rows; rows 1 and 2 work as before.</li><li><strong>Latency:</strong> a pair row's latency is its largest plug-in's, and every channel is delayed by that amount, so the channels stay in time. A bypassed plug-in keeps its latency, as in every other slot.</li><li>Exports print each pair's plug-in on its own strips, as playback does.</li><li>The Album Bus's rows 3 and 4 work the same way.</li><li><strong>Plug-ins saved in rows 3 and 4 of older EDLs are not loaded.</strong> Put them back in the new cells.</li><li><p><strong>Fixed:</strong> Save wrote the Album Bus's plug-in settings into the EDL instead of the Project, where they were lost.</p></li></ul>
 <hr>
