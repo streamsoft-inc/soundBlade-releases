@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.144](#v1-1-144)** — 2026-11-19
+  - This build adds choosing an MKV's audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview's Play wait for the audio device after a sample rate change.
 - **[1.1.143](#v1-1-143)** — 2026-11-17
   - This build adds pair rows to the Desk and changes how the internal loop is connected.
 - **[1.1.142](#v1-1-142)** — 2026-11-17
@@ -355,6 +357,54 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-144"></a>
+## 1.1.144 — 2026-11-19
+
+This build adds choosing an MKV's audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview's Play wait for the audio device after a sample rate change.
+
+### MKV files (Preview, and every EDL that opens them)
+
+- **An MKV with several audio streams lists one row per stream** under the file in the Preview, above its
+  chapters. Click a row to play that stream. A stream that cannot play is greyed, with the reason. The
+  choice is kept with the list and the session, and Measure, Render and Open EDL use it too.
+- **Details names the stream playing**: its title, else its format.
+- **The picture opens in the video window.** The MKV's video is copied, not re-encoded, into a cached file
+  the first time (H.264 and HEVC only).
+- **Cover art and liner notes**: a cover attached to the MKV shows as the file's artwork; an attached PDF opens
+  from the row's right-click menu, "Liner Notes...".
+- **An Auro-3D stream inside an MKV is now checked again when you choose it.** Before, a file first opened on
+  another stream stayed "not Auro" whichever stream you then chose, and an Auro stream played its eight
+  channels undecoded.
+- Dolby TrueHD plays its 7.1 bed. The Atmos objects are not decoded.
+
+---
+
+### Artist Connection and AC Connect
+
+- **Auro-3D files streamed from Artist Connection or played from the phone (AC Connect) are decoded**, as
+  files on disk are, in the Preview and in an EDL. They played as their undecoded channels before.
+
+---
+
+### Preview
+
+- **After the device's sample rate changes (Change Sample Rate based on File), Play waits for the device to
+  start** (up to 6 seconds). If it never starts, Play does not start either, and the window says so.
+- Removing every file from the list no longer asks whether to delete Album Info you never set or changed.
+- Every line of the log now carries the time of day.
+
+---
+
+**What we would like to hear from testers**
+
+- Open an MKV with several audio streams in the Preview and click each stream's row. Does an Auro stream show
+  the Auro badge and all its channels? (FFmpeg must be installed for DTS and TrueHD; see the guide.)
+- Stream an Auro file from Artist Connection into the Preview or an EDL. All channels, sound?
+
+[Back to the list of versions](#versions)
 
 ---
 
