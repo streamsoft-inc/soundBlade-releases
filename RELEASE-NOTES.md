@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.146](#v1-1-146)** — 2026-11-20
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes two faults when playing from the phone (AC Connect): an album that skipped its first tracks, and soundBlade not closing when quit while a stream was playing.
 - **[1.1.145](#v1-1-145)** — 2026-11-20
   - This build fixes a crash on quit while streaming or uploading, refuses MKV files sent from the phone (AC Connect), and adds Clear List to the Preview's file list menus.
 - **[1.1.144](#v1-1-144)** — 2026-11-19
@@ -359,6 +361,40 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-146"></a>
+## 1.1.146 — 2026-11-20
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes two faults when playing from the phone (AC Connect): an album that skipped its first tracks, and soundBlade not closing when quit while a stream was playing.
+
+### AC Connect (playing from the Pure Audio Streaming app)
+
+- **An album no longer skips its first tracks.** The phone asks for play before soundBlade has finished
+  reading the track. soundBlade started anyway, stopped when the track was ready, and then moved to the
+  next one. It now waits for the track, and the phone shows it buffering until the sound starts.
+- **A seek sent by the phone before the track is ready is kept**, and applied when it starts.
+- The log now records each time soundBlade itself moves to the next track.
+
+---
+
+### Fixes
+
+- **Quitting while a stream is playing no longer hangs.** In 1.1.145, quitting while a FLAC file was
+  streaming from Artist Connection or the phone could leave soundBlade spinning, and the phone waiting.
+- **A stream that stops answering no longer ties up soundBlade.** The same fault could occur without
+  quitting, if the network dropped while a FLAC file was streaming.
+
+---
+
+**What we would like to hear from testers**
+
+- From the phone, play an album you have not played since opening soundBlade. Does it start on track 1?
+- Quit while a stream is playing. Does soundBlade close?
+- If not, please send the file ~/Library/Logs/soundBlade/soundBlade.log.
+
+[Back to the list of versions](#versions)
 
 ---
 
