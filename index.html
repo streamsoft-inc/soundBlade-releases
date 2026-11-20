@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-145"><span class="v">1.1.145</span><span class="d">2026-11-20</span></a></li>
 <li><a href="#v1-1-144"><span class="v">1.1.144</span><span class="d">2026-11-19</span></a></li>
 <li><a href="#v1-1-143"><span class="v">1.1.143</span><span class="d">2026-11-17</span></a></li>
 <li><a href="#v1-1-142"><span class="v">1.1.142</span><span class="d">2026-11-17</span></a></li>
@@ -176,6 +177,17 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-145"><h2>1.1.145 <span class="date">2026-11-20</span></h2><ul class="headlines"><li>This build fixes a crash on quit while streaming or uploading, refuses MKV files sent from the phone (AC Connect), and adds Clear List to the Preview&#x27;s file list menus.</li></ul><details><summary>Full notes</summary><p>This build fixes a crash on quit while streaming or uploading, refuses MKV files sent from the phone (AC Connect), and adds Clear List to the Preview's file list menus.</p><h3>Fixes</h3>
+<ul><li><strong>Quitting no longer crashes</strong> when audio from Artist Connection or AC Connect was still loading, or an upload was in progress. Streaming and uploads are now stopped before the app closes.</li><li><p><strong>In the Preview, an MP4 with a sound track is no longer taken for a picture</strong> to pair with another file. Only an MP4 with no audio is offered as a picture. An MP4 whose first check found no picture is checked once more.</p></li></ul>
+<hr>
+<h3>AC Connect</h3>
+<ul><li><p><strong>A playlist from the phone that holds an MKV file is refused</strong>, and the phone shows "MKV files are not supported." Whatever was playing carries on, and the Preview's list does not change.</p></li></ul>
+<hr>
+<h3>Preview</h3>
+<ul><li><p><strong>Clear List</strong> is on the file list's right-click menus.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Stream from Artist Connection or play from the phone, then quit while it plays. Does soundBlade close cleanly?</li></ul></details></section>
 <section id="v1-1-144"><h2>1.1.144 <span class="date">2026-11-19</span></h2><ul class="headlines"><li>This build adds choosing an MKV&#x27;s audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview&#x27;s Play wait for the audio device after a sample rate change.</li></ul><details><summary>Full notes</summary><p>This build adds choosing an MKV's audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview's Play wait for the audio device after a sample rate change.</p><h3>MKV files (Preview, and every EDL that opens them)</h3>
 <ul><li><strong>An MKV with several audio streams lists one row per stream</strong> under the file in the Preview, above its chapters. Click a row to play that stream. A stream that cannot play is greyed, with the reason. The choice is kept with the list and the session, and Measure, Render and Open EDL use it too.</li><li><strong>Details names the stream playing</strong>: its title, else its format.</li><li><strong>The picture opens in the video window.</strong> The MKV's video is copied, not re-encoded, into a cached file the first time (H.264 and HEVC only).</li><li><strong>Cover art and liner notes</strong>: a cover attached to the MKV shows as the file's artwork; an attached PDF opens from the row's right-click menu, "Liner Notes...".</li><li><strong>An Auro-3D stream inside an MKV is now checked again when you choose it.</strong> Before, a file first opened on another stream stayed "not Auro" whichever stream you then chose, and an Auro stream played its eight channels undecoded.</li><li><p>Dolby TrueHD plays its 7.1 bed. The Atmos objects are not decoded.</p></li></ul>
 <hr>
