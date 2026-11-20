@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.145](#v1-1-145)** — 2026-11-20
+  - This build fixes a crash on quit while streaming or uploading, refuses MKV files sent from the phone (AC Connect), and adds Clear List to the Preview's file list menus.
 - **[1.1.144](#v1-1-144)** — 2026-11-19
   - This build adds choosing an MKV's audio stream and its picture in the Preview, decodes Auro albums played from Artist Connection, and makes the Preview's Play wait for the audio device after a sample rate change.
 - **[1.1.143](#v1-1-143)** — 2026-11-17
@@ -357,6 +359,43 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-145"></a>
+## 1.1.145 — 2026-11-20
+
+This build fixes a crash on quit while streaming or uploading, refuses MKV files sent from the phone (AC Connect), and adds Clear List to the Preview's file list menus.
+
+### Fixes
+
+- **Quitting no longer crashes** when audio from Artist Connection or AC Connect was still loading, or an
+  upload was in progress. Streaming and uploads are now stopped before the app closes.
+- **In the Preview, an MP4 with a sound track is no longer taken for a picture** to pair with another file.
+  Only an MP4 with no audio is offered as a picture. An MP4 whose first check found no picture is checked
+  once more.
+
+---
+
+### AC Connect
+
+- **A playlist from the phone that holds an MKV file is refused**, and the phone shows "MKV files are not
+  supported." Whatever was playing carries on, and the Preview's list does not change.
+
+---
+
+### Preview
+
+- **Clear List** is on the file list's right-click menus.
+
+---
+
+**What we would like to hear from testers**
+
+- Stream from Artist Connection or play from the phone, then quit while it plays. Does soundBlade close
+  cleanly?
+
+[Back to the list of versions](#versions)
 
 ---
 
