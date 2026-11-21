@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.147](#v1-1-147)** — 2026-11-21
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through of Dolby streams to a receiver over HDMI, and answers a tester's report on ADM, MKV and AC Connect.
 - **[1.1.146](#v1-1-146)** — 2026-11-20
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes two faults when playing from the phone (AC Connect): an album that skipped its first tracks, and soundBlade not closing when quit while a stream was playing.
 - **[1.1.145](#v1-1-145)** — 2026-11-20
@@ -361,6 +363,78 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-147"></a>
+## 1.1.147 — 2026-11-21
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through of Dolby streams to a receiver over HDMI, and answers a tester's report on ADM, MKV and AC Connect.
+
+### Pass-through to a receiver (new, for testing)
+
+A Dolby Digital, Dolby Digital Plus or Dolby TrueHD stream can be sent to a receiver over HDMI
+**undecoded**, so the receiver decodes it, Atmos included.
+
+- **The PASS button** appears above DIM in the Preview when all of these hold: the selected file (or the MKV
+  stream you chose) is one of those Dolby formats, the output device is an HDMI receiver that
+  accepts it, and FFmpeg is installed as for DTS and TrueHD playback (see the User Guide).
+- **Turn PASS on and press Play.** The receiver's display should show the format.
+- **While it plays, nothing of soundBlade's is in the path:** no meters, no Desk, no volume, no
+  Solo or Mute, no Binaural. Set the level on the receiver.
+- **Seeking** starts the stream again from the new place; the receiver may take a moment to lock.
+- **Files on disk only**, not files streamed from Artist Connection or the phone.
+- Moving from one file to the next is not gapless.
+- Turn PASS off to play the file through soundBlade as before.
+
+**Tested so far** on one receiver with one Dolby TrueHD with Atmos stream. Dolby Digital and
+Digital Plus have not been tried on a receiver yet. It relies on formats macOS offers on HDMI
+but does not document, so it may behave differently on other Macs and receivers.
+
+---
+
+### ADM
+
+- **A 9.1.4 or 9.1.6 mix delivered as a bed plus fixed objects now plays as 9.1.4 or 9.1.6.**
+  When every object is fixed in place and a pair sits at the wide positions, Source: Auto
+  chooses 9.1.4, or 9.1.6 with a top-middle pair as well. The wide objects play from the wide
+  speakers alone. Choosing the layout by hand (Ctrl-click Source) still works.
+
+---
+
+### MKV
+
+- **Auro-3D inside DTS-HD MA decodes with the surrounds and rears the right way round.**
+
+---
+
+### AC Connect
+
+- **The phone is told when soundBlade quits**, so it stops trying.
+
+---
+
+### Window
+
+- **The white bar beside the meters can be dragged further left**, giving the meters more room.
+  It stops 40 px from the album cover. Double-click it to reset.
+
+---
+
+### Known issue
+
+- A click between two ADM files that should join seamlessly (reported with 2L-179 tracks 1 and
+  2). The files themselves join cleanly, so the fault is ours; it is being investigated.
+
+---
+
+**What we would like to hear from testers**
+
+- Pass-through: which Mac, which receiver, which format, and what the receiver's display showed.
+  If PASS does not appear, or there is no sound, please send the file ~/Library/Logs/soundBlade/soundBlade.log.
+- Does your 9.1.4 or 9.1.6 ADM now open with the wides on their own speakers?
+
+[Back to the list of versions](#versions)
 
 ---
 
