@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.150](#v1-1-150)** — 2026-11-21
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build rebuilds the editing in Edit Fade Mode to follow the original soundBlade HD behaviour.
 - **[1.1.149](#v1-1-149)** — 2026-11-21
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through to the User Guide. The program itself is unchanged from 1.1.148.
 - **[1.1.148](#v1-1-148)** — 2026-11-21
@@ -367,6 +369,67 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-150"></a>
+## 1.1.150 — 2026-11-21
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build rebuilds the editing in Edit Fade Mode to follow the original soundBlade HD behaviour.
+
+### Edit Fade Mode
+
+- **Overlap, Lock Sound and Duration now change what you hear.** Until now Overlap, and every
+  Lock Sound move of the edit point, only moved a marker: the audio did not change. They now move
+  the clip's edge as well, in whole samples, for the whole Edit Group, as the original did.
+  - **Overlap:** the fade slides against its fixed edit point. Its length does not change.
+  - **Lock Sound on:** the edit point moves over stationary sound and the fades go with it. On a
+    cross-fade with both sides on, the Out clip gains what the In clip loses. No sample changes
+    its place. This applies to dragging the edit point, the nudge, the [ and ] keys and the Edit
+    Point Offset field.
+  - **Duration:** the fade grows or shrinks around the fixed edit point and keeps its Overlap
+    percentage, with Lock Sound on or off. It no longer moves the In clip or ripples what follows.
+  - **A butt splice given a Duration** becomes a cross-fade with the Default CrossFade's Overlap.
+- **Lock Sound off, on a cross-fade with both sides on:**
+  - Dragging the Out edit point moves the edit: the Out clip's end moves over its own sound and
+    the In side, and what follows, goes with it. This is unchanged.
+  - Dragging the In edit point (or the [ key) now keeps the edit where it is and moves the In
+    sound under it. What follows closes up or makes room.
+  - The nudge has both forms. With the In row selected, the In sound moves by the nudge under a
+    fixed edit. With any other row selected, the edit moves by the nudge, as before.
+- **One Undo for a whole session.** Stepping through fades with Prev / Next is a single undo
+  step, and Cancel puts every fade you visited back.
+- **Six Fade Types:** Cosine, Root-cosine, Linear, Root-linear, Exponential and
+  Alpha-Exponential. Choosing one sets its usual default (dB Down 6, or 3 for Root; alpha 1, or 0).
+- **Fade Library:** a saved fade keeps its Overlap, and saving over an existing name asks first.
+  Fades saved earlier have no Overlap stored and keep the fade's current one when recalled.
+- **EFM menu:** "Select Offset Field" and "Offset to Zero", for a cross-fade.
+- **Handles:** Shift on a length handle resizes the fade about its centre. Option changes this
+  fade only, whatever is linked or aligned. The Overlap handle snaps onto either end when it is
+  within a millisecond of it.
+- **Longer fades:** the limit was 30 seconds. It is now 190 seconds at 44.1 kHz, 175 at 48 kHz
+  and 87 at 96 kHz.
+- **Edit Groups:** a grouped track gets the same change as the track you edit, and each clip
+  keeps its own place in its own file.
+- A fade on its own now stops at the next clip.
+
+**Not changed, on purpose:** dB Down is the true level at the middle of the fade (the original's
+"3 dB" reads 3.53 here), and Power Lock is the exact complement of the In fade.
+
+**Saved EDLs are not changed by this build.** A cross-fade changes only when you edit it in Edit
+Fade Mode. Because Overlap and Lock Sound moves now alter the audio, please listen to a
+cross-fade after editing it.
+
+---
+
+**What we would like to hear from testers**
+
+- Edit Fade Mode: does Overlap, a Lock Sound nudge and Duration on a cross-fade now change the
+  sound as you expect? Please say if anything moves that should not.
+- Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the
+  receiver's display showed.
+
+[Back to the list of versions](#versions)
 
 ---
 
