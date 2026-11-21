@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.148](#v1-1-148)** — 2026-11-21
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes the click that could follow a seamless join between two files in the Preview.
 - **[1.1.147](#v1-1-147)** — 2026-11-21
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through of Dolby streams to a receiver over HDMI, and answers a tester's report on ADM, MKV and AC Connect.
 - **[1.1.146](#v1-1-146)** — 2026-11-20
@@ -363,6 +365,35 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-148"></a>
+## 1.1.148 — 2026-11-21
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes the click that could follow a seamless join between two files in the Preview.
+
+### Preview
+
+- **No more click after a seamless join.** When one file in the list ran into the next with no
+  gap, a short burst of the wrong audio could be heard about 30 to 50 ms into the new file. It
+  came and went from one pass to the next, and only happened when the new file was longer than
+  the one before it. Reported with two ADM files (2L-179 tracks 1 and 2). The join itself was
+  always exact. Measured on a recording of the output: the join and the 13 seconds after it now
+  match the files sample for sample.
+- **The log says how each join was made** (lines starting "Join:"), which helps if anything
+  like this is heard again.
+
+---
+
+**What we would like to hear from testers**
+
+- If you still hear a click where two files join, please send the two files' names, where in
+  the first file you pressed Play, and the file ~/Library/Logs/soundBlade/soundBlade.log.
+- Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the
+  receiver's display showed.
+
+[Back to the list of versions](#versions)
 
 ---
 
