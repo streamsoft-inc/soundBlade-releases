@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.151](#v1-1-151)** — 2026-11-21
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build updates the User Guide for Edit Fade Mode. The program itself is unchanged from 1.1.150.
 - **[1.1.150](#v1-1-150)** — 2026-11-21
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build rebuilds the editing in Edit Fade Mode to follow the original soundBlade HD behaviour.
 - **[1.1.149](#v1-1-149)** — 2026-11-21
@@ -369,6 +371,32 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-151"></a>
+## 1.1.151 — 2026-11-21
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build updates the User Guide for Edit Fade Mode. The program itself is unchanged from 1.1.150.
+
+### User Guide
+
+- **Edit Fade Mode is described as rebuilt in 1.1.150** (Help > soundBlade Guide): what Overlap,
+  Lock Sound and Duration do, the one Undo for a whole session, the six Fade Types, the longest
+  fade by sample rate, the Shift and Option handle modifiers, and the EFM menu's Offset items.
+- **The Fade Library section** says a saved fade keeps its Overlap, and that saving over an
+  existing name asks first.
+
+---
+
+**What we would like to hear from testers**
+
+- Edit Fade Mode (1.1.150): does Overlap, a Lock Sound nudge and Duration on a cross-fade change
+  the sound as the guide now describes? Please say if anything moves that should not.
+- Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the
+  receiver's display showed.
+
+[Back to the list of versions](#versions)
 
 ---
 
