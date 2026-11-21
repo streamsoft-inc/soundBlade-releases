@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.149](#v1-1-149)** — 2026-11-21
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through to the User Guide. The program itself is unchanged from 1.1.148.
 - **[1.1.148](#v1-1-148)** — 2026-11-21
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes the click that could follow a seamless join between two files in the Preview.
 - **[1.1.147](#v1-1-147)** — 2026-11-21
@@ -365,6 +367,30 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-149"></a>
+## 1.1.149 — 2026-11-21
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through to the User Guide. The program itself is unchanged from 1.1.148.
+
+### User Guide
+
+- **Pass-through to a receiver is now described** in the Preview section of the User Guide
+  (Help > soundBlade Guide): when the PASS button appears, what is and is not in the path while it
+  plays, how seeking and the next file behave, and that it works for files on disk only.
+
+---
+
+**What we would like to hear from testers**
+
+- Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the
+  receiver's display showed.
+- If you still hear a click where two files join, please send the two files' names, where in
+  the first file you pressed Play, and ~/Library/Logs/soundBlade/soundBlade.log.
+
+[Back to the list of versions](#versions)
 
 ---
 
