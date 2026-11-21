@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-149"><span class="v">1.1.149</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-148"><span class="v">1.1.148</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-147"><span class="v">1.1.147</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-146"><span class="v">1.1.146</span><span class="d">2026-11-20</span></a></li>
@@ -180,6 +181,11 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-149"><h2>1.1.149 <span class="date">2026-11-21</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through to the User Guide. The program itself is unchanged from 1.1.148.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build adds pass-through to the User Guide. The program itself is unchanged from 1.1.148.</p><h3>User Guide</h3>
+<ul><li><p><strong>Pass-through to a receiver is now described</strong> in the Preview section of the User Guide (Help &gt; soundBlade Guide): when the PASS button appears, what is and is not in the path while it plays, how seeking and the next file behave, and that it works for files on disk only.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the receiver's display showed.</li><li>If you still hear a click where two files join, please send the two files' names, where in the first file you pressed Play, and ~/Library/Logs/soundBlade/soundBlade.log.</li></ul></details></section>
 <section id="v1-1-148"><h2>1.1.148 <span class="date">2026-11-21</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes the click that could follow a seamless join between two files in the Preview.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build fixes the click that could follow a seamless join between two files in the Preview.</p><h3>Preview</h3>
 <ul><li><strong>No more click after a seamless join.</strong> When one file in the list ran into the next with no gap, a short burst of the wrong audio could be heard about 30 to 50 ms into the new file. It came and went from one pass to the next, and only happened when the new file was longer than the one before it. Reported with two ADM files (2L-179 tracks 1 and 2). The join itself was always exact. Measured on a recording of the output: the join and the 13 seconds after it now match the files sample for sample.</li><li><p><strong>The log says how each join was made</strong> (lines starting "Join:"), which helps if anything like this is heard again.</p></li></ul>
 <hr>
