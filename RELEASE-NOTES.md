@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.152](#v1-1-152)** — 2026-11-22
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.151](#v1-1-151)** — 2026-11-21
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build updates the User Guide for Edit Fade Mode. The program itself is unchanged from 1.1.150.
 - **[1.1.150](#v1-1-150)** — 2026-11-21
@@ -371,6 +373,40 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-152"></a>
+## 1.1.152 — 2026-11-22
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### Changed
+
+- **ADM files mixed as 7.1.6.** An ADM whose heights are fixed (non-moving) objects at the four
+  top corners and the two top-middle positions now opens and plays as 7.1.6, in the Preview and
+  when imported into an EDL. The same applies to a 7.1.2 bed with fixed objects at the four top
+  corners. These played as 7.1.4 before. With fixed wide objects as well, the file plays as
+  9.1.6, as before. An ADM with moving objects still plays as 7.1.4.
+
+### Coming
+
+- **Speaker wiring per output device**: set once for each device which output carries each
+  speaker, on a plan of the room, with presets for our order and the P&E Wing order. Not in
+  this build.
+
+---
+
+**What we would like to hear from testers**
+
+- An ADM that opens in the wrong layout: the file, or its layout and how its heights are
+  delivered (bed channels, fixed or moving objects).
+- Edit Fade Mode (1.1.150): does Overlap, a Lock Sound nudge and Duration on a cross-fade change
+  the sound as the guide describes?
+- Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the
+  receiver's display showed.
+
+[Back to the list of versions](#versions)
 
 ---
 
