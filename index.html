@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-154"><span class="v">1.1.154</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-153"><span class="v">1.1.153</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-152"><span class="v">1.1.152</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-151"><span class="v">1.1.151</span><span class="d">2026-11-21</span></a></li>
@@ -185,6 +186,13 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-154"><h2>1.1.154 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
+<ul><li><strong>Dolby Atmos Renderer preset in Speaker Wiring.</strong> Audio I/O Settings &gt; Speaker Wiring... &gt; Presets now includes the Dolby Atmos Renderer's own routing: L R C LFE Lw Rw Lss Rss Lrs Rrs Ltf Rtf Ltm Rtm Ltr Rtr.</li><li><strong>Speaker Wiring in EDLs.</strong> An EDL with no speaker map of its own now plays through the device's wiring, as the Preview does. An EDL saved with its own map keeps it.</li><li><p><strong>The user guide</strong> describes Speaker Wiring, pass-through (Dolby and DTS) and AC Connect artwork.</p></li></ul>
+<h3>Fixed</h3>
+<ul><li><strong>An Auro-3D file played as 8 undecoded channels.</strong> Some Auro-3D carriers state their layout a moment after the Auro signal starts; soundBlade stopped looking too early and played them undecoded. They now decode to all their channels (an Auro 11.1 file to 12).</li><li><p><strong>The Monitor layout after pass-through.</strong> Stopping pass-through now puts the Monitor back on the layout you chose; it could stay on the receiver's 7.1.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Speaker Wiring: your device, the preset or order you set, and any layout that plays to the wrong speaker with Monitor on Follow File.</li><li>An Auro-3D file that still opens with 8 channels, or shows the wrong number of heights.</li><li>Pass-through: which receiver, which format, and what its display showed.</li></ul></details></section>
 <section id="v1-1-153"><h2>1.1.153 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
 <ul><li><strong>Speaker Wiring, per output device.</strong> Audio I/O Settings &gt; Speaker Wiring... shows a plan of the room. Click a speaker and choose the output it is wired to, once for each device. Presets set our order, the P&amp;E Wing order or the Film order in one click. With Monitor on Follow File, every layout then plays to the right speakers. Example: a 5.1 file's surrounds go to your side pair, and a 9.1.6 file finds the wides wherever they are wired. A layout that needs a speaker you have not wired is not offered in the Monitor menu. This applies to the Preview only for now; EDLs still use their own speaker maps. It changes monitoring only, never an export.</li><li><p><strong>DTS pass-through.</strong> The Preview's PASS button now appears for DTS streams too, sending them undecoded to an HDMI receiver. A DTS-HD MA stream is sent as its DTS core for now.</p></li></ul>
 <h3>Changed</h3>
