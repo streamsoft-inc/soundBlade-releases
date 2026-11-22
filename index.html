@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-152"><span class="v">1.1.152</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-151"><span class="v">1.1.151</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-150"><span class="v">1.1.150</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-149"><span class="v">1.1.149</span><span class="d">2026-11-21</span></a></li>
@@ -183,6 +184,13 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-152"><h2>1.1.152 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>Changed</h3>
+<ul><li><p><strong>ADM files mixed as 7.1.6.</strong> An ADM whose heights are fixed (non-moving) objects at the four top corners and the two top-middle positions now opens and plays as 7.1.6, in the Preview and when imported into an EDL. The same applies to a 7.1.2 bed with fixed objects at the four top corners. These played as 7.1.4 before. With fixed wide objects as well, the file plays as 9.1.6, as before. An ADM with moving objects still plays as 7.1.4.</p></li></ul>
+<h3>Coming</h3>
+<ul><li><p><strong>Speaker wiring per output device</strong>: set once for each device which output carries each speaker, on a plan of the room, with presets for our order and the P&amp;E Wing order. Not in this build.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>An ADM that opens in the wrong layout: the file, or its layout and how its heights are delivered (bed channels, fixed or moving objects).</li><li>Edit Fade Mode (1.1.150): does Overlap, a Lock Sound nudge and Duration on a cross-fade change the sound as the guide describes?</li><li>Pass-through (new in 1.1.147): which Mac, which receiver, which format, and what the receiver's display showed.</li></ul></details></section>
 <section id="v1-1-151"><h2>1.1.151 <span class="date">2026-11-21</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build updates the User Guide for Edit Fade Mode. The program itself is unchanged from 1.1.150.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon. This build updates the User Guide for Edit Fade Mode. The program itself is unchanged from 1.1.150.</p><h3>User Guide</h3>
 <ul><li><strong>Edit Fade Mode is described as rebuilt in 1.1.150</strong> (Help &gt; soundBlade Guide): what Overlap, Lock Sound and Duration do, the one Undo for a whole session, the six Fade Types, the longest fade by sample rate, the Shift and Option handle modifiers, and the EFM menu's Offset items.</li><li><p><strong>The Fade Library section</strong> says a saved fade keeps its Overlap, and that saving over an existing name asks first.</p></li></ul>
 <hr>
