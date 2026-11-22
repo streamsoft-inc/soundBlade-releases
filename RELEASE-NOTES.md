@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.155](#v1-1-155)** — 2026-11-22
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.154](#v1-1-154)** — 2026-11-22
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.153](#v1-1-153)** — 2026-11-22
@@ -377,6 +379,39 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-155"></a>
+## 1.1.155 — 2026-11-22
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### Fixed
+
+- **Keys held at launch.** Holding Shift at launch skips reopening the last Project, and holding
+  Ctrl shows the Tools menu. Neither key was being seen at launch; both now are. Ctrl-Shift shows
+  the Tools menu without skipping the Project.
+- **The Tools menu with no Project open.** It now appears with no Project open too, and its items
+  work there: choosing one opens an empty Project and runs it.
+- **Metadata sheets: Album Artist.** A sheet's plain "Main Artists" column is now always each
+  track's artist. It no longer becomes the album artist when the sheet states none. The album
+  artist comes only from a column that says so ("ALBUM | Main Artists", "Album Artist",
+  "Artist Name on Cover Art").
+- **Play Pre-roll.** At the start of a pre-roll, the first block of audio could be dropped
+  before the silence queued while stopped was cleared, and the log reported one block less than
+  was dropped. The pre-roll now handles all of it.
+- **Test Suite.** Three checks (Ripple, Missing Master plug-in, Insert paste) expected older
+  behaviour and failed although the app was right; they now test what the app does.
+
+---
+
+**What we would like to hear from testers**
+
+- Tools > Run Test Suite: the summary line and any FAIL lines (Help > Log File...).
+- A metadata sheet that imports with the wrong album fields: the sheet itself.
+
+[Back to the list of versions](#versions)
 
 ---
 
