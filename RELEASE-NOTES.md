@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.154](#v1-1-154)** — 2026-11-22
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.153](#v1-1-153)** — 2026-11-22
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.152](#v1-1-152)** — 2026-11-22
@@ -375,6 +377,42 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-154"></a>
+## 1.1.154 — 2026-11-22
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Dolby Atmos Renderer preset in Speaker Wiring.** Audio I/O Settings > Speaker Wiring... >
+  Presets now includes the Dolby Atmos Renderer's own routing: L R C LFE Lw Rw Lss Rss Lrs Rrs
+  Ltf Rtf Ltm Rtm Ltr Rtr.
+- **Speaker Wiring in EDLs.** An EDL with no speaker map of its own now plays through the
+  device's wiring, as the Preview does. An EDL saved with its own map keeps it.
+- **The user guide** describes Speaker Wiring, pass-through (Dolby and DTS) and AC Connect
+  artwork.
+
+### Fixed
+
+- **An Auro-3D file played as 8 undecoded channels.** Some Auro-3D carriers state their layout
+  a moment after the Auro signal starts; soundBlade stopped looking too early and played them
+  undecoded. They now decode to all their channels (an Auro 11.1 file to 12).
+- **The Monitor layout after pass-through.** Stopping pass-through now puts the Monitor back on
+  the layout you chose; it could stay on the receiver's 7.1.
+
+---
+
+**What we would like to hear from testers**
+
+- Speaker Wiring: your device, the preset or order you set, and any layout that plays to the
+  wrong speaker with Monitor on Follow File.
+- An Auro-3D file that still opens with 8 channels, or shows the wrong number of heights.
+- Pass-through: which receiver, which format, and what its display showed.
+
+[Back to the list of versions](#versions)
 
 ---
 
