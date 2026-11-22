@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.153](#v1-1-153)** — 2026-11-22
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.152](#v1-1-152)** — 2026-11-22
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.151](#v1-1-151)** — 2026-11-21
@@ -373,6 +375,46 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-153"></a>
+## 1.1.153 — 2026-11-22
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Speaker Wiring, per output device.** Audio I/O Settings > Speaker Wiring... shows a plan of the
+  room. Click a speaker and choose the output it is wired to, once for each device. Presets set
+  our order, the P&E Wing order or the Film order in one click. With Monitor on Follow File,
+  every layout then plays to the right speakers. Example: a 5.1 file's surrounds go to your side
+  pair, and a 9.1.6 file finds the wides wherever they are wired. A layout that needs a speaker
+  you have not wired is not offered in the Monitor menu. This applies to the Preview only for
+  now; EDLs still use their own speaker maps. It changes monitoring only, never an export.
+- **DTS pass-through.** The Preview's PASS button now appears for DTS streams too, sending them
+  undecoded to an HDMI receiver. A DTS-HD MA stream is sent as its DTS core for now.
+
+### Changed
+
+- **Artist Connection Connect: artwork.** When the Pure Audio Streaming app sends a track's
+  artwork, the Preview shows it as that track's cover.
+
+### Known
+
+- The Dolby speaker order is not yet a preset. It will be added from Dolby's own documentation.
+
+---
+
+**What we would like to hear from testers**
+
+- Speaker Wiring: your device, the order your outputs are wired in, and any layout that plays
+  to the wrong speaker with Monitor on Follow File.
+- DTS pass-through: which receiver, and what its display showed.
+- An ADM that opens in the wrong layout: the file, or its layout and how its heights are
+  delivered (bed channels, fixed or moving objects).
+
+[Back to the list of versions](#versions)
 
 ---
 
