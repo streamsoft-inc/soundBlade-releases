@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-155"><span class="v">1.1.155</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-154"><span class="v">1.1.154</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-153"><span class="v">1.1.153</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-152"><span class="v">1.1.152</span><span class="d">2026-11-22</span></a></li>
@@ -186,6 +187,11 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-155"><h2>1.1.155 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>Fixed</h3>
+<ul><li><strong>Keys held at launch.</strong> Holding Shift at launch skips reopening the last Project, and holding Ctrl shows the Tools menu. Neither key was being seen at launch; both now are. Ctrl-Shift shows the Tools menu without skipping the Project.</li><li><strong>The Tools menu with no Project open.</strong> It now appears with no Project open too, and its items work there: choosing one opens an empty Project and runs it.</li><li><strong>Metadata sheets: Album Artist.</strong> A sheet's plain "Main Artists" column is now always each track's artist. It no longer becomes the album artist when the sheet states none. The album artist comes only from a column that says so ("ALBUM | Main Artists", "Album Artist", "Artist Name on Cover Art").</li><li><strong>Play Pre-roll.</strong> At the start of a pre-roll, the first block of audio could be dropped before the silence queued while stopped was cleared, and the log reported one block less than was dropped. The pre-roll now handles all of it.</li><li><p><strong>Test Suite.</strong> Three checks (Ripple, Missing Master plug-in, Insert paste) expected older behaviour and failed although the app was right; they now test what the app does.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Tools &gt; Run Test Suite: the summary line and any FAIL lines (Help &gt; Log File...).</li><li>A metadata sheet that imports with the wrong album fields: the sheet itself.</li></ul></details></section>
 <section id="v1-1-154"><h2>1.1.154 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
 <ul><li><strong>Dolby Atmos Renderer preset in Speaker Wiring.</strong> Audio I/O Settings &gt; Speaker Wiring... &gt; Presets now includes the Dolby Atmos Renderer's own routing: L R C LFE Lw Rw Lss Rss Lrs Rrs Ltf Rtf Ltm Rtm Ltr Rtr.</li><li><strong>Speaker Wiring in EDLs.</strong> An EDL with no speaker map of its own now plays through the device's wiring, as the Preview does. An EDL saved with its own map keeps it.</li><li><p><strong>The user guide</strong> describes Speaker Wiring, pass-through (Dolby and DTS) and AC Connect artwork.</p></li></ul>
 <h3>Fixed</h3>
