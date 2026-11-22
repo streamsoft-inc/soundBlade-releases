@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-153"><span class="v">1.1.153</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-152"><span class="v">1.1.152</span><span class="d">2026-11-22</span></a></li>
 <li><a href="#v1-1-151"><span class="v">1.1.151</span><span class="d">2026-11-21</span></a></li>
 <li><a href="#v1-1-150"><span class="v">1.1.150</span><span class="d">2026-11-21</span></a></li>
@@ -184,6 +185,15 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-153"><h2>1.1.153 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
+<ul><li><strong>Speaker Wiring, per output device.</strong> Audio I/O Settings &gt; Speaker Wiring... shows a plan of the room. Click a speaker and choose the output it is wired to, once for each device. Presets set our order, the P&amp;E Wing order or the Film order in one click. With Monitor on Follow File, every layout then plays to the right speakers. Example: a 5.1 file's surrounds go to your side pair, and a 9.1.6 file finds the wides wherever they are wired. A layout that needs a speaker you have not wired is not offered in the Monitor menu. This applies to the Preview only for now; EDLs still use their own speaker maps. It changes monitoring only, never an export.</li><li><p><strong>DTS pass-through.</strong> The Preview's PASS button now appears for DTS streams too, sending them undecoded to an HDMI receiver. A DTS-HD MA stream is sent as its DTS core for now.</p></li></ul>
+<h3>Changed</h3>
+<ul><li><p><strong>Artist Connection Connect: artwork.</strong> When the Pure Audio Streaming app sends a track's artwork, the Preview shows it as that track's cover.</p></li></ul>
+<h3>Known</h3>
+<ul><li><p>The Dolby speaker order is not yet a preset. It will be added from Dolby's own documentation.</p></li></ul>
+<hr>
+<p><strong>What we would like to hear from testers</strong></p>
+<ul><li>Speaker Wiring: your device, the order your outputs are wired in, and any layout that plays to the wrong speaker with Monitor on Follow File.</li><li>DTS pass-through: which receiver, and what its display showed.</li><li>An ADM that opens in the wrong layout: the file, or its layout and how its heights are delivered (bed channels, fixed or moving objects).</li></ul></details></section>
 <section id="v1-1-152"><h2>1.1.152 <span class="date">2026-11-22</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>Changed</h3>
 <ul><li><p><strong>ADM files mixed as 7.1.6.</strong> An ADM whose heights are fixed (non-moving) objects at the four top corners and the two top-middle positions now opens and plays as 7.1.6, in the Preview and when imported into an EDL. The same applies to a 7.1.2 bed with fixed objects at the four top corners. These played as 7.1.4 before. With fixed wide objects as well, the file plays as 9.1.6, as before. An ADM with moving objects still plays as 7.1.4.</p></li></ul>
 <h3>Coming</h3>
