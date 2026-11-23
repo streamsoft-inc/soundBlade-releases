@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.156](#v1-1-156)** — 2026-11-23
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.155](#v1-1-155)** — 2026-11-22
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.154](#v1-1-154)** — 2026-11-22
@@ -379,6 +381,90 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-156"></a>
+## 1.1.156 — 2026-11-23
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Energy and Phase in the room view.** Two new tick boxes along the bottom of the room (the
+  Preview, the Player and the Panner/Objects window), both off until ticked. **Energy** shows
+  where the finished mix's sound is: a patch at each speaker for the level it carries, one patch
+  between two speakers for sound they share, coloured by band (orange-red low, amber mid, pale
+  blue high), a white ring where a transient lands, and a cross at the centre of the energy.
+  **Phase** joins speakers that carry the same signal: a pale line in phase, a red line out of
+  phase in the low, mid or high band, and the worst pair named at the top left. A red line means
+  those two speakers cancel in that band when folded down. Both measure the mix as delivered,
+  before Solo and Mute, and neither is part of an export. A menu beside them shows all bands or
+  the low, mid or high band alone. The two boxes and the band are remembered and the same in
+  every room view. Phase compares speakers at the same instant, so a spaced-microphone recording
+  reads as unrelated.
+- **Object size and divergence are heard.** An object with a width, depth or height is spread
+  over the speakers around it by ITU-R BS.2127's rule, and divergence splits it into a centre and
+  two flanking positions, in playback, the export and loudness alike. An object with no size plays
+  exactly as before. **Tools > Render Object Size** (on by default) turns it off; it needs
+  Room-centric. It follows the published rule, not Dolby's renderer, so it will not null against
+  Dolby's own render.
+- **Edit objects in the room.** In the Panner/Objects window a click selects an object, a drag on
+  the selected object slides it across the floor at its height, a drag on its drop-line or
+  Option-drag changes its height, and the square on its size outline changes its Size. The left
+  pane is now an inspector: Write, X Y Z, Size, Divergence, Range and Diffuse. **Other objects**
+  (Full, Dimmed, Same Edit Group, Hidden) says how much of the rest is drawn, and **Show path**
+  draws the selected object's path. A click on a track's OBJ box opens the window on that object;
+  its routing menu is now Ctrl-, Shift- or Option-click. Shift-drag still works.
+- **The picture shows in the Preview's album column**, where the cover is. The arrow under it moves
+  the picture to the Video window; closing that window brings it back.
+- **Assign Speakers is a 3-D room.** Seen from behind the listener, with the preset in use named
+  above it (Current Setup for the layout as it stands), unassigned speakers hollow, and a Plan
+  button for the view from above. Drag a speaker onto another to swap their outputs.
+
+### Changed
+
+- **An ADM import's Monitor follows its Source.** The Source is what the ADM plays in (a 7.1.2
+  bed with objects in the ceiling corners is 7.1.4) and the Monitor opens on the same layout.
+- **A new Project starts on your saved speaker layout.** The default Project template's own
+  layout no longer replaces it, so Save As Default now does what it says. The Preview's Speaker
+  Layout dialog has the same Save As Default box, ticked when the layout showing is the saved one.
+- **Dragging the Preview's bottom edge changes its height only.** A side or a corner still scales
+  the window.
+- **The Preview's Monitor meters sit 40 px to the right of the Source meters.**
+- **Faster drawing on macOS 26.** The apps now draw through JUCE's own image, and track headers
+  measure their names only when a name changes. On a 56-object EDL the main thread was over half
+  taken by macOS scanning each repaint; that is gone.
+
+### Fixed
+
+- **Removing an MKV with DTS or TrueHD audio could hang soundBlade.** Two ffmpeg helpers started at the
+  same moment each kept the other's pipe open, so closing the pipe never reached the helper and the
+  app waited for it for ever. The pipes are now closed on exec and a helper's writer can no longer
+  block past a stop. Reproduced in a test and fixed there; not yet checked in the app.
+- **A hang when the Source layout changed with Energy or Phase showing** (Ctrl-click Source in the
+  Preview). The room drew a reading taken for the old layout against the new one.
+
+---
+
+### Known issues
+
+- **The video in an MKV does not always show.** Still being investigated. If you see it, please
+  send the file's name and the log (Help > Log File...), which now has "Video window:" lines.
+
+---
+
+**What we would like to hear from testers**
+
+- Energy and Phase: whether the picture matches what you hear; a red line on material you know to
+  be in phase (name the pair and the band shown); whether playback of a wide file breaks up with a
+  layer ticked.
+- Object editing in the room: anything that moves when you only meant to select it, and any
+  object that sounds wrong once it has a size. Please listen to a sized object before and after
+  Tools > Render Object Size.
+- The speaker layout of a new Project, and of an ADM import, on your own room.
+
+[Back to the list of versions](#versions)
 
 ---
 
