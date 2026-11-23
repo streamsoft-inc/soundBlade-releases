@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.157](#v1-1-157)** — 2026-11-23
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.156](#v1-1-156)** — 2026-11-23
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.155](#v1-1-155)** — 2026-11-22
@@ -381,6 +383,47 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-157"></a>
+## 1.1.157 — 2026-11-23
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Skip steps through tracks.** The transport's Skip Back and Skip Forward go to the previous and
+  next track (Start mark) in an EDL, to the previous and next song in the Album View, and in the
+  Preview to the previous and next track of a disc image or film (MTFF, DDP, MKV chapters). Within
+  a second of a track's start, Skip Back goes to the one before. Index and End marks are passed
+  over. With no Start marks, Skip moves 5 seconds as before.
+- **Help > Send DTS-HD MA Whole (Pass-through Test).** Sends a DTS-HD Master Audio stream to the
+  receiver whole instead of as its 48 kHz core. Off by default and remembered; not yet proven on a
+  receiver.
+
+### Fixed
+
+- **Auro-3D: a click where two tracks join without a gap.** The Auro decoder now carries on into the
+  next track instead of into silence, in the Preview's gapless play-through and in an EDL where two
+  Auro clips are butt-spliced on a track (each ending and starting at its file's end and start), in
+  playback and in the export. The Album View's joins between songs are not covered.
+- **The end of an Auro file decodes the same way every time.** It used to depend on where playback
+  had been started.
+- **Preview: an Auro file restored at launch decodes at full width.** With the Monitor pinned to a
+  wide layout it showed and played as 5.1 after a relaunch, and under Follow File a wide Auro file
+  played after a 5.1 file could decode to 5.1.
+- **Preview: switching between Binaural and speakers keeps playing.**
+- **Preview: Ctrl-click Peak Hold clears every held peak**, the Main fader's meter included, and
+  they stay clear while stopped.
+- **Pass-through: the audio device is reopened afterwards**, retried for 5 seconds and logged. The
+  HDMI device could stay closed after pass-through ended.
+
+A small click can remain where an album's Auro tracks were not cut on whole Auro blocks (a track
+length that is not a multiple of 1024 samples) and the music runs straight across the join. That
+is in the files, and any Auro decoder playing them gaplessly does the same.
+
+[Back to the list of versions](#versions)
 
 ---
 
