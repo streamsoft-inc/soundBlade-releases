@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.160](#v1-1-160)** — 2026-11-25
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.159](#v1-1-159)** — 2026-11-25
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.158](#v1-1-158)** — 2026-11-25
@@ -387,6 +389,33 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-160"></a>
+## 1.1.160 — 2026-11-25
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Project Presets.** Every plug-in window (Desk Events, Master Bus and Album Bus slots) has a
+  Project Presets list: presets kept inside the Project file, so they go with the Project to
+  another Mac.
+  - Choosing a User or System preset in a Project copies it into the Project.
+  - **Save Preset** updates the Project preset in use. The User preset it came from is not
+    changed.
+  - **Save Preset As...** saves to This Project (the default) or to User Presets (every Project).
+  - An EDL added to a Project copies the presets its plug-ins use into the Project.
+- **Each plug-in shows the preset it is on**, and **name \*** once you change a control in the
+  plug-in. Each Desk Event and slot remembers its preset, saved with the EDL.
+
+Please tell us how this fits the way you work with presets: a Presets Used list, and Rename,
+Delete and Compare, are planned next.
+
+Everything in 1.1.159 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
