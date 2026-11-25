@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.158](#v1-1-158)** — 2026-11-25
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.157](#v1-1-157)** — 2026-11-23
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.156](#v1-1-156)** — 2026-11-23
@@ -383,6 +385,49 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-158"></a>
+## 1.1.158 — 2026-11-25
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **soundBlade checks the iLok licence itself.** It used to learn the licence had gone only from
+  PACE's own check, 25 minutes after launch and then hourly. It now checks every 30 seconds in the
+  background. When the licence goes, playback stops and the "iLok can not be found" message
+  appears within 30 seconds; when it comes back, the message closes and you carry on, with no
+  restart.
+- **The licence message offers Save and Quit**, which saves every Project with changes first (a
+  Project never saved asks where). Once the iLok is plugged in again it also offers **Save and
+  Restart**, which reopens the saved Project.
+- **Preview: Source Channels.** Ctrl-click Source, or right-click a file > Source Channels..., to
+  say what a file's channels are: Use Speaker Layout, Channel Based, Binaural, or Source
+  Channels..., where each speaker of any layout picks the file's channel, in SMPTE, Film or a
+  custom order. An undeclared file whose channel count matches the pinned Monitor layout now takes
+  that layout's speaker names in the Monitor's order.
+- **Every Speaker Layout dialog lists its speakers in the chosen order** (Film reads L C R ...).
+- **Streamed files are kept on disk, encrypted.** Everything streamed from Artist Connection is
+  kept in an encrypted cache on this Mac. The cache icon on a Preview row keeps the whole file.
+  Settings > Accounts shows how much is used and sets the limit.
+- **Artist Connection albums as covers.** The Preview's Albums tab shows each album as its cover;
+  one click opens the album's page (cover, facts, Play, Add to File Pane, its tracks). Tiles / List
+  switches back to the list.
+- **Preview: the Measurement column folds away.** A triangle beside Loudness closes it, and the
+  Overview takes its width.
+
+### Fixed
+
+- **The licence message looped.** Quit while the licence was gone brought the message back over
+  the "Save changes?" question, so neither could be answered.
+- **A tick between two tracks played gaplessly with the Monitor on Binaural.**
+- **Some stereo WAVs from Artist Connection would not play**, refused as if they were ADMs.
+- **DTS-HD Master Audio pass-through always sends the whole stream**, its core only on a device
+  without the high-rate carrier. The Help menu's test switch is gone.
+
+[Back to the list of versions](#versions)
 
 ---
 
