@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.159](#v1-1-159)** — 2026-11-25
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.158](#v1-1-158)** — 2026-11-25
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.157](#v1-1-157)** — 2026-11-23
@@ -385,6 +387,25 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-159"></a>
+## 1.1.159 — 2026-11-25
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### Fixed
+
+- **Preview: a file's Name column now matches its Out column.** With a file set to Film order in
+  Source Channels, the Name column showed the speaker names in SMPTE order (L R C LFE ...) while
+  Out, which says where each channel actually plays, read L C R ... Only the names were wrong:
+  every channel played from the right speaker. Rows named by the file or by Source Channels now
+  keep their names.
+
+Everything in 1.1.158 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
