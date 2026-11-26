@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-164"><span class="v">1.1.164</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-163"><span class="v">1.1.163</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-162"><span class="v">1.1.162</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-161"><span class="v">1.1.161</span><span class="d">2026-11-26</span></a></li>
@@ -195,6 +196,11 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-164"><h2>1.1.164 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
+<ul><li><strong>Placing a multichannel file.</strong> "On Selected Track" is now <strong>On Same Tracks</strong>: the file goes on the tracks it was dropped on (the same stereo pair, its Edit Group kept) at the time you dropped it, however far after the previous song. If that would land on audio already there, you are asked whether to use new tracks instead. A new preference in Application Settings &gt; Editing Tools, <strong>Multichannel file drop</strong>, chooses Ask every time, On Same Tracks, On New Tracks or At End, and skips the question when it is not Ask.</li><li><strong>Text View size.</strong> Drag the bottom edge of a Text View to change how many rows it shows (all tracks, remembered). Application Settings &gt; Editing Tools &gt; <strong>Text View density</strong> sets the row height: Compact, Normal or Large.</li><li><p><strong>Zoom keeps the view's centre</strong> (Application Settings &gt; Editing Tools, off by default). Zooming in and out then closes on the middle of the timeline as shown, instead of the Edit Point or playhead.</p></li></ul>
+<h3>Fixed</h3>
+<ul><li><strong>Clip names stay in view.</strong> A clip's name now slides along above its waveform as the start scrolls out of view, and stops at the clip's end.</li><li><p><strong>Edit Fade Mode from a selection.</strong> A time selection dragged from black into the start of a song now opens that song's fade-in, not the previous song's fade-out.</p></li></ul>
+<p>Everything in 1.1.163 is included.</p></details></section>
 <section id="v1-1-163"><h2>1.1.163 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
 <ul><li><strong>Delivery Check: channels that cancel or duplicate each other.</strong> With "Scan the audio" ticked, the Delivery Check now compares every pair of channels, over the whole file and over short stretches of it. - It reports channels that are in reversed polarity, which can cancel in a downmix or on the speakers, and channels carrying the same content in two different places, which can read as a phantom source. - It uses where the two channels sit, taken from the ADM, so an intended phantom centre between a left and right pair is not reported. - It is in the Apple, Dolby, UMG and Auro-3D profiles and says Check, never Fail.</li><li><p>The Delivery Check section of the User Guide describes it.</p></li></ul>
 <p>Everything in 1.1.162 is included.</p></details></section>
