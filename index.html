@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-163"><span class="v">1.1.163</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-162"><span class="v">1.1.162</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-161"><span class="v">1.1.161</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-160"><span class="v">1.1.160</span><span class="d">2026-11-25</span></a></li>
@@ -194,6 +195,9 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-163"><h2>1.1.163 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
+<ul><li><strong>Delivery Check: channels that cancel or duplicate each other.</strong> With "Scan the audio" ticked, the Delivery Check now compares every pair of channels, over the whole file and over short stretches of it. - It reports channels that are in reversed polarity, which can cancel in a downmix or on the speakers, and channels carrying the same content in two different places, which can read as a phantom source. - It uses where the two channels sit, taken from the ADM, so an intended phantom centre between a left and right pair is not reported. - It is in the Apple, Dolby, UMG and Auro-3D profiles and says Check, never Fail.</li><li><p>The Delivery Check section of the User Guide describes it.</p></li></ul>
+<p>Everything in 1.1.162 is included.</p></details></section>
 <section id="v1-1-162"><h2>1.1.162 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
 <ul><li><strong>Delivery Check: an Auro-3D profile.</strong> For people who encode with the Auro-3D Encoder. The <strong>Auro-3D</strong> entry in the Delivery Check's Profile menu appears <strong>only while the Auro-3D Encoder Service is installed and running</strong> on this Mac; otherwise it is not there. - It checks an <strong>ADM that is going into the encoder</strong>: an ADM BWF, 24-bit, the chna table, the channel and object counts, empty objects, the LFE and an ISRC. - Above the files it shows whether the encoder is ready: running, its Auro codec licence, and its support tools. - It reads the encoder's status and never starts or controls it.</li><li><p>The Delivery Check section of the User Guide describes the Auro-3D profile.</p></li></ul>
 <p>Please try it with the encoder running, and tell us what an ADM you encode should be checked for that it is not.</p>
