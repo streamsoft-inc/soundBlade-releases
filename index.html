@@ -54,6 +54,7 @@
 <header><h1>soundBlade 3.0 — Release Notes</h1><p class="nda">soundBlade 3.0 Beta. An NDA must be signed to use this software.</p></header>
 <div class="wrap">
 <nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-1-165"><span class="v">1.1.165</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-164"><span class="v">1.1.164</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-163"><span class="v">1.1.163</span><span class="d">2026-11-26</span></a></li>
 <li><a href="#v1-1-162"><span class="v">1.1.162</span><span class="d">2026-11-26</span></a></li>
@@ -196,6 +197,13 @@
 </ul></nav>
 <main>
 <div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-1-165"><h2>1.1.165 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
+<ul><li><strong>Import DDP Image and Import MTFF with no Project open.</strong> Both are in the File &gt; Import menu when no window is open, and each opens its own new Project.</li><li><p><strong>Text View font size.</strong> Application Settings &gt; Editing Tools &gt; <strong>Text View font size</strong> (10 to 20 pt) sets one size for every column. The Name is now the same size as the numbers by default.</p></li></ul>
+<h3>Changed</h3>
+<ul><li><strong>Sample Rate menu.</strong> It lists the standard rates (up to 384 kHz), the EDL's own rate and its clips' rates, as well as the output device's. A rate the device cannot run is marked <strong>(SRC)</strong> and plays through the sample-rate converter. An EDL changed from 352.8 kHz to a lower rate can now be changed back.</li><li><p><strong>MTFF import.</strong> It no longer adds two empty tracks at the bottom, and no longer builds a second set of per-channel waveform scans, which should make a large master open faster.</p></li></ul>
+<h3>Fixed</h3>
+<ul><li><p><strong>Edit Fade Mode from a selection.</strong> A selection across an edit now opens the edit it covers most of. A selection holding both A's fade-out and B's fade-in across a gap opens the two together, as selecting both clips does.</p></li></ul>
+<p>Everything in 1.1.164 is included.</p></details></section>
 <section id="v1-1-164"><h2>1.1.164 <span class="date">2026-11-26</span></h2><ul class="headlines"><li>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</li></ul><details><summary>Full notes</summary><p>Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.</p><h3>New</h3>
 <ul><li><strong>Placing a multichannel file.</strong> "On Selected Track" is now <strong>On Same Tracks</strong>: the file goes on the tracks it was dropped on (the same stereo pair, its Edit Group kept) at the time you dropped it, however far after the previous song. If that would land on audio already there, you are asked whether to use new tracks instead. A new preference in Application Settings &gt; Editing Tools, <strong>Multichannel file drop</strong>, chooses Ask every time, On Same Tracks, On New Tracks or At End, and skips the question when it is not Ask.</li><li><strong>Text View size.</strong> Drag the bottom edge of a Text View to change how many rows it shows (all tracks, remembered). Application Settings &gt; Editing Tools &gt; <strong>Text View density</strong> sets the row height: Compact, Normal or Large.</li><li><p><strong>Zoom keeps the view's centre</strong> (Application Settings &gt; Editing Tools, off by default). Zooming in and out then closes on the middle of the timeline as shown, instead of the Edit Point or playhead.</p></li></ul>
 <h3>Fixed</h3>
