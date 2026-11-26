@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.163](#v1-1-163)** — 2026-11-26
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.162](#v1-1-162)** — 2026-11-26
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.161](#v1-1-161)** — 2026-11-26
@@ -393,6 +395,28 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-163"></a>
+## 1.1.163 — 2026-11-26
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Delivery Check: channels that cancel or duplicate each other.** With "Scan the audio" ticked, the Delivery Check
+  now compares every pair of channels, over the whole file and over short stretches of it.
+  - It reports channels that are in reversed polarity, which can cancel in a downmix or on the speakers, and
+    channels carrying the same content in two different places, which can read as a phantom source.
+  - It uses where the two channels sit, taken from the ADM, so an intended phantom centre between a left and right
+    pair is not reported.
+  - It is in the Apple, Dolby, UMG and Auro-3D profiles and says Check, never Fail.
+- The Delivery Check section of the User Guide describes it.
+
+Everything in 1.1.162 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
