@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.162](#v1-1-162)** — 2026-11-26
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.161](#v1-1-161)** — 2026-11-26
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.160](#v1-1-160)** — 2026-11-25
@@ -391,6 +393,30 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-162"></a>
+## 1.1.162 — 2026-11-26
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Delivery Check: an Auro-3D profile.** For people who encode with the Auro-3D Encoder. The **Auro-3D**
+  entry in the Delivery Check's Profile menu appears **only while the Auro-3D Encoder Service is installed and
+  running** on this Mac; otherwise it is not there.
+  - It checks an **ADM that is going into the encoder**: an ADM BWF, 24-bit, the chna table, the channel and
+    object counts, empty objects, the LFE and an ISRC.
+  - Above the files it shows whether the encoder is ready: running, its Auro codec licence, and its support tools.
+  - It reads the encoder's status and never starts or controls it.
+- The Delivery Check section of the User Guide describes the Auro-3D profile.
+
+Please try it with the encoder running, and tell us what an ADM you encode should be checked for that it is not.
+
+Everything in 1.1.161 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
