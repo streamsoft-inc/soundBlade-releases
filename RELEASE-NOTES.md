@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.164](#v1-1-164)** — 2026-11-26
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.163](#v1-1-163)** — 2026-11-26
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.162](#v1-1-162)** — 2026-11-26
@@ -395,6 +397,36 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-164"></a>
+## 1.1.164 — 2026-11-26
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Placing a multichannel file.** "On Selected Track" is now **On Same Tracks**: the file goes on the tracks it
+  was dropped on (the same stereo pair, its Edit Group kept) at the time you dropped it, however far after the
+  previous song. If that would land on audio already there, you are asked whether to use new tracks instead.
+  A new preference in Application Settings > Editing Tools, **Multichannel file drop**, chooses Ask every time,
+  On Same Tracks, On New Tracks or At End, and skips the question when it is not Ask.
+- **Text View size.** Drag the bottom edge of a Text View to change how many rows it shows (all tracks, remembered).
+  Application Settings > Editing Tools > **Text View density** sets the row height: Compact, Normal or Large.
+- **Zoom keeps the view's centre** (Application Settings > Editing Tools, off by default). Zooming in and out then
+  closes on the middle of the timeline as shown, instead of the Edit Point or playhead.
+
+### Fixed
+
+- **Clip names stay in view.** A clip's name now slides along above its waveform as the start scrolls out of
+  view, and stops at the clip's end.
+- **Edit Fade Mode from a selection.** A time selection dragged from black into the start of a song now opens that
+  song's fade-in, not the previous song's fade-out.
+
+Everything in 1.1.163 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
