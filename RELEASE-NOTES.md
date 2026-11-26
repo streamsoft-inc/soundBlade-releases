@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.161](#v1-1-161)** — 2026-11-26
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.160](#v1-1-160)** — 2026-11-25
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.159](#v1-1-159)** — 2026-11-25
@@ -389,6 +391,37 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-161"></a>
+## 1.1.161 — 2026-11-26
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Delivery Check.** Right-click a file in the Preview's list > **Delivery Check…** checks a master against
+  Apple Music Immersive, UMG, FUGA or Dolby Atmos Music, rule by rule: **OK**, **Check**, **Fail** or
+  **Not checked** (always with the reason). Every finding names where its rule comes from: a published
+  specification, a distributor's asset specification, or a House rule, which only ever says Check.
+  - Reads the file; never changes it. Several files selected together are checked as an album.
+  - **Scan the audio** (on by default) reads every channel once: clipping, dropouts, DC offset, a cut-off
+    ending, empty objects and beds, mono as stereo, the real word width, and the LFE.
+  - **Stereo master…** compares each file with its stereo master (start, end and, for an album, each
+    track's boundary). Files and masters are paired by ISRC, name or track number; an unclear pairing is
+    not guessed, and the rule says so.
+  - **Copy** and **PDF** write the report.
+  - Dolby Media Encoder measurements are not in yet.
+- **A sample-rate conversion that cannot hang.** Converting between sample rates that need no conversion
+  (48 kHz to 48 kHz, for example) no longer stops the export; an impossible rate is refused.
+
+Please try it on real masters, with their stereo masters, and tell us what you see: a result you
+disagree with, a master it does not pair, a rule missing.
+
+Everything in 1.1.160 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
