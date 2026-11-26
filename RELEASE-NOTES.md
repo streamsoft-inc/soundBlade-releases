@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.165](#v1-1-165)** — 2026-11-26
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.164](#v1-1-164)** — 2026-11-26
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.163](#v1-1-163)** — 2026-11-26
@@ -397,6 +399,37 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-165"></a>
+## 1.1.165 — 2026-11-26
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### New
+
+- **Import DDP Image and Import MTFF with no Project open.** Both are in the File > Import menu when no window is
+  open, and each opens its own new Project.
+- **Text View font size.** Application Settings > Editing Tools > **Text View font size** (10 to 20 pt) sets one size
+  for every column. The Name is now the same size as the numbers by default.
+
+### Changed
+
+- **Sample Rate menu.** It lists the standard rates (up to 384 kHz), the EDL's own rate and its clips' rates, as well
+  as the output device's. A rate the device cannot run is marked **(SRC)** and plays through the sample-rate
+  converter. An EDL changed from 352.8 kHz to a lower rate can now be changed back.
+- **MTFF import.** It no longer adds two empty tracks at the bottom, and no longer builds a second set of
+  per-channel waveform scans, which should make a large master open faster.
+
+### Fixed
+
+- **Edit Fade Mode from a selection.** A selection across an edit now opens the edit it covers most of. A selection
+  holding both A's fade-out and B's fade-in across a gap opens the two together, as selecting both clips does.
+
+Everything in 1.1.164 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
