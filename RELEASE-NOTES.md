@@ -7,6 +7,8 @@ Every release, newest first. Each links to its full notes below.
 <a name="versions"></a>
 ## Versions
 
+- **[1.1.166](#v1-1-166)** — 2026-11-27
+  - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.165](#v1-1-165)** — 2026-11-26
   - Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
 - **[1.1.164](#v1-1-164)** — 2026-11-26
@@ -399,6 +401,34 @@ Every release, newest first. Each links to its full notes below.
   - The Mark menu generates marks from the edit
   - Plugin automation
   - The EDL Desk
+
+---
+
+<a name="v1-1-166"></a>
+## 1.1.166 — 2026-11-27
+
+Requires macOS 11 (Big Sur) or later, on Intel or Apple silicon.
+
+### Fixed
+
+- **Distortion for the first seconds after Play** (reported at 352.8 kHz, with a Master plug-in). Before the first
+  sound, soundBlade runs the plug-ins up from a little before the play point. That run-up now has its own thread
+  instead of using the audio thread, and slow run-up blocks no longer light the LOCK lamp. If you still hear it,
+  please send the log (Help > Log File...) from a Play that distorted.
+
+### Changed
+
+- **Tracks are played on several processor cores.** Each track's clips (reading, sample-rate conversion and fades)
+  are now worked on in parallel, so a project of many tracks converted from another rate (352.8 kHz files in a
+  96 kHz EDL, for example) needs much less of any one core. The sound is identical, sample for sample. The log's new
+  "CPU by stage" line, written at every Stop, shows where the time goes.
+- **24-bit and 16-bit files keep every sample exactly.** Recordings and exports (Export, DDP, Binaural) were writing
+  loud positive samples, above about -6 dBFS, one step (one least significant bit) low. Inaudible, but not the
+  original. They are now written exactly as they were recorded or rendered, dither included.
+
+Everything in 1.1.165 is included.
+
+[Back to the list of versions](#versions)
 
 ---
 
